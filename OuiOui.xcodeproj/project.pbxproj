@@ -15,6 +15,9 @@
 		0491CA521A1B5798006C4A27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0491CA511A1B5798006C4A27 /* Images.xcassets */; };
 		0491CA551A1B5798006C4A27 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0491CA531A1B5798006C4A27 /* LaunchScreen.xib */; };
 		0491CA611A1B5798006C4A27 /* OuiOuiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491CA601A1B5798006C4A27 /* OuiOuiTests.m */; };
+		D9F1B2B01A1E1EB80042770E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F1B2AF1A1E1EB80042770E /* background.png */; };
+		D9F1B2B21A1E28960042770E /* logo-OuiOui.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F1B2B11A1E28960042770E /* logo-OuiOui.png */; };
+		D9F1B2B81A1E2AD80042770E /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F1B2B71A1E2AD80042770E /* StartViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,10 @@
 		0491CA5A1A1B5798006C4A27 /* OuiOuiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OuiOuiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0491CA5F1A1B5798006C4A27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0491CA601A1B5798006C4A27 /* OuiOuiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OuiOuiTests.m; sourceTree = "<group>"; };
+		D9F1B2AF1A1E1EB80042770E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		D9F1B2B11A1E28960042770E /* logo-OuiOui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-OuiOui.png"; sourceTree = "<group>"; };
+		D9F1B2B61A1E2AD80042770E /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		D9F1B2B71A1E2AD80042770E /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +101,8 @@
 				0491CA511A1B5798006C4A27 /* Images.xcassets */,
 				0491CA531A1B5798006C4A27 /* LaunchScreen.xib */,
 				0491CA411A1B5798006C4A27 /* Supporting Files */,
+				D9F1B2B61A1E2AD80042770E /* StartViewController.h */,
+				D9F1B2B71A1E2AD80042770E /* StartViewController.m */,
 			);
 			path = OuiOui;
 			sourceTree = "<group>";
@@ -101,6 +110,7 @@
 		0491CA411A1B5798006C4A27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D9F1B2AC1A1E1C650042770E /* images */,
 				0491CA421A1B5798006C4A27 /* Info.plist */,
 				0491CA431A1B5798006C4A27 /* main.m */,
 			);
@@ -122,6 +132,15 @@
 				0491CA5F1A1B5798006C4A27 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9F1B2AC1A1E1C650042770E /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D9F1B2B11A1E28960042770E /* logo-OuiOui.png */,
+				D9F1B2AF1A1E1EB80042770E /* background.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +223,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9F1B2B01A1E1EB80042770E /* background.png in Resources */,
 				0491CA501A1B5798006C4A27 /* Main.storyboard in Resources */,
+				D9F1B2B21A1E28960042770E /* logo-OuiOui.png in Resources */,
 				0491CA551A1B5798006C4A27 /* LaunchScreen.xib in Resources */,
 				0491CA521A1B5798006C4A27 /* Images.xcassets in Resources */,
 			);
@@ -226,6 +247,7 @@
 			files = (
 				0491CA4D1A1B5798006C4A27 /* SecondViewController.m in Sources */,
 				0491CA471A1B5798006C4A27 /* AppDelegate.m in Sources */,
+				D9F1B2B81A1E2AD80042770E /* StartViewController.m in Sources */,
 				0491CA4A1A1B5798006C4A27 /* FirstViewController.m in Sources */,
 				0491CA441A1B5798006C4A27 /* main.m in Sources */,
 			);
@@ -352,6 +374,7 @@
 				INFOPLIST_FILE = OuiOui/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -362,6 +385,7 @@
 				INFOPLIST_FILE = OuiOui/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -418,6 +442,7 @@
 				0491CA661A1B5798006C4A27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0491CA671A1B5798006C4A27 /* Build configuration list for PBXNativeTarget "OuiOuiTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +451,7 @@
 				0491CA691A1B5798006C4A27 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
