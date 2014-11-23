@@ -1,40 +1,34 @@
 //
-//  StartViewController.m
+//  RegisterViewController.m
 //  OuiOui
 //
 //  Created by Paul Heijmans on 20-11-14.
 //  Copyright (c) 2014 Vontura. All rights reserved.
 //
 
-#import "StartViewController.h"
+#import "RegisterViewController.h"
 
-@interface StartViewController ()
+@interface RegisterViewController ()
 
 @end
 
-@implementation StartViewController
+@implementation RegisterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
+    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.topItem.title = @" ";}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
     // Dispose of any resources that can be recreated.
 }
 
-
-- (void)viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-    [super viewWillDisappear:animated];
-}
 /*
 #pragma mark - Navigation
 

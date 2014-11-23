@@ -15,6 +15,8 @@
 		0491CA521A1B5798006C4A27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0491CA511A1B5798006C4A27 /* Images.xcassets */; };
 		0491CA551A1B5798006C4A27 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0491CA531A1B5798006C4A27 /* LaunchScreen.xib */; };
 		0491CA611A1B5798006C4A27 /* OuiOuiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491CA601A1B5798006C4A27 /* OuiOuiTests.m */; };
+		D9EF99691A1E749B00BB3F19 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EF99681A1E749B00BB3F19 /* RegisterViewController.m */; };
+		D9EF996C1A1E74A900BB3F19 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EF996B1A1E74A900BB3F19 /* LoginViewController.m */; };
 		D9F1B2B01A1E1EB80042770E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F1B2AF1A1E1EB80042770E /* background.png */; };
 		D9F1B2B21A1E28960042770E /* logo-OuiOui.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F1B2B11A1E28960042770E /* logo-OuiOui.png */; };
 		D9F1B2B81A1E2AD80042770E /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F1B2B71A1E2AD80042770E /* StartViewController.m */; };
@@ -46,6 +48,10 @@
 		0491CA5A1A1B5798006C4A27 /* OuiOuiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OuiOuiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0491CA5F1A1B5798006C4A27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0491CA601A1B5798006C4A27 /* OuiOuiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OuiOuiTests.m; sourceTree = "<group>"; };
+		D9EF99671A1E749B00BB3F19 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		D9EF99681A1E749B00BB3F19 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		D9EF996A1A1E74A900BB3F19 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		D9EF996B1A1E74A900BB3F19 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D9F1B2AF1A1E1EB80042770E /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		D9F1B2B11A1E28960042770E /* logo-OuiOui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-OuiOui.png"; sourceTree = "<group>"; };
 		D9F1B2B61A1E2AD80042770E /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
@@ -103,6 +109,10 @@
 				0491CA411A1B5798006C4A27 /* Supporting Files */,
 				D9F1B2B61A1E2AD80042770E /* StartViewController.h */,
 				D9F1B2B71A1E2AD80042770E /* StartViewController.m */,
+				D9EF99671A1E749B00BB3F19 /* RegisterViewController.h */,
+				D9EF99681A1E749B00BB3F19 /* RegisterViewController.m */,
+				D9EF996A1A1E74A900BB3F19 /* LoginViewController.h */,
+				D9EF996B1A1E74A900BB3F19 /* LoginViewController.m */,
 			);
 			path = OuiOui;
 			sourceTree = "<group>";
@@ -246,8 +256,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0491CA4D1A1B5798006C4A27 /* SecondViewController.m in Sources */,
+				D9EF99691A1E749B00BB3F19 /* RegisterViewController.m in Sources */,
 				0491CA471A1B5798006C4A27 /* AppDelegate.m in Sources */,
 				D9F1B2B81A1E2AD80042770E /* StartViewController.m in Sources */,
+				D9EF996C1A1E74A900BB3F19 /* LoginViewController.m in Sources */,
 				0491CA4A1A1B5798006C4A27 /* FirstViewController.m in Sources */,
 				0491CA441A1B5798006C4A27 /* main.m in Sources */,
 			);
