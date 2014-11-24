@@ -9,12 +9,11 @@
 /* Begin PBXBuildFile section */
 		0491CA441A1B5798006C4A27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491CA431A1B5798006C4A27 /* main.m */; };
 		0491CA471A1B5798006C4A27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491CA461A1B5798006C4A27 /* AppDelegate.m */; };
-		0491CA4A1A1B5798006C4A27 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491CA491A1B5798006C4A27 /* FirstViewController.m */; };
-		0491CA4D1A1B5798006C4A27 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491CA4C1A1B5798006C4A27 /* SecondViewController.m */; };
 		0491CA501A1B5798006C4A27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0491CA4E1A1B5798006C4A27 /* Main.storyboard */; };
 		0491CA521A1B5798006C4A27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0491CA511A1B5798006C4A27 /* Images.xcassets */; };
 		0491CA551A1B5798006C4A27 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0491CA531A1B5798006C4A27 /* LaunchScreen.xib */; };
 		0491CA611A1B5798006C4A27 /* OuiOuiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491CA601A1B5798006C4A27 /* OuiOuiTests.m */; };
+		D9A69D881A2336E300540EF1 /* Fb-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A69D871A2336E300540EF1 /* Fb-icon.png */; };
 		D9EF99691A1E749B00BB3F19 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EF99681A1E749B00BB3F19 /* RegisterViewController.m */; };
 		D9EF996C1A1E74A900BB3F19 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EF996B1A1E74A900BB3F19 /* LoginViewController.m */; };
 		D9F1B2B01A1E1EB80042770E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F1B2AF1A1E1EB80042770E /* background.png */; };
@@ -38,16 +37,13 @@
 		0491CA431A1B5798006C4A27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0491CA451A1B5798006C4A27 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0491CA461A1B5798006C4A27 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0491CA481A1B5798006C4A27 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		0491CA491A1B5798006C4A27 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		0491CA4B1A1B5798006C4A27 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		0491CA4C1A1B5798006C4A27 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		0491CA4F1A1B5798006C4A27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0491CA511A1B5798006C4A27 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0491CA541A1B5798006C4A27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		0491CA5A1A1B5798006C4A27 /* OuiOuiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OuiOuiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0491CA5F1A1B5798006C4A27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0491CA601A1B5798006C4A27 /* OuiOuiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OuiOuiTests.m; sourceTree = "<group>"; };
+		D9A69D871A2336E300540EF1 /* Fb-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fb-icon.png"; sourceTree = "<group>"; };
 		D9EF99671A1E749B00BB3F19 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		D9EF99681A1E749B00BB3F19 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		D9EF996A1A1E74A900BB3F19 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -99,10 +95,6 @@
 			children = (
 				0491CA451A1B5798006C4A27 /* AppDelegate.h */,
 				0491CA461A1B5798006C4A27 /* AppDelegate.m */,
-				0491CA481A1B5798006C4A27 /* FirstViewController.h */,
-				0491CA491A1B5798006C4A27 /* FirstViewController.m */,
-				0491CA4B1A1B5798006C4A27 /* SecondViewController.h */,
-				0491CA4C1A1B5798006C4A27 /* SecondViewController.m */,
 				0491CA4E1A1B5798006C4A27 /* Main.storyboard */,
 				0491CA511A1B5798006C4A27 /* Images.xcassets */,
 				0491CA531A1B5798006C4A27 /* LaunchScreen.xib */,
@@ -147,6 +139,7 @@
 		D9F1B2AC1A1E1C650042770E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D9A69D871A2336E300540EF1 /* Fb-icon.png */,
 				D9F1B2B11A1E28960042770E /* logo-OuiOui.png */,
 				D9F1B2AF1A1E1EB80042770E /* background.png */,
 			);
@@ -237,6 +230,7 @@
 				0491CA501A1B5798006C4A27 /* Main.storyboard in Resources */,
 				D9F1B2B21A1E28960042770E /* logo-OuiOui.png in Resources */,
 				0491CA551A1B5798006C4A27 /* LaunchScreen.xib in Resources */,
+				D9A69D881A2336E300540EF1 /* Fb-icon.png in Resources */,
 				0491CA521A1B5798006C4A27 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,12 +249,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0491CA4D1A1B5798006C4A27 /* SecondViewController.m in Sources */,
 				D9EF99691A1E749B00BB3F19 /* RegisterViewController.m in Sources */,
 				0491CA471A1B5798006C4A27 /* AppDelegate.m in Sources */,
 				D9F1B2B81A1E2AD80042770E /* StartViewController.m in Sources */,
 				D9EF996C1A1E74A900BB3F19 /* LoginViewController.m in Sources */,
-				0491CA4A1A1B5798006C4A27 /* FirstViewController.m in Sources */,
 				0491CA441A1B5798006C4A27 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
