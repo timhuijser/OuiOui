@@ -221,9 +221,11 @@
 				TargetAttributes = {
 					0491CA3D1A1B5798006C4A27 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 5Y5NPSWUP9;
 					};
 					0491CA591A1B5798006C4A27 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 5Y5NPSWUP9;
 						TestTargetID = 0491CA3D1A1B5798006C4A27;
 					};
 				};
@@ -429,6 +431,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -440,6 +444,7 @@
 				INFOPLIST_FILE = OuiOuiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OuiOui.app/OuiOui";
 			};
 			name = Debug;
@@ -448,6 +453,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -455,6 +462,7 @@
 				INFOPLIST_FILE = OuiOuiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OuiOui.app/OuiOui";
 			};
 			name = Release;
