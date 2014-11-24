@@ -13,20 +13,18 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q4O-qn-tu3">
                     <rect key="frame" x="-39" y="0.0" width="496" height="744"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="logo-OuiOui.png" translatesAutoresizingMaskIntoConstraints="NO" id="vHM-TR-2hx">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-OuiOui.png" translatesAutoresizingMaskIntoConstraints="NO" id="vHM-TR-2hx">
                     <rect key="frame" x="40" y="158" width="240" height="128"/>
                     <constraints>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="2R4-Db-jRM"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="3qX-B8-Qtt"/>
-                        <constraint firstAttribute="width" constant="240" id="7pC-Cg-b2J"/>
-                        <constraint firstAttribute="height" constant="128" id="H0C-QZ-hSM"/>
+                        <constraint firstAttribute="height" constant="128" id="PZJ-DT-8Uf"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="vHM-TR-2hx" secondAttribute="trailing" constant="40" id="3Sa-1P-0gX"/>
-                <constraint firstItem="vHM-TR-2hx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="Weh-jm-Ogy"/>
+                <constraint firstItem="vHM-TR-2hx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="158" id="TXT-H2-4g4"/>
+                <constraint firstItem="vHM-TR-2hx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="W6f-KG-UXe"/>
+                <constraint firstItem="vHM-TR-2hx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="hdC-4X-L0M"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
