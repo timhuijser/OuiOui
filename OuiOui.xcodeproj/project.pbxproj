@@ -42,6 +42,11 @@
 		D9A69D941A237CFD00540EF1 /* OuiOui-icon-40pt-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A69D931A237CFD00540EF1 /* OuiOui-icon-40pt-3.png */; };
 		D9A69D961A237D7E00540EF1 /* OuiOui-icon-60pt-3.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A69D951A237D7E00540EF1 /* OuiOui-icon-60pt-3.png */; };
 		D9A69D981A237D8200540EF1 /* OuiOui-icon-60pt-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A69D971A237D8200540EF1 /* OuiOui-icon-60pt-2.png */; };
+		D9AAD8661A24B1D3007E794E /* OuiOui.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AAD8651A24B1D3007E794E /* OuiOui.png */; };
+		D9AAD8701A24BDF2007E794E /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AAD86F1A24BDF2007E794E /* TimelineViewController.m */; };
+		D9AAD8761A24C773007E794E /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AAD8751A24C773007E794E /* header.png */; };
+		D9AAD87F1A24CE39007E794E /* NewOuiItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AAD87E1A24CE39007E794E /* NewOuiItemViewController.m */; };
+		D9AAD8811A24E3EB007E794E /* background-new-Oui-item.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AAD8801A24E3EB007E794E /* background-new-Oui-item.png */; };
 		D9EF99691A1E749B00BB3F19 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EF99681A1E749B00BB3F19 /* RegisterViewController.m */; };
 		D9EF996C1A1E74A900BB3F19 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EF996B1A1E74A900BB3F19 /* LoginViewController.m */; };
 		D9F1B2B01A1E1EB80042770E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F1B2AF1A1E1EB80042770E /* background.png */; };
@@ -100,6 +105,13 @@
 		D9A69D931A237CFD00540EF1 /* OuiOui-icon-40pt-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OuiOui-icon-40pt-3.png"; sourceTree = "<group>"; };
 		D9A69D951A237D7E00540EF1 /* OuiOui-icon-60pt-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OuiOui-icon-60pt-3.png"; sourceTree = "<group>"; };
 		D9A69D971A237D8200540EF1 /* OuiOui-icon-60pt-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OuiOui-icon-60pt-2.png"; sourceTree = "<group>"; };
+		D9AAD8651A24B1D3007E794E /* OuiOui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OuiOui.png; sourceTree = "<group>"; };
+		D9AAD86E1A24BDF2007E794E /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
+		D9AAD86F1A24BDF2007E794E /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
+		D9AAD8751A24C773007E794E /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
+		D9AAD87D1A24CE39007E794E /* NewOuiItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewOuiItemViewController.h; sourceTree = "<group>"; };
+		D9AAD87E1A24CE39007E794E /* NewOuiItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewOuiItemViewController.m; sourceTree = "<group>"; };
+		D9AAD8801A24E3EB007E794E /* background-new-Oui-item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-new-Oui-item.png"; sourceTree = "<group>"; };
 		D9EF99671A1E749B00BB3F19 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		D9EF99681A1E749B00BB3F19 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		D9EF996A1A1E74A900BB3F19 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -175,10 +187,14 @@
 				04FEC9051A249ADA004E564D /* Storyboard */,
 				0491CA451A1B5798006C4A27 /* AppDelegate.h */,
 				0491CA461A1B5798006C4A27 /* AppDelegate.m */,
+				D9AAD87D1A24CE39007E794E /* NewOuiItemViewController.h */,
+				D9AAD87E1A24CE39007E794E /* NewOuiItemViewController.m */,
 				D9F1B2B61A1E2AD80042770E /* StartViewController.h */,
 				D9F1B2B71A1E2AD80042770E /* StartViewController.m */,
 				D9EF99671A1E749B00BB3F19 /* RegisterViewController.h */,
 				D9EF99681A1E749B00BB3F19 /* RegisterViewController.m */,
+				D9AAD86E1A24BDF2007E794E /* TimelineViewController.h */,
+				D9AAD86F1A24BDF2007E794E /* TimelineViewController.m */,
 				D9EF996A1A1E74A900BB3F19 /* LoginViewController.h */,
 				D9EF996B1A1E74A900BB3F19 /* LoginViewController.m */,
 				0491CA511A1B5798006C4A27 /* Images.xcassets */,
@@ -277,7 +293,10 @@
 			children = (
 				D9A69D8C1A237C7F00540EF1 /* icons */,
 				D9A69D871A2336E300540EF1 /* Fb-icon.png */,
+				D9AAD8751A24C773007E794E /* header.png */,
+				D9AAD8801A24E3EB007E794E /* background-new-Oui-item.png */,
 				D9F1B2B11A1E28960042770E /* logo-OuiOui.png */,
+				D9AAD8651A24B1D3007E794E /* OuiOui.png */,
 				D9F1B2AF1A1E1EB80042770E /* background.png */,
 			);
 			name = images;
@@ -368,6 +387,7 @@
 				D9A69D941A237CFD00540EF1 /* OuiOui-icon-40pt-3.png in Resources */,
 				D9F1B2B01A1E1EB80042770E /* background.png in Resources */,
 				0491CA501A1B5798006C4A27 /* Main.storyboard in Resources */,
+				D9AAD8761A24C773007E794E /* header.png in Resources */,
 				D9A69D921A237CBA00540EF1 /* OuiOui-icon-29pt-3.png in Resources */,
 				D9F1B2B21A1E28960042770E /* logo-OuiOui.png in Resources */,
 				0491CA551A1B5798006C4A27 /* LaunchScreen.xib in Resources */,
@@ -375,7 +395,9 @@
 				D9A69D901A237C8700540EF1 /* OuiOui-icon-40pt-2.png in Resources */,
 				0491CA521A1B5798006C4A27 /* Images.xcassets in Resources */,
 				04FEC9081A249D4B004E564D /* Tab.storyboard in Resources */,
+				D9AAD8811A24E3EB007E794E /* background-new-Oui-item.png in Resources */,
 				D9A69D8F1A237C8700540EF1 /* OuiOui-icon-29pt-2.png in Resources */,
+				D9AAD8661A24B1D3007E794E /* OuiOui.png in Resources */,
 				D9A69D961A237D7E00540EF1 /* OuiOui-icon-60pt-3.png in Resources */,
 				D9A69D981A237D8200540EF1 /* OuiOui-icon-60pt-2.png in Resources */,
 			);
@@ -398,8 +420,10 @@
 				D9EF99691A1E749B00BB3F19 /* RegisterViewController.m in Sources */,
 				0491CA471A1B5798006C4A27 /* AppDelegate.m in Sources */,
 				D9F1B2B81A1E2AD80042770E /* StartViewController.m in Sources */,
+				D9AAD87F1A24CE39007E794E /* NewOuiItemViewController.m in Sources */,
 				D9EF996C1A1E74A900BB3F19 /* LoginViewController.m in Sources */,
 				0491CA441A1B5798006C4A27 /* main.m in Sources */,
+				D9AAD8701A24BDF2007E794E /* TimelineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
