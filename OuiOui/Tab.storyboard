@@ -55,7 +55,7 @@
             </objects>
             <point key="canvasLocation" x="1214" y="-111"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="rrB-N9-brO">
             <objects>
                 <viewController id="xAQ-fU-Pgd" sceneMemberID="viewController">
@@ -76,7 +76,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="qCK-UU-Zac"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profile" id="qCK-UU-Zac"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvB-E8-VfY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -173,11 +173,11 @@
             </objects>
             <point key="canvasLocation" x="1671" y="-111"/>
         </scene>
-        <!--Item-->
+        <!--Oui's-->
         <scene sceneID="Je7-XS-H43">
             <objects>
                 <navigationController id="jW2-EP-6IF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="h8V-is-jWK"/>
+                    <tabBarItem key="tabBarItem" title="Oui's" image="timeline" id="h8V-is-jWK"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zxz-uV-dxb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -214,5 +214,7 @@
     </scenes>
     <resources>
         <image name="background-new-Oui-item.png" width="640" height="994"/>
+        <image name="profile" width="24" height="24"/>
+        <image name="timeline" width="22" height="22"/>
     </resources>
 </document>

@@ -16,7 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    if ([PFUser currentUser]) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tab" bundle:nil];
+        UITabBarController *obj=[storyboard instantiateViewControllerWithIdentifier:@"tab"];
+        self.navigationController.navigationBarHidden=YES;
+        [self.navigationController pushViewController:obj animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
