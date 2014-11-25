@@ -50,14 +50,30 @@
    
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)loginButton:(id)sender {
+    
+    /* 
+    if(authenticated)  // authenticated---> BOOL Value assign True only if Login Success
+     {
+     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+     UITabBarController *obj=[storyboard instantiateViewControllerWithIdentifier:@"tab"];
+     self.navigationController.navigationBarHidden=YES;
+     [self.navigationController pushViewController:obj animated:YES];
+     }
+    */
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tab" bundle:nil];
+    UITabBarController *obj=[storyboard instantiateViewControllerWithIdentifier:@"tab"];
+    self.navigationController.navigationBarHidden=YES;
+    [self.navigationController pushViewController:obj animated:YES];
 }
-*/
 
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 @end

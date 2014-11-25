@@ -130,6 +130,9 @@
                                         <exclude reference="vUB-sP-ywG"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="loginButton:" destination="vus-Fr-bXb" eventType="touchUpInside" id="UYi-ho-OsM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N88-eQ-N2V">
                                 <rect key="frame" x="16" y="20" width="287" height="50"/>
