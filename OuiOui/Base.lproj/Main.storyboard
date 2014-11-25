@@ -445,6 +445,9 @@
                                         <exclude reference="M2K-fz-ULE"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="signupButton:" destination="sBt-P2-o5Y" eventType="touchUpInside" id="zAc-b9-6zB"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fb-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="P3H-SA-TWH">
                                 <rect key="frame" x="26" y="27" width="35" height="35"/>

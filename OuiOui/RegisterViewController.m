@@ -57,14 +57,49 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)signupButton:(id)sender {
+    
+    NSString *username = [self.email text];
+    NSString *name = [self.name text];
+    NSString *email = [self.email text];
+    NSString *password = [self.password text];
+    
+    if ([username length] < 4 || [password length] < 4) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Entry" message:@"Username and Password must both be at least 4 characters long." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [alert show];
+    } else if ([email length] < 8) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Entry" message:@"Please enter your email address." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [alert show];
+    } else {
+        
+        PFUser *newUser = [PFUser user];
+        newUser.username = username;
+        newUser.password = password;
+        newUser.email = email;
+        newUser[@"name"] = name;
+        
+        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (error) {
+                NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                [alert show];
+            } else {
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tab" bundle:nil];
+                UITabBarController *obj=[storyboard instantiateViewControllerWithIdentifier:@"tab"];
+                self.navigationController.navigationBarHidden=YES;
+                [self.navigationController pushViewController:obj animated:YES];
+            }
+        }];
+    }
 }
-*/
 
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 @end
