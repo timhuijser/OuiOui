@@ -399,6 +399,9 @@
                                         <exclude reference="xWr-NF-rfV"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="signupFacebookButton:" destination="sBt-P2-o5Y" eventType="touchUpInside" id="Wpo-wG-TIZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="___" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVQ-uX-WGv">
                                 <rect key="frame" x="16" y="41" width="123" height="60"/>

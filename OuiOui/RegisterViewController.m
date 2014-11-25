@@ -7,6 +7,7 @@
 //
 
 #import "RegisterViewController.h"
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
 @interface RegisterViewController ()
 
@@ -91,6 +92,56 @@
             }
         }];
     }
+}
+
+- (IBAction)signupFacebookButton:(id)sender {
+    
+    NSArray *permissions = @[@"email"];
+    
+    [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+        } else if (user.isNew) {
+            
+            FBRequest *request = [FBRequest requestForMe];
+            [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                if (!error) {
+                    // result is a dictionary with the user's Facebook data
+                    NSDictionary *userData = (NSDictionary *)result;
+                    
+                    NSString *name = userData[@"name"];
+                    NSString *email = userData[@"email"];
+                    NSString *facebookID = userData[@"id"];
+                    
+                    user.email = email;
+                    user[@"name"] = name;
+                    user[@"facebookID"] = facebookID;
+                    [user save];
+                    
+                    /* TODO: Retrieve pictureURL and store it with Parse.
+                    NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
+                    
+                    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
+                    
+                    // Run network request asynchronously
+                    [NSURLConnection sendAsynchronousRequest:urlRequest
+                                                       queue:[NSOperationQueue mainQueue]
+                                           completionHandler:
+                     ^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                         if (connectionError == nil && data != nil) {
+                             // Set the image in the header imageView
+                             self.headerImageView.image = [UIImage imageWithData:data];
+                         }
+                     }];
+                    */
+                }
+            }];
+            
+            NSLog(@"User signed up and logged in through Facebook!");
+        } else {
+            NSLog(@"User logged in through Facebook!");
+        }
+    }];
 }
 
 /*
