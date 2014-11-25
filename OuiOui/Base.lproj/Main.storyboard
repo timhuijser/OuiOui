@@ -84,7 +84,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bON-2i-6oA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="439" y="-1556"/>
+            <point key="canvasLocation" x="445" y="-1563"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="BLQ-ZI-8wc">
@@ -130,6 +130,9 @@
                                         <exclude reference="vUB-sP-ywG"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="loginButton:" destination="vus-Fr-bXb" eventType="touchUpInside" id="UYi-ho-OsM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N88-eQ-N2V">
                                 <rect key="frame" x="16" y="20" width="287" height="50"/>
@@ -289,7 +292,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WRi-fy-rzk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1129" y="-2033"/>
+            <point key="canvasLocation" x="1093" y="-1946"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="PEy-X0-H4N">
@@ -536,7 +539,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHc-Qb-Fg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1148" y="-1213"/>
+            <point key="canvasLocation" x="1093" y="-1248"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ers-RK-iSI">
@@ -554,7 +557,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4y0-io-p7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-315" y="-1563"/>
+            <point key="canvasLocation" x="-133" y="-1563"/>
         </scene>
     </scenes>
     <resources>
