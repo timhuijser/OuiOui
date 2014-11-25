@@ -52,6 +52,27 @@
 
 - (IBAction)loginButton:(id)sender {
     
+    NSString *username = [self.email text];
+    NSString *password = [self.password text];
+    
+    if ([username length] < 4 || [password length] < 4) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid Entry" message:@"Username and Password must both be at least 4 characters long." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        [alert show];
+    } else {
+        [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
+            if (user) {
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tab" bundle:nil];
+                UITabBarController *obj=[storyboard instantiateViewControllerWithIdentifier:@"tab"];
+                self.navigationController.navigationBarHidden=YES;
+                [self.navigationController pushViewController:obj animated:YES];
+            } else {
+                NSLog(@"%@",error);
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Failed." message:@"Invalid Username and/or Password." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                [alert show];
+            }
+        }];
+    }
+
     /* 
     if(authenticated)  // authenticated---> BOOL Value assign True only if Login Success
      {
@@ -61,10 +82,7 @@
      [self.navigationController pushViewController:obj animated:YES];
      }
     */
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tab" bundle:nil];
-    UITabBarController *obj=[storyboard instantiateViewControllerWithIdentifier:@"tab"];
-    self.navigationController.navigationBarHidden=YES;
-    [self.navigationController pushViewController:obj animated:YES];
+    
 }
 
 /*
