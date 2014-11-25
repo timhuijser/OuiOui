@@ -432,6 +432,9 @@
                                         <exclude reference="xWr-NF-rfV"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="signupFacebookButton:" destination="sBt-P2-o5Y" eventType="touchUpInside" id="Wpo-wG-TIZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="___" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TVQ-uX-WGv">
                                 <rect key="frame" x="16" y="41" width="123" height="60"/>
@@ -478,6 +481,9 @@
                                         <exclude reference="M2K-fz-ULE"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="signupButton:" destination="sBt-P2-o5Y" eventType="touchUpInside" id="zAc-b9-6zB"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fb-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="P3H-SA-TWH">
                                 <rect key="frame" x="26" y="27" width="35" height="35"/>
