@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    // FB user
     if ([PFUser currentUser]) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tab" bundle:nil];
         UITabBarController *obj=[storyboard instantiateViewControllerWithIdentifier:@"tab"];
