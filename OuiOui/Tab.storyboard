@@ -13,16 +13,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="GQP-Gh-ADC">
-                            <rect key="frame" x="-61" y="-14" width="320" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="First"/>
-                                <segment title="Second"/>
-                            </segments>
-                        </segmentedControl>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ouiCell" textLabel="oLN-gr-hZr" style="IBUITableViewCellStyleDefault" id="DDP-go-9xk">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ouiCell" textLabel="oLN-gr-hZr" style="IBUITableViewCellStyleDefault" id="DDP-go-9xk" customClass="ParseExampleCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DDP-go-9xk" id="r2m-lK-vxm">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -37,9 +29,10 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
-                            <outlet property="dataSource" destination="yzF-Td-1Z5" id="qir-XN-Tbd"/>
-                            <outlet property="delegate" destination="yzF-Td-1Z5" id="XgD-Io-CdE"/>
+                            <outlet property="dataSource" destination="yzF-Td-1Z5" id="FOf-Kc-qA8"/>
+                            <outlet property="delegate" destination="yzF-Td-1Z5" id="teU-Wo-wcU"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="OuiOui" id="51C-q0-TWh">
@@ -158,6 +151,9 @@
                                         <exclude reference="qih-5i-pCf"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="addOuiItem:" destination="9qw-iM-Tih" eventType="touchUpInside" id="qvK-hf-grs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

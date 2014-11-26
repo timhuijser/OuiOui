@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "ParseExampleCell.h"
 
-@interface TimelineViewController : UITableViewController
+@interface TimelineViewController : UITableViewController <UITableViewDelegate>{
+    NSArray *ouiItemsDB;
+    
+}
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
 
 @end

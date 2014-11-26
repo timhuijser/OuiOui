@@ -11,5 +11,6 @@
 @interface NewOuiItemViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *ouiItem;
 @property (weak, nonatomic) IBOutlet UITextView *ouiDescription;
+- (IBAction)addOuiItem:(id)sender;
 
 @end

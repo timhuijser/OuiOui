@@ -22,6 +22,7 @@
         UITabBarController *obj=[storyboard instantiateViewControllerWithIdentifier:@"tab"];
         self.navigationController.navigationBarHidden=YES;
         [self.navigationController pushViewController:obj animated:YES];
+        [self removeFromParentViewController];
     }
 }
 

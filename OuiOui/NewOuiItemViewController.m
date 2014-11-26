@@ -7,6 +7,8 @@
 //
 
 #import "NewOuiItemViewController.h"
+#import "Parse/Parse.h"
+#import "TimelineViewController.h"
 
 @interface NewOuiItemViewController ()
 
@@ -46,6 +48,24 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)addOuiItem:(id)sender {
+    
+    // Create new object
+    PFObject *ouiItem = [PFObject objectWithClassName:@"OuiItem"];
+    
+    // Get user
+    PFUser *user = [PFUser currentUser];
+    [ouiItem setObject:user forKey:@"user"];
+    
+    // Set title and description
+    ouiItem[@"title"] = self.ouiItem.text;
+    ouiItem[@"description"] = self.ouiDescription.text;
+    ouiItem[@"checked"] = [NSNumber numberWithBool:NO];
+    
+    // Save Oui item
+    [ouiItem save];
 }
 
 @end
