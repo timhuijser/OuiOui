@@ -34,32 +34,56 @@
     // Dispose of any resources that can be recreated
 }
 
--(void)viewDidAppear:(BOOL)animated{
-     [self.tableView reloadData];
-    self.navigationItem.title = @"OuiOui";
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header.png"] forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+-(IBAction)segmentButton:(id)sender{
     
+    // Get completed Oui's
+    if(segmentControl.selectedSegmentIndex == 0){
+        [self retrieveData:@"false"];
+    }else{
+        [self retrieveData:@"true"];
+    }
+}
+
+-(void)retrieveData:(NSString *)inputType{
     // Get current user
     PFUser *user = [PFUser currentUser];
-    
+
     // Get ouiItems query
     PFQuery *ouiItems = [PFQuery queryWithClassName:@"OuiItem"];
     [ouiItems whereKey:@"user" equalTo:user];
+    
+    // Check if type is true
+    if([inputType isEqualToString:@"true"]){
+        [ouiItems whereKey:@"checked" equalTo:[NSNumber numberWithBool:YES]];
+    }else{
+        [ouiItems whereKey:@"checked" equalTo:[NSNumber numberWithBool:NO]];
+    }
+    
     [ouiItems orderByDescending:@"createdAt"];
     ouiItems.cachePolicy = kPFCachePolicyCacheThenNetwork;
     [ouiItems findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
-        if (objects) {
-            
+        if (objects){
             // Set objects in ouItemsDB array
             ouiItemsDB = [[NSArray alloc] initWithArray:objects];
-            // Herlaadt tableview
+            
+            // Reload tableview
             [self.tableView reloadData];
         }else{
             NSLog(@"error");
         }
     }];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    
+    // Style navigation bar
+    self.navigationItem.title = @"OuiOui";
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header.png"] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
+    
+    // Get data
+    [self retrieveData:@"false"];
 }
 
 #pragma mark - Table view data source

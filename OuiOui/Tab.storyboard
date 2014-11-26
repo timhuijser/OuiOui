@@ -13,6 +13,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="FbS-Jd-5Ud">
+                            <rect key="frame" x="-61" y="-14" width="320" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Uncompleted Oui's"/>
+                                <segment title="Completed Oui's"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentButton:" destination="yzF-Td-1Z5" eventType="valueChanged" id="KDh-z3-vwP"/>
+                            </connections>
+                        </segmentedControl>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ouiCell" textLabel="oLN-gr-hZr" style="IBUITableViewCellStyleDefault" id="DDP-go-9xk">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -43,6 +54,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segmentControl" destination="FbS-Jd-5Ud" id="rBn-Yd-8kZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogA-SS-O9U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
