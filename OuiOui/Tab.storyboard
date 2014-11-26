@@ -58,7 +58,7 @@
         <!--Profile-->
         <scene sceneID="rrB-N9-brO">
             <objects>
-                <viewController id="xAQ-fU-Pgd" sceneMemberID="viewController">
+                <viewController id="xAQ-fU-Pgd" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ebG-LH-mdU"/>
                         <viewControllerLayoutGuide type="bottom" id="VvF-x4-L58"/>
@@ -73,6 +73,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y8R-2R-S19">
+                                <rect key="frame" x="137" y="283" width="49" height="30"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutButton:" destination="xAQ-fU-Pgd" eventType="touchUpInside" id="mDM-6w-eWb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
