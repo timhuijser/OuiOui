@@ -8,7 +8,6 @@
 
 #import "NewOuiItemViewController.h"
 #import "Parse/Parse.h"
-#import "TimelineViewController.h"
 
 @interface NewOuiItemViewController ()
 
@@ -52,20 +51,45 @@
 
 - (IBAction)addOuiItem:(id)sender {
     
-    // Create new object
-    PFObject *ouiItem = [PFObject objectWithClassName:@"OuiItem"];
+    // Check if user input fields are correctly filled
+    if ([self.ouiItem.text length] < 2 || [self.ouiDescription.text length] < 2) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Invalid Entry"
+                              message:@"Title and description must both be at least 2 characters long."
+                              delegate:self
+                              cancelButtonTitle:@"Okay"
+                              otherButtonTitles:nil];
+        [alert show];
+    } else {
+        // Create new object
+        PFObject *ouiItem = [PFObject objectWithClassName:@"OuiItem"];
     
-    // Get user
-    PFUser *user = [PFUser currentUser];
-    [ouiItem setObject:user forKey:@"user"];
+        // Get user
+        PFUser *user = [PFUser currentUser];
+        [ouiItem setObject:user forKey:@"user"];
     
-    // Set title and description
-    ouiItem[@"title"] = self.ouiItem.text;
-    ouiItem[@"description"] = self.ouiDescription.text;
-    ouiItem[@"checked"] = [NSNumber numberWithBool:NO];
+        // Set title and description
+        ouiItem[@"title"] = self.ouiItem.text;
+        ouiItem[@"description"] = self.ouiDescription.text;
+        ouiItem[@"checked"] = [NSNumber numberWithBool:NO];
     
-    // Save Oui item
-    [ouiItem save];
+        // Save Oui item
+        if([ouiItem save]){
+            // Return to overview Oui items
+            [self.navigationController popToRootViewControllerAnimated:true];
+        }else{
+            // Can't save new Oui item
+            UIAlertView *alert = [[UIAlertView alloc]
+                                  initWithTitle:@"Not saved"
+                                  message:@"We could not save your Oui item, try again."
+                                  delegate:nil
+                                  cancelButtonTitle:@"Okay"
+                                  otherButtonTitles:nil];
+        
+            [alert show];
+
+        }
+    }
 }
 
 @end
