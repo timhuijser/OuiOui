@@ -12,10 +12,10 @@
 
 @interface TimelineViewController : UITableViewController <UITableViewDelegate>{
     NSArray *ouiItemsDB;
-    
+    IBOutlet UISegmentedControl *segmentControl;
 }
 
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
+-(IBAction)segmentButton:(id)sender;
 
 
 @end

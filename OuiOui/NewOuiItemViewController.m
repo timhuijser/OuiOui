@@ -74,7 +74,7 @@
         ouiItem[@"checked"] = [NSNumber numberWithBool:NO];
     
         // Save Oui item
-        if([ouiItem save]){
+        if([ouiItem saveInBackground]){
             // Return to overview Oui items
             [self.navigationController popToRootViewControllerAnimated:true];
         }else{
