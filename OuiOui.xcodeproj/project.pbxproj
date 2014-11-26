@@ -36,6 +36,7 @@
 		04FEC9321A24A701004E564D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FEC9311A24A701004E564D /* Foundation.framework */; };
 		04FEC9341A24A712004E564D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FEC9331A24A712004E564D /* libz.dylib */; };
 		04FEC9381A24B395004E564D /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FEC9371A24B395004E564D /* FacebookSDK.framework */; };
+		04FEC93D1A25CA56004E564D /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEC93C1A25CA56004E564D /* ProfileViewController.m */; };
 		D9A69D881A2336E300540EF1 /* Fb-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A69D871A2336E300540EF1 /* Fb-icon.png */; };
 		D9A69D8F1A237C8700540EF1 /* OuiOui-icon-29pt-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A69D8D1A237C8700540EF1 /* OuiOui-icon-29pt-2.png */; };
 		D9A69D901A237C8700540EF1 /* OuiOui-icon-40pt-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A69D8E1A237C8700540EF1 /* OuiOui-icon-40pt-2.png */; };
@@ -100,6 +101,8 @@
 		04FEC9311A24A701004E564D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		04FEC9331A24A712004E564D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		04FEC9371A24B395004E564D /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		04FEC93B1A25CA56004E564D /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		04FEC93C1A25CA56004E564D /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		D9A69D871A2336E300540EF1 /* Fb-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fb-icon.png"; sourceTree = "<group>"; };
 		D9A69D8D1A237C8700540EF1 /* OuiOui-icon-29pt-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OuiOui-icon-29pt-2.png"; sourceTree = "<group>"; };
 		D9A69D8E1A237C8700540EF1 /* OuiOui-icon-40pt-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OuiOui-icon-40pt-2.png"; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 				D9AAD86F1A24BDF2007E794E /* TimelineViewController.m */,
 				D9EF996A1A1E74A900BB3F19 /* LoginViewController.h */,
 				D9EF996B1A1E74A900BB3F19 /* LoginViewController.m */,
+				04FEC93B1A25CA56004E564D /* ProfileViewController.h */,
+				04FEC93C1A25CA56004E564D /* ProfileViewController.m */,
 				0491CA511A1B5798006C4A27 /* Images.xcassets */,
 				0491CA411A1B5798006C4A27 /* Supporting Files */,
 			);
@@ -423,6 +428,7 @@
 			files = (
 				D9EF99691A1E749B00BB3F19 /* RegisterViewController.m in Sources */,
 				0491CA471A1B5798006C4A27 /* AppDelegate.m in Sources */,
+				04FEC93D1A25CA56004E564D /* ProfileViewController.m in Sources */,
 				D9F1B2B81A1E2AD80042770E /* StartViewController.m in Sources */,
 				D9AAD87F1A24CE39007E794E /* NewOuiItemViewController.m in Sources */,
 				D9EF996C1A1E74A900BB3F19 /* LoginViewController.m in Sources */,

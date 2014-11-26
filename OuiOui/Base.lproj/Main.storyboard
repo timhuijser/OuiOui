@@ -8,7 +8,7 @@
         <!--Start View Controller-->
         <scene sceneID="44D-Cg-bBd">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="Jp5-WC-NoB" customClass="StartViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="start" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="Jp5-WC-NoB" customClass="StartViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rry-Yg-bI9"/>
                         <viewControllerLayoutGuide type="bottom" id="23T-Io-H49"/>
