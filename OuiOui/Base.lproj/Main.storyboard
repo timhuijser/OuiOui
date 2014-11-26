@@ -193,6 +193,9 @@
                                         <exclude reference="zwl-BP-7qg"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="loginFacebookButton:" destination="vus-Fr-bXb" eventType="touchUpInside" id="rNj-Uw-HsP"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Fb-icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="dT2-No-Cyf">
                                 <rect key="frame" x="24" y="27" width="35" height="35"/>

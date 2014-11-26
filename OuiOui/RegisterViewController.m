@@ -100,7 +100,11 @@
     
     [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
         if (!user) {
-            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+            
+            NSLog(@"%@",error);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sign Up Failed." message:@"Something went wrong, try to sign up again" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            [alert show];
+            
         } else if (user.isNew) {
             
             FBRequest *request = [FBRequest requestForMe];
@@ -137,9 +141,18 @@
                 }
             }];
             
-            NSLog(@"User signed up and logged in through Facebook!");
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tab" bundle:nil];
+            UITabBarController *obj=[storyboard instantiateViewControllerWithIdentifier:@"tab"];
+            self.navigationController.navigationBarHidden=YES;
+            [self.navigationController pushViewController:obj animated:YES];
+            
         } else {
-            NSLog(@"User logged in through Facebook!");
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tab" bundle:nil];
+            UITabBarController *obj=[storyboard instantiateViewControllerWithIdentifier:@"tab"];
+            self.navigationController.navigationBarHidden=YES;
+            [self.navigationController pushViewController:obj animated:YES];
+            
         }
     }];
 }
