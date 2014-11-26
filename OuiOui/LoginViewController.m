@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import <ParseFacebookUtils/PFFacebookUtils.h>
 
 @interface LoginViewController ()
 
@@ -82,6 +83,68 @@
      [self.navigationController pushViewController:obj animated:YES];
      }
     */
+    
+}
+
+- (IBAction)loginFacebookButton:(id)sender {
+    
+    NSArray *permissions = @[@"email"];
+    
+    [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            NSLog(@"%@",error);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Failed." message:@"Something went wrong, try to login again" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            [alert show];
+        } else if (user.isNew) {
+            
+            FBRequest *request = [FBRequest requestForMe];
+            [request startWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                if (!error) {
+                    // result is a dictionary with the user's Facebook data
+                    NSDictionary *userData = (NSDictionary *)result;
+                    
+                    NSString *name = userData[@"name"];
+                    NSString *email = userData[@"email"];
+                    NSString *facebookID = userData[@"id"];
+                    
+                    user.email = email;
+                    user[@"name"] = name;
+                    user[@"facebookID"] = facebookID;
+                    [user save];
+                    
+                    /* TODO: Retrieve pictureURL and store it with Parse.
+                     NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
+                     
+                     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
+                     
+                     // Run network request asynchronously
+                     [NSURLConnection sendAsynchronousRequest:urlRequest
+                     queue:[NSOperationQueue mainQueue]
+                     completionHandler:
+                     ^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                     if (connectionError == nil && data != nil) {
+                     // Set the image in the header imageView
+                     self.headerImageView.image = [UIImage imageWithData:data];
+                     }
+                     }];
+                     */
+                }
+            }];
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tab" bundle:nil];
+            UITabBarController *obj=[storyboard instantiateViewControllerWithIdentifier:@"tab"];
+            self.navigationController.navigationBarHidden=YES;
+            [self.navigationController pushViewController:obj animated:YES];
+            
+        } else {
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tab" bundle:nil];
+            UITabBarController *obj=[storyboard instantiateViewControllerWithIdentifier:@"tab"];
+            self.navigationController.navigationBarHidden=YES;
+            [self.navigationController pushViewController:obj animated:YES];
+            
+        }
+    }];
     
 }
 
