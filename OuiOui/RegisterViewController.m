@@ -120,24 +120,48 @@
                     user.email = email;
                     user[@"name"] = name;
                     user[@"facebookID"] = facebookID;
-                    [user save];
-                    
-                    /* TODO: Retrieve pictureURL and store it with Parse.
-                     NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
+               
+                    NSURL *pictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large&return_ssl_resources=1", facebookID]];
                      
-                     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
+                    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:pictureURL];
                      
-                     // Run network request asynchronously
-                     [NSURLConnection sendAsynchronousRequest:urlRequest
-                     queue:[NSOperationQueue mainQueue]
-                     completionHandler:
-                     ^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                     if (connectionError == nil && data != nil) {
-                     // Set the image in the header imageView
-                     self.headerImageView.image = [UIImage imageWithData:data];
-                     }
-                     }];
-                     */
+                    // Run network request asynchronously
+                    [NSURLConnection sendAsynchronousRequest:urlRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                        if (connectionError == nil && data != nil) {
+                            
+                            // Generate unique imageName.
+                            NSString *uniqueString = [[NSProcessInfo processInfo] globallyUniqueString];
+                            NSString *uniqueFileName = [NSString stringWithFormat:@"%@%@", uniqueString, @".jpg"];
+                            
+                            // Convert to JPEG with 50% quality
+                            NSData *profileImageData = UIImageJPEGRepresentation([UIImage imageWithData:data], 0.5f);
+                            PFFile *imageFile = [PFFile fileWithName:uniqueFileName data:profileImageData];
+                            
+                            // Save the image to Parse
+                            [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                
+                                if (!error) {
+                                    // The image has now been uploaded to Parse. Associate it with a new object
+                                    PFObject *userPhoto = [PFObject objectWithClassName:@"profilePicture"];
+                                    [userPhoto setObject:imageFile forKey:@"imageFile"];
+                                    
+                                    PFUser *user = [PFUser currentUser];
+                                    [userPhoto setObject:user forKey:@"user"];
+                                    
+                                    [userPhoto saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                                        if (!error) {
+                                            NSLog(@"Saved");
+                                            //[self refreshView];
+                                        }
+                                        else{
+                                            // Error
+                                            NSLog(@"Error: %@ %@", error, [error userInfo]);
+                                        }
+                                    }];
+                                }
+                            }];
+                         }
+                    }];
                 }
             }];
             
