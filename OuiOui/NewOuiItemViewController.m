@@ -17,19 +17,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [self.parentViewController.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     
-    // Set navigation controller to only back button
+    // Style navigation bar
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
+    
+    // Set colors
+    UIColor *color = [UIColor colorWithRed:120.0/255.0 green:116.0/255.0 blue:115.0/255.0 alpha:1.0];
+       
+    // Set navigation controller to only back button
     self.navigationController.navigationBar.topItem.title = @"";
     self.navigationItem.title = @"OuiOui";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
-    // Set placeholdertext color
-    UIColor *color = [UIColor colorWithRed:120.0/255.0 green:116.0/255.0 blue:115.0/255.0 alpha:1.0];
-    
+
     // Style input fields
     self.ouiItem.layer.borderColor = [[UIColor whiteColor]CGColor];
     self.ouiItem.layer.borderWidth = 2.0;

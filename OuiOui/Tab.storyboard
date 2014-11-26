@@ -16,10 +16,12 @@
                         <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="FbS-Jd-5Ud">
                             <rect key="frame" x="-61" y="-14" width="320" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <segments>
                                 <segment title="Uncompleted Oui's"/>
                                 <segment title="Completed Oui's"/>
                             </segments>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="segmentButton:" destination="yzF-Td-1Z5" eventType="valueChanged" id="KDh-z3-vwP"/>
                             </connections>
@@ -110,7 +112,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background-new-Oui-item.png" translatesAutoresizingMaskIntoConstraints="NO" id="fPx-zQ-Fdz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="fPx-zQ-Fdz">
                                 <rect key="frame" x="0.0" y="0.0" width="643" height="1106"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1B9-VS-Cql">
@@ -232,7 +234,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background-new-Oui-item.png" width="640" height="994"/>
+        <image name="background.png" width="640" height="1136"/>
         <image name="profile" width="24" height="24"/>
         <image name="timeline" width="22" height="22"/>
     </resources>

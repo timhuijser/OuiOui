@@ -17,21 +17,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Set colors
+    UIColor *titleColor = [UIColor colorWithRed:93.0/255.0 green:93.0/255.0 blue:93.0/255.0 alpha:1.0];
     
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    
-    // Set navigation controller to only back button
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
-    self.navigationController.navigationBar.translucent = YES;
-    
+    // Style navigation bar
     self.navigationItem.title = @"OuiOui";
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header.png"] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : titleColor};
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    // Set colors
+    UIColor *titleColor = [UIColor colorWithRed:93.0/255.0 green:93.0/255.0 blue:93.0/255.0 alpha:1.0];
+    
+    // Style navigation bar
+    self.navigationItem.title = @"OuiOui";
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header.png"] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : titleColor};
+
+    
+    // Get data
+    [self retrieveData:@"false"];
 }
 
 -(IBAction)segmentButton:(id)sender{
@@ -47,7 +59,7 @@
 -(void)retrieveData:(NSString *)inputType{
     // Get current user
     PFUser *user = [PFUser currentUser];
-
+    
     // Get ouiItems query
     PFQuery *ouiItems = [PFQuery queryWithClassName:@"OuiItem"];
     [ouiItems whereKey:@"user" equalTo:user];
@@ -73,17 +85,6 @@
             NSLog(@"error");
         }
     }];
-}
-
--(void)viewDidAppear:(BOOL)animated{
-    
-    // Style navigation bar
-    self.navigationItem.title = @"OuiOui";
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header.png"] forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-    
-    // Get data
-    [self retrieveData:@"false"];
 }
 
 #pragma mark - Table view data source
