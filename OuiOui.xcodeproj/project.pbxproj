@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0459AE3D1A2C6D98007C8E61 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0459AE3C1A2C6D98007C8E61 /* Profile.storyboard */; };
 		0491CA441A1B5798006C4A27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491CA431A1B5798006C4A27 /* main.m */; };
 		0491CA471A1B5798006C4A27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491CA461A1B5798006C4A27 /* AppDelegate.m */; };
 		0491CA501A1B5798006C4A27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0491CA4E1A1B5798006C4A27 /* Main.storyboard */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0459AE3C1A2C6D98007C8E61 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		0491CA3E1A1B5798006C4A27 /* OuiOui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OuiOui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0491CA421A1B5798006C4A27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0491CA431A1B5798006C4A27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			children = (
 				0491CA4E1A1B5798006C4A27 /* Main.storyboard */,
 				04FEC9071A249D4B004E564D /* Tab.storyboard */,
+				0459AE3C1A2C6D98007C8E61 /* Profile.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				04FEC9081A249D4B004E564D /* Tab.storyboard in Resources */,
 				D9AAD8811A24E3EB007E794E /* background-new-Oui-item.png in Resources */,
 				D9A69D8F1A237C8700540EF1 /* OuiOui-icon-29pt-2.png in Resources */,
+				0459AE3D1A2C6D98007C8E61 /* Profile.storyboard in Resources */,
 				D9AAD8661A24B1D3007E794E /* OuiOui.png in Resources */,
 				D9A69D961A237D7E00540EF1 /* OuiOui-icon-60pt-3.png in Resources */,
 				D9A69D981A237D8200540EF1 /* OuiOui-icon-60pt-2.png in Resources */,
