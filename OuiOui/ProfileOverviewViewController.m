@@ -1,27 +1,22 @@
 //
-//  ProfileViewController.m
+//  ProfileOverviewViewController.m
 //  OuiOui
 //
-//  Created by Tim on 26/11/14.
+//  Created by Tim on 01/12/14.
 //  Copyright (c) 2014 Vontura. All rights reserved.
 //
 
-#import "ProfileViewController.h"
-#import "Parse/Parse.h"
+#import "ProfileOverviewViewController.h"
 
-@interface ProfileViewController ()
+@interface ProfileOverviewViewController ()
 
 @end
 
-@implementation ProfileViewController
+@implementation ProfileOverviewViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Profile" bundle:nil];
-    UIViewController *obj=[storyboard instantiateViewControllerWithIdentifier:@"profile"];
-    [self.navigationController pushViewController:obj animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,4 +33,5 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 @end

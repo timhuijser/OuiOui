@@ -73,16 +73,6 @@
             }
         }];
     }
-
-    /* 
-    if(authenticated)  // authenticated---> BOOL Value assign True only if Login Success
-     {
-     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-     UITabBarController *obj=[storyboard instantiateViewControllerWithIdentifier:@"tab"];
-     self.navigationController.navigationBarHidden=YES;
-     [self.navigationController pushViewController:obj animated:YES];
-     }
-    */
     
 }
 
