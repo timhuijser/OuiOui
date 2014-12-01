@@ -22,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="597" y="396"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile Overview View Controller-->
         <scene sceneID="IVj-ov-VcJ">
             <objects>
-                <viewController id="G8I-X0-j09" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profile" id="G8I-X0-j09" customClass="ProfileOverviewViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZAs-NV-QNL"/>
                         <viewControllerLayoutGuide type="bottom" id="muS-QP-J9i"/>
@@ -68,13 +68,6 @@
                                 <rect key="frame" x="228" y="197" width="76" height="23"/>
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                <color key="textColor" red="0.45098039220000002" green="0.38823529410000002" blue="0.3411764706" alpha="1" colorSpace="deviceRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaa-n1-1Pe">
-                                <rect key="frame" x="228" y="216" width="46" height="23"/>
-                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" red="0.45098039220000002" green="0.38823529410000002" blue="0.3411764706" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -125,6 +118,13 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaa-n1-1Pe">
+                                <rect key="frame" x="228" y="216" width="46" height="23"/>
+                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" red="0.45098039220000002" green="0.38823529410000002" blue="0.3411764706" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -135,6 +135,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="Xxa-yi-0bG"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="followersNumberLabel" destination="aIT-ue-bcE" id="sVn-8d-QBU"/>
+                        <outlet property="followingNumberLabel" destination="qaa-n1-1Pe" id="Odt-99-hXW"/>
+                        <outlet property="ouiItemNumberLabel" destination="gW3-x8-xDx" id="tCl-VJ-aHK"/>
+                        <outlet property="profileImageBlurredImage" destination="8xq-mC-Ndp" id="j7E-Ah-2Gd"/>
+                        <outlet property="profileImageDetailImage" destination="eFI-fW-1Or" id="jb3-0D-Pko"/>
+                        <outlet property="profileNameLabel" destination="tbb-cx-JKm" id="NE8-Lh-e6J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2LZ-E4-Wpb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

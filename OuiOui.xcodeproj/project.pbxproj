@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0459AE3D1A2C6D98007C8E61 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0459AE3C1A2C6D98007C8E61 /* Profile.storyboard */; };
+		0459AE401A2C76CF007C8E61 /* ProfileOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459AE3F1A2C76CF007C8E61 /* ProfileOverviewViewController.m */; };
 		0491CA441A1B5798006C4A27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491CA431A1B5798006C4A27 /* main.m */; };
 		0491CA471A1B5798006C4A27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491CA461A1B5798006C4A27 /* AppDelegate.m */; };
 		0491CA501A1B5798006C4A27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0491CA4E1A1B5798006C4A27 /* Main.storyboard */; };
@@ -69,6 +70,8 @@
 
 /* Begin PBXFileReference section */
 		0459AE3C1A2C6D98007C8E61 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		0459AE3E1A2C76CF007C8E61 /* ProfileOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileOverviewViewController.h; sourceTree = "<group>"; };
+		0459AE3F1A2C76CF007C8E61 /* ProfileOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileOverviewViewController.m; sourceTree = "<group>"; };
 		0491CA3E1A1B5798006C4A27 /* OuiOui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OuiOui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0491CA421A1B5798006C4A27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0491CA431A1B5798006C4A27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 				04FEC93C1A25CA56004E564D /* ProfileViewController.m */,
 				0491CA511A1B5798006C4A27 /* Images.xcassets */,
 				0491CA411A1B5798006C4A27 /* Supporting Files */,
+				0459AE3E1A2C76CF007C8E61 /* ProfileOverviewViewController.h */,
+				0459AE3F1A2C76CF007C8E61 /* ProfileOverviewViewController.m */,
 			);
 			path = OuiOui;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 				D9F1B2B81A1E2AD80042770E /* StartViewController.m in Sources */,
 				D9AAD87F1A24CE39007E794E /* NewOuiItemViewController.m in Sources */,
 				D9EF996C1A1E74A900BB3F19 /* LoginViewController.m in Sources */,
+				0459AE401A2C76CF007C8E61 /* ProfileOverviewViewController.m in Sources */,
 				0491CA441A1B5798006C4A27 /* main.m in Sources */,
 				D9AAD8701A24BDF2007E794E /* TimelineViewController.m in Sources */,
 			);
