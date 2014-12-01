@@ -11,7 +11,7 @@
 #import "ParseExampleCell.h"
 
 @interface TimelineViewController : UITableViewController <UITableViewDelegate>{
-    NSArray *ouiItemsDB;
+    NSMutableArray *ouiItemsDB;
     IBOutlet UISegmentedControl *segmentControl;
 }
 

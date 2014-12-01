@@ -8,6 +8,7 @@
 
 #import "TimelineViewController.h"
 #import "Parse/Parse.h"
+#import "OuiItemViewController.h"
 
 @interface TimelineViewController ()
 
@@ -24,6 +25,9 @@
     self.navigationItem.title = @"OuiOui";
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header.png"] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : titleColor};
+
+    // During startup (-viewDidLoad or in storyboard) do:
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
 
 }
 
@@ -77,7 +81,7 @@
         
         if (objects){
             // Set objects in ouItemsDB array
-            ouiItemsDB = [[NSArray alloc] initWithArray:objects];
+            ouiItemsDB = [[NSMutableArray alloc] initWithArray:objects];
             
             // Reload tableview
             [self.tableView reloadData];
@@ -113,6 +117,28 @@
     cell.textLabel.text = [tempObject objectForKey:@"title"];
     
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    if([[segue identifier] isEqualToString:@"showDetail"]){
+        
+        // Get selected row
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        // Get object out of ouiItems
+        NSManagedObjectModel *selectedItem = [ouiItemsDB objectAtIndex:indexPath.row];
+        
+        OuiItemViewController *destViewController = segue.destinationViewController;
+        destViewController.item = selectedItem;
+      
+    }
+}
+
+// Delete item
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    
 }
 
 @end

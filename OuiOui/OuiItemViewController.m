@@ -1,0 +1,193 @@
+//
+//  NewOuiItemViewController.m
+//  OuiOui
+//
+//  Created by Paul Heijmans on 25-11-14.
+//  Copyright (c) 2014 Vontura. All rights reserved.
+//
+
+#import "OuiItemViewController.h"
+#import "Parse/Parse.h"
+#import "AddFriendViewController.h"
+
+@interface OuiItemViewController ()
+
+@end
+
+@implementation OuiItemViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    // Style navigation bar
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    self.navigationController.navigationBar.translucent = YES;
+    
+    // Set colors
+    UIColor *color = [UIColor colorWithRed:120.0/255.0 green:116.0/255.0 blue:115.0/255.0 alpha:1.0];
+       
+    // Set navigation controller to only back button
+    self.navigationController.navigationBar.topItem.title = @"";
+    self.navigationItem.title = @"OuiOui";
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
+    // Style input fields
+    self.ouiItem.layer.borderColor = [[UIColor whiteColor]CGColor];
+    self.ouiItem.layer.borderWidth = 2.0;
+    UIView *ouiItemPaddingInput = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 20, 50)];
+    self.ouiItem.leftView = ouiItemPaddingInput;
+    self.ouiItem.leftViewMode = UITextFieldViewModeAlways;
+    self.ouiItem.attributedPlaceholder = [[NSAttributedString alloc]initWithString:@"Oui item" attributes:@{NSForegroundColorAttributeName: color}];
+    
+    self.ouiDescription.layer.borderColor = [[UIColor whiteColor]CGColor];
+    self.ouiDescription.layer.borderWidth = 2.0;
+    self.ouiDescription.attributedText = [[NSAttributedString alloc]initWithString:@"Oui description" attributes:@{NSForegroundColorAttributeName: color}];
+    
+    if(self.item){
+        [self.actionButton setTitle:@"Update Oui" forState:UIControlStateNormal];
+        [self.actionButton setTag:1];
+        [self.ouiItem setText:[NSString stringWithFormat:@"%@", [self.item valueForKey:@"title"]]];
+        [self.ouiDescription setText:[NSString stringWithFormat:@"%@", [self.item valueForKey:@"descriptionItem"]]];
+        self.ouiItemId = [self.item valueForKey:@"objectId"];
+     
+        [self.addFriend setHidden:TRUE];
+        
+    }else{
+        [self.actionButton setTitle:@"Add Oui" forState:UIControlStateNormal];
+        [self.actionButton setTag:0];
+    }
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)addOuiItem:(id)sender {
+    
+    // Check if user input fields are correctly filled
+    if ([self.ouiItem.text length] < 2 || [self.ouiDescription.text length] < 2) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Invalid Entry"
+                              message:@"Title and description must both be at least 2 characters long."
+                              delegate:self
+                              cancelButtonTitle:@"Okay"
+                              otherButtonTitles:nil];
+        [alert show];
+    } else {
+        UIButton *button = (UIButton *)sender;
+
+        if([button tag] == 1){
+            PFQuery *query = [PFQuery queryWithClassName:@"OuiItem"];
+            [query whereKey:@"objectId" equalTo:self.ouiItemId];
+            [query getFirstObjectInBackgroundWithBlock:^(PFObject *ouiItem, NSError *error) {
+                if (!error) {
+                    
+                    // Update rows
+                    [ouiItem setObject:self.ouiItem.text forKey:@"title"];
+                    [ouiItem setObject:self.ouiDescription.text forKey:@"descriptionItem"];
+                    
+                    // Save
+                    if([ouiItem saveInBackground]){
+                        [self.navigationController popToRootViewControllerAnimated:true];
+                    }else{
+                        // Can't save new Oui item
+                        UIAlertView *alert = [[UIAlertView alloc]
+                                              initWithTitle:@"Not saved"
+                                              message:@"We could not save your Oui item, try again."
+                                              delegate:nil
+                                              cancelButtonTitle:@"Okay"
+                                              otherButtonTitles:nil];
+                        
+                        [alert show];
+                    }
+                    
+                } else {
+                    // Did not find any ouiItem for the current user
+                    NSLog(@"Error: %@", error);
+                }
+            }];
+        }else{
+            
+            // Create new object
+            PFObject *ouiItem = [PFObject objectWithClassName:@"OuiItem"];
+            
+            // Get user
+            PFUser *user = [PFUser currentUser];
+            [ouiItem setObject:user forKey:@"user"];
+            
+            // Set title and description
+            ouiItem[@"title"] = self.ouiItem.text;
+            ouiItem[@"descriptionItem"] = self.ouiDescription.text;
+            ouiItem[@"checked"] = [NSNumber numberWithBool:NO];
+            
+            // Save Oui item
+            if([ouiItem saveInBackground]){
+                // Return to overview Oui items
+                [self.navigationController popToRootViewControllerAnimated:true];
+            }else{
+                // Can't save new Oui item
+                UIAlertView *alert = [[UIAlertView alloc]
+                                      initWithTitle:@"Not saved"
+                                      message:@"We could not save your Oui item, try again."
+                                      delegate:nil
+                                      cancelButtonTitle:@"Okay"
+                                      otherButtonTitles:nil];
+                
+                [alert show];
+            }
+        }
+    }
+}
+
+- (IBAction)back:(UIStoryboardSegue *)segue {
+   
+    AddFriendViewController *friendsController = segue.sourceViewController;
+    
+    if([friendsController.friendText.text length] > 5){
+        
+        if([self isValidEmail:friendsController.friendText.text]){
+            NSLog(@"%@", friendsController.friendText.text);
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc]
+                                  initWithTitle:@"Invalid email address"
+                                  message:@"Please enter a valid email address."
+                                  delegate:self
+                                  cancelButtonTitle:@"Okay"
+                                  otherButtonTitles:nil];
+            [alert setTag:1];
+            [alert show];
+        }
+        
+    }else{
+        // Get input from pickerview
+        NSLog(@"%@", [[friendsController.friendsArray objectAtIndex:[friendsController.friendPicker selectedRowInComponent:0]]valueForKey:@"title"]);
+    }
+}
+
+// Check if email is valid
+-(BOOL) isValidEmail:(NSString *)checkString{
+    checkString = [checkString lowercaseString];
+    BOOL stricterFilter = YES;
+    NSString *stricterFilterString = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSString *laxString = @".+@.+\\.[A-Za-z]{2}[A-Za-z]*";
+    
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    
+    return [emailTest evaluateWithObject:checkString];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    // Send user back to addFriendController if email not valid
+    if ([alertView tag] == 1){
+        
+        // Segue to addFriendController
+        AddFriendViewController *friendController = [self.storyboard instantiateViewControllerWithIdentifier:@"AddFriendViewController"];
+        [self.navigationController pushViewController:friendController animated:YES];
+    }
+}
+
+@end
