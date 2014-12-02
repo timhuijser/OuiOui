@@ -29,6 +29,8 @@
     // During startup (-viewDidLoad or in storyboard) do:
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
 
+    // Set segment control
+    segmentControl.selectedSegmentIndex = 0;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -131,12 +133,44 @@
         
         OuiItemViewController *destViewController = segue.destinationViewController;
         destViewController.item = selectedItem;
-      
     }
 }
 
 // Delete item
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    PFObject *tempObject = [ouiItemsDB objectAtIndex:indexPath.row];
+
+    PFQuery *query = [PFQuery queryWithClassName:@"OuiItem"];
+    [query whereKey:@"objectId" equalTo:tempObject.objectId];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *ouiItem, NSError *error) {
+        if (!error) {
+
+            // Delete
+            if([ouiItem deleteInBackground]){
+                // Get back
+                if([[ouiItem objectForKey:@"checked"] isEqual:[NSNumber numberWithBool:NO]]){
+                    [self retrieveData:@"false"];
+                }else{
+                    [self retrieveData:@"true"];
+                }
+                
+            }else{
+                // Can't save new Oui item
+                UIAlertView *alert = [[UIAlertView alloc]
+                                      initWithTitle:@"Not deleted"
+                                      message:@"We could not delete your Oui item, try again."
+                                      delegate:nil
+                                      cancelButtonTitle:@"Okay"
+                                      otherButtonTitles:nil];
+                
+                [alert show];
+            }
+            
+        } else {
+            // Did not find any ouiItem for the current user
+            NSLog(@"Error: %@", error);
+        }
+    }];
 
     
 }

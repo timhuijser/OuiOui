@@ -52,10 +52,14 @@
         self.ouiItemId = [self.item valueForKey:@"objectId"];
      
         [self.addFriend setHidden:TRUE];
+
+        self.doneLabel.text = @"Done";
         
     }else{
         [self.actionButton setTitle:@"Add Oui" forState:UIControlStateNormal];
         [self.actionButton setTag:0];
+        [self.done setHidden:TRUE];
+        [self.doneLabel setHidden:TRUE];
     }
 }
 
@@ -83,6 +87,12 @@
             [query whereKey:@"objectId" equalTo:self.ouiItemId];
             [query getFirstObjectInBackgroundWithBlock:^(PFObject *ouiItem, NSError *error) {
                 if (!error) {
+              
+                    if(self.done.isOn == 1){
+                        ouiItem[@"checked"] = [NSNumber numberWithBool:YES];
+                    }else{
+                        ouiItem[@"checked"] = [NSNumber numberWithBool:NO];
+                    }
                     
                     // Update rows
                     [ouiItem setObject:self.ouiItem.text forKey:@"title"];

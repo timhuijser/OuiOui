@@ -18,6 +18,8 @@
 @property (weak, nonatomic) NSString *invitedFriend;
 @property (weak, nonatomic) NSString *ouiItemId;
 @property (strong) NSObject *item;
+@property (weak, nonatomic) IBOutlet UISwitch *done;
+@property (weak, nonatomic) IBOutlet UILabel *doneLabel;
 
 - (IBAction)addOuiItem:(id)sender;
 
