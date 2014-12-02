@@ -11,10 +11,14 @@
 @interface FollowFriendViewController : UIViewController
 
 @property (strong) NSObject *item;
-@property (weak, nonatomic) IBOutlet UILabel *name;
 @property (strong, nonatomic) NSMutableArray *profilePicData;
-@property (weak, nonatomic) IBOutlet UIButton *followButton;
+@property (strong, nonatomic) NSMutableArray *followData;
 @property (weak, nonatomic) NSString *objectId;
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UIButton *followButton;
+
 - (IBAction)follow:(id)sender;
 
 @end
