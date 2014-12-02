@@ -28,8 +28,8 @@
     // Get number of followers from Parse.
     [self queryFollowing];
     
-    // Default value of type to show.
-    self.bucketlistItemTypeToShow = @"Uncompleted";
+    // Retrieve uncompleted OuiItem data from Parse.
+    [self retrieveOuiItemData:@"Uncompleted"];
     
 }
 
@@ -41,33 +41,64 @@
     }];
 }
 
+-(void)retrieveOuiItemData:(NSString *)inputType{
+    
+    // Get current user
+    PFUser *user = [PFUser currentUser];
+    
+    // Get ouiItems query
+    PFQuery *ouiItems = [PFQuery queryWithClassName:@"OuiItem"];
+    [ouiItems whereKey:@"user" equalTo:user];
+    
+    // Check if type is true
+    if([inputType isEqualToString:@"Uncompleted"]){
+        [ouiItems whereKey:@"checked" equalTo:[NSNumber numberWithBool:NO]];
+    }else{
+        [ouiItems whereKey:@"checked" equalTo:[NSNumber numberWithBool:YES]];
+    }
+    
+    [ouiItems orderByDescending:@"createdAt"];
+    ouiItems.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    [ouiItems findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (objects){
+            // Set objects in ouItemsDB array
+            self.ouiItemsDB = [[NSMutableArray alloc] initWithArray:objects];
+            
+            // Reload tableview
+            [self.bucketlistItemTableView reloadData];
+        }else{
+            NSLog(@"error");
+        }
+    }];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 25;
+    // Return the number of rows in the section
+    return self.ouiItemsDB.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"uncompletedBucketlistCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bucketlistCell" forIndexPath:indexPath];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"uncompletedBucketlistCell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"bucketlistCell"];
     }
     
-    if ([self.bucketlistItemTypeToShow isEqualToString:@"Uncompleted"]) {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", @"Uncompleted title", [NSString stringWithFormat:@"%d", indexPath.row]];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", @"Uncompleted Subtitle", [NSString stringWithFormat:@"%d", indexPath.row]];
-    } else if ([self.bucketlistItemTypeToShow isEqualToString:@"Completed"]) {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", @"Completed title", [NSString stringWithFormat:@"%d", indexPath.row]];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", @"Completed Subtitle", [NSString stringWithFormat:@"%d", indexPath.row]];
-    }
+    // Set array in temp object
+    PFObject *tempObject = [self.ouiItemsDB objectAtIndex:indexPath.row];
+    
+    // Set text label title
+    cell.textLabel.text = [tempObject objectForKey:@"title"];
     
     return cell;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -164,4 +195,16 @@
     return UIStatusBarStyleLightContent;
 }
 
+- (IBAction)bucketListSegmentControl:(id)sender {
+    
+    if (self.bucketlistSegmentControlOutlet.selectedSegmentIndex == 0) {
+        [self retrieveOuiItemData:@"Uncompleted"];
+    } else if (self.bucketlistSegmentControlOutlet.selectedSegmentIndex == 1) {
+        [self retrieveOuiItemData:@"Completed"];
+    }
+    
+    [self.bucketlistItemTableView reloadData];
+
+    
+}
 @end
