@@ -93,8 +93,6 @@
     }];
 }
 
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1;
@@ -119,21 +117,6 @@
     cell.textLabel.text = [tempObject objectForKey:@"title"];
     
     return cell;
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-
-    if([[segue identifier] isEqualToString:@"showDetail"]){
-        
-        // Get selected row
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        
-        // Get object out of ouiItems
-        NSManagedObjectModel *selectedItem = [ouiItemsDB objectAtIndex:indexPath.row];
-        
-        OuiItemViewController *destViewController = segue.destinationViewController;
-        destViewController.item = selectedItem;
-    }
 }
 
 // Delete item
@@ -171,8 +154,21 @@
             NSLog(@"Error: %@", error);
         }
     }];
+}
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
+    if([[segue identifier] isEqualToString:@"showDetail"]){
+        
+        // Get selected row
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        // Get object out of ouiItems
+        NSArray *selectedItem = [ouiItemsDB objectAtIndex:indexPath.row];
+        
+        OuiItemViewController *destViewController = segue.destinationViewController;
+        destViewController.item = selectedItem;
+    }
 }
 
 @end
