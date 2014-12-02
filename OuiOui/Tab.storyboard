@@ -597,10 +597,10 @@
             </objects>
             <point key="canvasLocation" x="765" y="518"/>
         </scene>
-        <!--Profile Overview View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="jEh-hq-c9G">
             <objects>
-                <viewController storyboardIdentifier="profile" id="U7F-XS-el4" customClass="ProfileOverviewViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profile" id="U7F-XS-el4" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YiS-ZL-VHB"/>
                         <viewControllerLayoutGuide type="bottom" id="fCh-WZ-doA"/>
@@ -710,14 +710,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="br2-7o-3wi"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="followersNumberLabel" destination="in3-pC-VDE" id="Hyt-wx-ita"/>
-                        <outlet property="followingNumberLabel" destination="z6B-Ax-8jJ" id="HxI-5O-GwG"/>
-                        <outlet property="ouiItemNumberLabel" destination="yVp-Zc-SGs" id="d5Y-2G-4Rh"/>
-                        <outlet property="profileImageBlurredImage" destination="djh-JU-lQ6" id="bH7-EW-iwe"/>
-                        <outlet property="profileImageDetailImage" destination="jUg-xN-hIV" id="aCw-ka-EyK"/>
-                        <outlet property="profileNameLabel" destination="Vly-06-gc4" id="MUQ-9k-Qd0"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvh-3E-T0k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

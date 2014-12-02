@@ -18,10 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Profile" bundle:nil];
-    UIViewController *obj=[storyboard instantiateViewControllerWithIdentifier:@"profile"];
-    [self.navigationController pushViewController:obj animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {

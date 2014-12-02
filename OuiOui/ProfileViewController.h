@@ -9,6 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ProfileViewController : UIViewController
-- (IBAction)logoutButton:(id)sender;
 
 @end
