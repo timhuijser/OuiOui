@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0459AE971A2DF506007C8E61 /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0459AE921A2DF4D8007C8E61 /* libGPUImage.a */; };
 		0491CA441A1B5798006C4A27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491CA431A1B5798006C4A27 /* main.m */; };
 		0491CA471A1B5798006C4A27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491CA461A1B5798006C4A27 /* AppDelegate.m */; };
 		0491CA501A1B5798006C4A27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0491CA4E1A1B5798006C4A27 /* Main.storyboard */; };
@@ -24,7 +25,6 @@
 		04FEC91A1A24A6A1004E564D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FEC9191A24A6A1004E564D /* CoreMedia.framework */; };
 		04FEC91C1A24A6AA004E564D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FEC91B1A24A6AA004E564D /* CoreVideo.framework */; };
 		04FEC91E1A24A6B1004E564D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FEC91D1A24A6B1004E564D /* SystemConfiguration.framework */; };
-		04FEC9201A24A6B8004E564D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FEC91F1A24A6B8004E564D /* StoreKit.framework */; };
 		04FEC9221A24A6BF004E564D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FEC9211A24A6BF004E564D /* Security.framework */; };
 		04FEC9241A24A6CB004E564D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FEC9231A24A6CB004E564D /* MobileCoreServices.framework */; };
 		04FEC9261A24A6D2004E564D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FEC9251A24A6D2004E564D /* CoreLocation.framework */; };
@@ -58,6 +58,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0459AE911A2DF4D8007C8E61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0459AE8B1A2DF4D8007C8E61 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		0459AE931A2DF4D8007C8E61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0459AE8B1A2DF4D8007C8E61 /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
+		};
+		0459AE951A2DF4F6007C8E61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0459AE8B1A2DF4D8007C8E61 /* GPUImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BCF1A33314DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
 		0491CA5B1A1B5798006C4A27 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0491CA361A1B5798006C4A27 /* Project object */;
@@ -68,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0459AE8B1A2DF4D8007C8E61 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = Submodules/GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		0491CA3E1A1B5798006C4A27 /* OuiOui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OuiOui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0491CA421A1B5798006C4A27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0491CA431A1B5798006C4A27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -90,7 +112,6 @@
 		04FEC9191A24A6A1004E564D /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		04FEC91B1A24A6AA004E564D /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		04FEC91D1A24A6B1004E564D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		04FEC91F1A24A6B8004E564D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		04FEC9211A24A6BF004E564D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		04FEC9231A24A6CB004E564D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		04FEC9251A24A6D2004E564D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -135,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0459AE971A2DF506007C8E61 /* libGPUImage.a in Frameworks */,
 				04FEC9341A24A712004E564D /* libz.dylib in Frameworks */,
 				04FEC9321A24A701004E564D /* Foundation.framework in Frameworks */,
 				04FEC9301A24A6FA004E564D /* UIKit.framework in Frameworks */,
@@ -145,7 +167,6 @@
 				04FEC9261A24A6D2004E564D /* CoreLocation.framework in Frameworks */,
 				04FEC9241A24A6CB004E564D /* MobileCoreServices.framework in Frameworks */,
 				04FEC9221A24A6BF004E564D /* Security.framework in Frameworks */,
-				04FEC9201A24A6B8004E564D /* StoreKit.framework in Frameworks */,
 				04FEC91E1A24A6B1004E564D /* SystemConfiguration.framework in Frameworks */,
 				04FEC91C1A24A6AA004E564D /* CoreVideo.framework in Frameworks */,
 				04FEC91A1A24A6A1004E564D /* CoreMedia.framework in Frameworks */,
@@ -153,9 +174,9 @@
 				04FEC9161A24A691004E564D /* AVFoundation.framework in Frameworks */,
 				04FEC9141A24A68A004E564D /* QuartzCore.framework in Frameworks */,
 				04FEC9111A24A5C3004E564D /* Bolts.framework in Frameworks */,
+				04FEC9121A24A5C3004E564D /* ParseFacebookUtils.framework in Frameworks */,
 				04FEC9101A24A5C3004E564D /* ParseUI.framework in Frameworks */,
 				04FEC9381A24B395004E564D /* FacebookSDK.framework in Frameworks */,
-				04FEC9121A24A5C3004E564D /* ParseFacebookUtils.framework in Frameworks */,
 				04FEC90F1A24A5C3004E564D /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,6 +238,15 @@
 			name = Timeline;
 			sourceTree = "<group>";
 		};
+		0459AE8C1A2DF4D8007C8E61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0459AE921A2DF4D8007C8E61 /* libGPUImage.a */,
+				0459AE941A2DF4D8007C8E61 /* GPUImage.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		0491CA351A1B5798006C4A27 = {
 			isa = PBXGroup;
 			children = (
@@ -239,9 +269,8 @@
 		0491CA401A1B5798006C4A27 /* OuiOui */ = {
 			isa = PBXGroup;
 			children = (
-				0459AE411A2DD630007C8E61 /* Controllers */,
-				04FEC9061A249AE3004E564D /* Classes */,
 				04FEC9051A249ADA004E564D /* Storyboard */,
+				0459AE411A2DD630007C8E61 /* Controllers */,
 				0491CA511A1B5798006C4A27 /* Images.xcassets */,
 				0491CA411A1B5798006C4A27 /* Supporting Files */,
 			);
@@ -285,16 +314,10 @@
 			name = Storyboard;
 			sourceTree = "<group>";
 		};
-		04FEC9061A249AE3004E564D /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Classes;
-			sourceTree = "<group>";
-		};
 		04FEC90A1A24A5A1004E564D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0459AE8B1A2DF4D8007C8E61 /* GPUImage.xcodeproj */,
 				04FEC9371A24B395004E564D /* FacebookSDK.framework */,
 				04FEC9331A24A712004E564D /* libz.dylib */,
 				04FEC9311A24A701004E564D /* Foundation.framework */,
@@ -306,7 +329,6 @@
 				04FEC9251A24A6D2004E564D /* CoreLocation.framework */,
 				04FEC9231A24A6CB004E564D /* MobileCoreServices.framework */,
 				04FEC9211A24A6BF004E564D /* Security.framework */,
-				04FEC91F1A24A6B8004E564D /* StoreKit.framework */,
 				04FEC91D1A24A6B1004E564D /* SystemConfiguration.framework */,
 				04FEC91B1A24A6AA004E564D /* CoreVideo.framework */,
 				04FEC9191A24A6A1004E564D /* CoreMedia.framework */,
@@ -362,6 +384,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				0459AE961A2DF4F6007C8E61 /* PBXTargetDependency */,
 			);
 			name = OuiOui;
 			productName = OuiOui;
@@ -398,6 +421,11 @@
 					0491CA3D1A1B5798006C4A27 = {
 						CreatedOnToolsVersion = 6.1;
 						DevelopmentTeam = 5Y5NPSWUP9;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					0491CA591A1B5798006C4A27 = {
 						CreatedOnToolsVersion = 6.1;
@@ -417,6 +445,12 @@
 			mainGroup = 0491CA351A1B5798006C4A27;
 			productRefGroup = 0491CA3F1A1B5798006C4A27 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 0459AE8C1A2DF4D8007C8E61 /* Products */;
+					ProjectRef = 0459AE8B1A2DF4D8007C8E61 /* GPUImage.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0491CA3D1A1B5798006C4A27 /* OuiOui */,
@@ -424,6 +458,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		0459AE921A2DF4D8007C8E61 /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = 0459AE911A2DF4D8007C8E61 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0459AE941A2DF4D8007C8E61 /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 0459AE931A2DF4D8007C8E61 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0491CA3C1A1B5798006C4A27 /* Resources */ = {
@@ -486,6 +537,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0459AE961A2DF4F6007C8E61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GPUImage;
+			targetProxy = 0459AE951A2DF4F6007C8E61 /* PBXContainerItemProxy */;
+		};
 		0491CA5C1A1B5798006C4A27 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0491CA3D1A1B5798006C4A27 /* OuiOui */;
@@ -596,8 +652,14 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"Submodules/GPUImage/framework/**",
 					/Users/PaulHeijmans/Documents/FacebookSDK,
 					/Users/TimHuijser/Documents/FacebookSDK,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"Submodules/GPUImage/framework/**",
 				);
 				INFOPLIST_FILE = OuiOui/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -613,8 +675,14 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"Submodules/GPUImage/framework/**",
 					/Users/PaulHeijmans/Documents/FacebookSDK,
 					/Users/TimHuijser/Documents/FacebookSDK,
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"Submodules/GPUImage/framework/**",
 				);
 				INFOPLIST_FILE = OuiOui/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
