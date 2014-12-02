@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "ProfileSettingsViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "GPUImage.h"
 #import "Parse/Parse.h"
@@ -28,8 +29,8 @@
     // Get number of followers from Parse.
     [self queryFollowing];
     
-    // Default value of type to show.
-    self.bucketlistItemTypeToShow = @"Uncompleted";
+    // Retrieve uncompleted OuiItem data from Parse as default behaviour.
+    [self retrieveOuiItemData:@"Uncompleted"];
     
 }
 
@@ -47,32 +48,36 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 25;
+    // Return the number of rows in the section
+    return self.ouiItemsDB.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"uncompletedBucketlistCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bucketlistCell" forIndexPath:indexPath];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"uncompletedBucketlistCell"];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"bucketlistCell"];
     }
     
-    if ([self.bucketlistItemTypeToShow isEqualToString:@"Uncompleted"]) {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", @"Uncompleted title", [NSString stringWithFormat:@"%d", indexPath.row]];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", @"Uncompleted Subtitle", [NSString stringWithFormat:@"%d", indexPath.row]];
-    } else if ([self.bucketlistItemTypeToShow isEqualToString:@"Completed"]) {
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", @"Completed title", [NSString stringWithFormat:@"%d", indexPath.row]];
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", @"Completed Subtitle", [NSString stringWithFormat:@"%d", indexPath.row]];
-    }
+    // Set array in temp object
+    PFObject *tempObject = [self.ouiItemsDB objectAtIndex:indexPath.row];
+    
+    // Set text label title
+    cell.textLabel.text = [tempObject objectForKey:@"title"];
     
     return cell;
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// Light status bar.
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)queryProfileImageAndSetViews {
@@ -101,19 +106,19 @@
                 
                 if (!error) {
                     
-                    UIImage *profilePicture = [UIImage imageWithData:data];
+                    self.profilePicture = [UIImage imageWithData:data];
                     
                     self.profileImage.layer.cornerRadius = 65;
                     self.profileImage.layer.masksToBounds = YES;
                     self.profileImage.layer.borderColor = [UIColor whiteColor].CGColor;
                     self.profileImage.layer.borderWidth = 3.0;
                     
-                    [self.profileImage setImage:profilePicture];
+                    [self.profileImage setImage:self.profilePicture];
                     
                     GPUImageiOSBlurFilter *stillImageFilter2 = [[GPUImageiOSBlurFilter alloc] init];
                     [(GPUImageiOSBlurFilter*)stillImageFilter2 setBlurRadiusInPixels:16.0f];
                     [(GPUImageiOSBlurFilter*)stillImageFilter2 setRangeReductionFactor:0.1f];
-                    UIImage *quickFilteredImage = [stillImageFilter2 imageByFilteringImage:profilePicture];
+                    UIImage *quickFilteredImage = [stillImageFilter2 imageByFilteringImage:self.profilePicture];
                     
                     self.blurProfileImage.layer.masksToBounds = YES;
                     [self.blurProfileImage setImage:quickFilteredImage];
@@ -160,8 +165,60 @@
     
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
+-(void)retrieveOuiItemData:(NSString *)inputType{
+    
+    // Get current user
+    PFUser *user = [PFUser currentUser];
+    
+    // Get ouiItems query
+    PFQuery *ouiItems = [PFQuery queryWithClassName:@"OuiItem"];
+    [ouiItems whereKey:@"user" equalTo:user];
+    
+    // Check if type is true
+    if([inputType isEqualToString:@"Uncompleted"]){
+        [ouiItems whereKey:@"checked" equalTo:[NSNumber numberWithBool:NO]];
+    }else{
+        [ouiItems whereKey:@"checked" equalTo:[NSNumber numberWithBool:YES]];
+    }
+    
+    [ouiItems orderByDescending:@"createdAt"];
+    ouiItems.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    [ouiItems findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (objects){
+            // Set objects in ouItemsDB array
+            self.ouiItemsDB = [[NSMutableArray alloc] initWithArray:objects];
+            
+            // Reload tableview
+            [self.bucketlistItemTableView reloadData];
+        }else{
+            NSLog(@"error");
+        }
+    }];
 }
 
+- (IBAction)bucketListSegmentControl:(id)sender {
+    
+    if (self.bucketlistSegmentControlOutlet.selectedSegmentIndex == 0) {
+        [self retrieveOuiItemData:@"Uncompleted"];
+    } else if (self.bucketlistSegmentControlOutlet.selectedSegmentIndex == 1) {
+        [self retrieveOuiItemData:@"Completed"];
+    }
+    
+    [self.bucketlistItemTableView reloadData];
+
+    
+}
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"profileToProfileSettings"]) {
+        
+        ProfileSettingsViewController *profileSettingsController = [segue destinationViewController];
+        profileSettingsController.profilePicture = self.profilePicture;
+        
+    }
+    
+}
 @end

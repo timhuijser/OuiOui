@@ -854,6 +854,9 @@
                                     <segment title="Completed"/>
                                 </segments>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="bucketListSegmentControl:" destination="U7F-XS-el4" eventType="valueChanged" id="FE4-pf-ZJa"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="U8P-3C-lED">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -889,13 +892,34 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Tgf-FE-h0E">
                                 <rect key="frame" x="0.0" y="283" width="320" height="148"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="bucketlistCell" id="crt-zU-ATX">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="crt-zU-ATX" id="6uF-pK-9id">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="U7F-XS-el4" id="kT8-9K-7qw"/>
+                                    <outlet property="delegate" destination="U7F-XS-el4" id="9jd-h0-eW8"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vly-06-gc4">
-                                <rect key="frame" x="230" y="153" width="42" height="21"/>
+                                <rect key="frame" x="139" y="153" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.45098039220000002" green="0.38823529410000002" blue="0.3411764706" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nX1-w8-SFn">
+                                <rect key="frame" x="247" y="20" width="57" height="30"/>
+                                <state key="normal" title="Settings">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="shh-dk-zp3" kind="show" identifier="profileToProfileSettings" id="vaw-Mo-AvM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -918,8 +942,8 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="blurProfileImage" destination="djh-JU-lQ6" id="XCW-Mr-00E"/>
-                        <outlet property="bucketlistItemTableView" destination="Tgf-FE-h0E" id="dPq-ks-bh3"/>
-                        <outlet property="bucketlistSegmentControlOutlet" destination="H6s-Xm-uOq" id="xlK-Tn-WZc"/>
+                        <outlet property="bucketlistItemTableView" destination="Tgf-FE-h0E" id="VUv-HF-lHM"/>
+                        <outlet property="bucketlistSegmentControlOutlet" destination="H6s-Xm-uOq" id="aJy-w9-0BP"/>
                         <outlet property="followersCountLabel" destination="in3-pC-VDE" id="QBT-dO-In6"/>
                         <outlet property="followingCountLabel" destination="z6B-Ax-8jJ" id="Egg-8h-Wxn"/>
                         <outlet property="nameLabel" destination="Vly-06-gc4" id="sSo-kO-bcl"/>
@@ -945,6 +969,128 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blI-kK-hm6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="765" y="-111"/>
+        </scene>
+        <!--Profile Settings View Controller-->
+        <scene sceneID="hQk-mL-Zed">
+            <objects>
+                <viewController id="shh-dk-zp3" customClass="ProfileSettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Rr-SD-AKP"/>
+                        <viewControllerLayoutGuide type="bottom" id="3U1-dZ-N4A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4z7-RF-BxP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vgi-Ih-kBJ">
+                                <rect key="frame" x="258" y="20" width="40" height="30"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeSettingsButton:" destination="shh-dk-zp3" eventType="touchUpInside" id="jW2-UX-DOa"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aTi-6q-HX7">
+                                <rect key="frame" x="16" y="61" width="150" height="146"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="1i0-H4-2uL"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="189" id="JcJ-TB-V4G"/>
+                                    <constraint firstAttribute="height" constant="165" id="LIT-IY-Jzd"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="189" id="zo9-Kr-MoI"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="JcJ-TB-V4G"/>
+                                        <exclude reference="zo9-Kr-MoI"/>
+                                        <exclude reference="LIT-IY-Jzd"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lA-O5-9Fm">
+                                <rect key="frame" x="16" y="215" width="136" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Aky-gL-2W5"/>
+                                    <constraint firstAttribute="height" constant="50" id="FCx-c8-ytT"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="L3N-wV-ZrG"/>
+                                </constraints>
+                                <color key="tintColor" red="0.36470588240000001" green="0.36470588240000001" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Take Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="L3N-wV-ZrG"/>
+                                        <exclude reference="Aky-gL-2W5"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="takePhotoButton:" destination="shh-dk-zp3" eventType="touchUpInside" id="OZb-Jk-gvD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdC-CA-v4R">
+                                <rect key="frame" x="168" y="215" width="136" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="NeI-SQ-oTh"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="WUj-sI-Qmt"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="yeF-eC-C3X"/>
+                                </constraints>
+                                <color key="tintColor" red="0.36470588240000001" green="0.36470588240000001" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Pick Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="WUj-sI-Qmt"/>
+                                        <exclude reference="yeF-eC-C3X"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="pickPhotoButton:" destination="shh-dk-zp3" eventType="touchUpInside" id="suU-Xr-R0J"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZ2-Uv-WVJ">
+                                <rect key="frame" x="92" y="299" width="136" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="Ept-Xc-7aN"/>
+                                    <constraint firstAttribute="height" constant="50" id="XFW-4b-YY8"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="j7A-ha-V6D"/>
+                                </constraints>
+                                <color key="tintColor" red="0.36470588240000001" green="0.36470588240000001" blue="0.36470588240000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ept-Xc-7aN"/>
+                                        <exclude reference="j7A-ha-V6D"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="logoutButton:" destination="shh-dk-zp3" eventType="touchUpInside" id="GXk-UL-dZg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.71916646018119201" green="1" blue="0.85683683417906686" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="1lA-O5-9Fm" firstAttribute="top" secondItem="aTi-6q-HX7" secondAttribute="bottom" constant="8" id="33u-zN-4V6"/>
+                            <constraint firstItem="aTi-6q-HX7" firstAttribute="leading" secondItem="4z7-RF-BxP" secondAttribute="leadingMargin" id="6Jf-9T-Uvu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aTi-6q-HX7" secondAttribute="trailing" constant="138" id="QtV-n7-Eh3"/>
+                            <constraint firstItem="fdC-CA-v4R" firstAttribute="top" secondItem="Vgi-Ih-kBJ" secondAttribute="bottom" constant="165" id="aZT-dK-hhY"/>
+                            <constraint firstItem="cZ2-Uv-WVJ" firstAttribute="top" secondItem="fdC-CA-v4R" secondAttribute="bottom" constant="34" id="okR-aE-5AI"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="profileImageView" destination="aTi-6q-HX7" id="gYa-gD-Tkb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DuJ-Ac-hO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1712" y="518"/>
         </scene>
     </scenes>
     <resources>

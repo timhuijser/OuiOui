@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Parse/Parse.h"
 
-@interface ProfileViewController : UIViewController
+@interface ProfileViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UIImageView *blurProfileImage;
 
@@ -19,13 +20,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *followingCountLabel;
 
 @property (weak, nonatomic) IBOutlet UITableView *bucketlistItemTableView;
+- (IBAction)bucketListSegmentControl:(id)sender;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *bucketlistSegmentControlOutlet;
 
 @property PFUser *userToShow;
-
+@property NSMutableArray *ouiItemsDB;
 @property UIImage *profilePicture;
 
-@property NSString *bucketlistItemTypeToShow;
 @property NSMutableArray *followingUsersArray;
 @property NSMutableArray *followersUsersArray;
 
