@@ -7,6 +7,7 @@
 //
 
 #import "ProfileViewController.h"
+#import "ProfileSettingsViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "GPUImage.h"
 #import "Parse/Parse.h"
@@ -105,19 +106,19 @@
                 
                 if (!error) {
                     
-                    UIImage *profilePicture = [UIImage imageWithData:data];
+                    self.profilePicture = [UIImage imageWithData:data];
                     
                     self.profileImage.layer.cornerRadius = 65;
                     self.profileImage.layer.masksToBounds = YES;
                     self.profileImage.layer.borderColor = [UIColor whiteColor].CGColor;
                     self.profileImage.layer.borderWidth = 3.0;
                     
-                    [self.profileImage setImage:profilePicture];
+                    [self.profileImage setImage:self.profilePicture];
                     
                     GPUImageiOSBlurFilter *stillImageFilter2 = [[GPUImageiOSBlurFilter alloc] init];
                     [(GPUImageiOSBlurFilter*)stillImageFilter2 setBlurRadiusInPixels:16.0f];
                     [(GPUImageiOSBlurFilter*)stillImageFilter2 setRangeReductionFactor:0.1f];
-                    UIImage *quickFilteredImage = [stillImageFilter2 imageByFilteringImage:profilePicture];
+                    UIImage *quickFilteredImage = [stillImageFilter2 imageByFilteringImage:self.profilePicture];
                     
                     self.blurProfileImage.layer.masksToBounds = YES;
                     [self.blurProfileImage setImage:quickFilteredImage];
@@ -206,6 +207,18 @@
     
     [self.bucketlistItemTableView reloadData];
 
+    
+}
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"profileToProfileSettings"]) {
+        
+        ProfileSettingsViewController *profileSettingsController = [segue destinationViewController];
+        profileSettingsController.profilePicture = self.profilePicture;
+        
+    }
     
 }
 @end

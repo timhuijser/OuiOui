@@ -25,6 +25,7 @@
 
 @property PFUser *userToShow;
 @property NSMutableArray *ouiItemsDB;
+@property UIImage *profilePicture;
 
 @property NSMutableArray *followingUsersArray;
 @property NSMutableArray *followersUsersArray;
