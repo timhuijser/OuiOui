@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0459AE3D1A2C6D98007C8E61 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0459AE3C1A2C6D98007C8E61 /* Profile.storyboard */; };
 		0459AE401A2C76CF007C8E61 /* ProfileOverviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459AE3F1A2C76CF007C8E61 /* ProfileOverviewViewController.m */; };
 		0491CA441A1B5798006C4A27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491CA431A1B5798006C4A27 /* main.m */; };
 		0491CA471A1B5798006C4A27 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491CA461A1B5798006C4A27 /* AppDelegate.m */; };
@@ -70,7 +69,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0459AE3C1A2C6D98007C8E61 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		0459AE3E1A2C76CF007C8E61 /* ProfileOverviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileOverviewViewController.h; sourceTree = "<group>"; };
 		0459AE3F1A2C76CF007C8E61 /* ProfileOverviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileOverviewViewController.m; sourceTree = "<group>"; };
 		0491CA3E1A1B5798006C4A27 /* OuiOui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OuiOui.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -256,7 +254,6 @@
 			children = (
 				0491CA4E1A1B5798006C4A27 /* Main.storyboard */,
 				04FEC9071A249D4B004E564D /* Tab.storyboard */,
-				0459AE3C1A2C6D98007C8E61 /* Profile.storyboard */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -419,7 +416,6 @@
 				04FEC9081A249D4B004E564D /* Tab.storyboard in Resources */,
 				D9AAD8811A24E3EB007E794E /* background-new-Oui-item.png in Resources */,
 				D9A69D8F1A237C8700540EF1 /* OuiOui-icon-29pt-2.png in Resources */,
-				0459AE3D1A2C6D98007C8E61 /* Profile.storyboard in Resources */,
 				D9AAD8661A24B1D3007E794E /* OuiOui.png in Resources */,
 				D9A69D961A237D7E00540EF1 /* OuiOui-icon-60pt-3.png in Resources */,
 				D9A69D981A237D8200540EF1 /* OuiOui-icon-60pt-2.png in Resources */,
