@@ -28,7 +28,7 @@
     // Get number of followers from Parse.
     [self queryFollowing];
     
-    // Retrieve uncompleted OuiItem data from Parse.
+    // Retrieve uncompleted OuiItem data from Parse as default behaviour.
     [self retrieveOuiItemData:@"Uncompleted"];
     
 }
@@ -38,38 +38,6 @@
    
     [[PFUser currentUser] fetchIfNeededInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         self.nameLabel.text = [[PFUser currentUser] valueForKey:@"name"];
-    }];
-}
-
--(void)retrieveOuiItemData:(NSString *)inputType{
-    
-    // Get current user
-    PFUser *user = [PFUser currentUser];
-    
-    // Get ouiItems query
-    PFQuery *ouiItems = [PFQuery queryWithClassName:@"OuiItem"];
-    [ouiItems whereKey:@"user" equalTo:user];
-    
-    // Check if type is true
-    if([inputType isEqualToString:@"Uncompleted"]){
-        [ouiItems whereKey:@"checked" equalTo:[NSNumber numberWithBool:NO]];
-    }else{
-        [ouiItems whereKey:@"checked" equalTo:[NSNumber numberWithBool:YES]];
-    }
-    
-    [ouiItems orderByDescending:@"createdAt"];
-    ouiItems.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    [ouiItems findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        if (objects){
-            // Set objects in ouItemsDB array
-            self.ouiItemsDB = [[NSMutableArray alloc] initWithArray:objects];
-            
-            // Reload tableview
-            [self.bucketlistItemTableView reloadData];
-        }else{
-            NSLog(@"error");
-        }
     }];
 }
 
@@ -104,6 +72,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// Light status bar.
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)queryProfileImageAndSetViews {
@@ -191,8 +164,36 @@
     
 }
 
--(UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
+-(void)retrieveOuiItemData:(NSString *)inputType{
+    
+    // Get current user
+    PFUser *user = [PFUser currentUser];
+    
+    // Get ouiItems query
+    PFQuery *ouiItems = [PFQuery queryWithClassName:@"OuiItem"];
+    [ouiItems whereKey:@"user" equalTo:user];
+    
+    // Check if type is true
+    if([inputType isEqualToString:@"Uncompleted"]){
+        [ouiItems whereKey:@"checked" equalTo:[NSNumber numberWithBool:NO]];
+    }else{
+        [ouiItems whereKey:@"checked" equalTo:[NSNumber numberWithBool:YES]];
+    }
+    
+    [ouiItems orderByDescending:@"createdAt"];
+    ouiItems.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    [ouiItems findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (objects){
+            // Set objects in ouItemsDB array
+            self.ouiItemsDB = [[NSMutableArray alloc] initWithArray:objects];
+            
+            // Reload tableview
+            [self.bucketlistItemTableView reloadData];
+        }else{
+            NSLog(@"error");
+        }
+    }];
 }
 
 - (IBAction)bucketListSegmentControl:(id)sender {
