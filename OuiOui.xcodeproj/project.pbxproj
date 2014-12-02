@@ -37,6 +37,8 @@
 		04FEC9341A24A712004E564D /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FEC9331A24A712004E564D /* libz.dylib */; };
 		04FEC9381A24B395004E564D /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FEC9371A24B395004E564D /* FacebookSDK.framework */; };
 		04FEC93D1A25CA56004E564D /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEC93C1A25CA56004E564D /* ProfileViewController.m */; };
+		D92024F61A2DF04600280614 /* FollowFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92024F51A2DF04600280614 /* FollowFriendViewController.m */; };
+		D92024FF1A2DFC3A00280614 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92024FE1A2DFC3A00280614 /* SearchViewController.m */; };
 		D9A69D881A2336E300540EF1 /* Fb-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A69D871A2336E300540EF1 /* Fb-icon.png */; };
 		D9A69D8F1A237C8700540EF1 /* OuiOui-icon-29pt-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A69D8D1A237C8700540EF1 /* OuiOui-icon-29pt-2.png */; };
 		D9A69D901A237C8700540EF1 /* OuiOui-icon-40pt-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A69D8E1A237C8700540EF1 /* OuiOui-icon-40pt-2.png */; };
@@ -104,6 +106,10 @@
 		04FEC9371A24B395004E564D /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		04FEC93B1A25CA56004E564D /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		04FEC93C1A25CA56004E564D /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		D92024F41A2DF04600280614 /* FollowFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowFriendViewController.h; sourceTree = "<group>"; };
+		D92024F51A2DF04600280614 /* FollowFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowFriendViewController.m; sourceTree = "<group>"; };
+		D92024FD1A2DFC3A00280614 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		D92024FE1A2DFC3A00280614 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		D9A69D871A2336E300540EF1 /* Fb-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fb-icon.png"; sourceTree = "<group>"; };
 		D9A69D8D1A237C8700540EF1 /* OuiOui-icon-29pt-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OuiOui-icon-29pt-2.png"; sourceTree = "<group>"; };
 		D9A69D8E1A237C8700540EF1 /* OuiOui-icon-40pt-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OuiOui-icon-40pt-2.png"; sourceTree = "<group>"; };
@@ -173,6 +179,7 @@
 		0459AE411A2DD630007C8E61 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D92024F01A2DE70E00280614 /* Friends */,
 				0491CA451A1B5798006C4A27 /* AppDelegate.h */,
 				0491CA461A1B5798006C4A27 /* AppDelegate.m */,
 				0459AE431A2DD655007C8E61 /* Profile */,
@@ -319,6 +326,17 @@
 				04FEC90E1A24A5C3004E564D /* ParseFacebookUtils.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D92024F01A2DE70E00280614 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				D92024FD1A2DFC3A00280614 /* SearchViewController.h */,
+				D92024FE1A2DFC3A00280614 /* SearchViewController.m */,
+				D92024F41A2DF04600280614 /* FollowFriendViewController.h */,
+				D92024F51A2DF04600280614 /* FollowFriendViewController.m */,
+			);
+			name = Friends;
 			sourceTree = "<group>";
 		};
 		D9A69D8C1A237C7F00540EF1 /* icons */ = {
@@ -472,6 +490,8 @@
 				0491CA441A1B5798006C4A27 /* main.m in Sources */,
 				D9A81F0F1A2C8A920005DEDE /* AddFriendViewController.m in Sources */,
 				D9AAD8701A24BDF2007E794E /* TimelineViewController.m in Sources */,
+				D92024FF1A2DFC3A00280614 /* SearchViewController.m in Sources */,
+				D92024F61A2DF04600280614 /* FollowFriendViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
