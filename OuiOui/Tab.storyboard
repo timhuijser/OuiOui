@@ -1002,8 +1002,8 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="JcJ-TB-V4G"/>
-                                        <exclude reference="zo9-Kr-MoI"/>
                                         <exclude reference="LIT-IY-Jzd"/>
+                                        <exclude reference="zo9-Kr-MoI"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -1021,8 +1021,8 @@
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="L3N-wV-ZrG"/>
                                         <exclude reference="Aky-gL-2W5"/>
+                                        <exclude reference="L3N-wV-ZrG"/>
                                     </mask>
                                 </variation>
                                 <connections>
