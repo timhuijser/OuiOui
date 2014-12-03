@@ -62,13 +62,13 @@
     // Get current user
     PFUser *user = [PFUser currentUser];
     
-    // Get ouiItems query
-    PFQuery *ouiItems = [PFQuery queryWithClassName:@"Follow"];
-    [ouiItems whereKey:@"user1" equalTo:user];
+    // Get followers query
+    PFQuery *followers = [PFQuery queryWithClassName:@"Follow"];
+    [followers whereKey:@"user1" equalTo:user];
     
-    [ouiItems orderByDescending:@"createdAt"];
-    ouiItems.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    [ouiItems findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    [followers orderByDescending:@"createdAt"];
+    followers.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    [followers findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         if (objects){
             // Set objects in ouItemsDB array

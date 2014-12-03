@@ -11,6 +11,7 @@
 @interface AddFriendViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (nonatomic) NSArray *friendsArray;
+
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UIPickerView *friendPicker;
 @property (weak, nonatomic) IBOutlet UITextField *friendText;

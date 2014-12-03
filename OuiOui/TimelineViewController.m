@@ -63,12 +63,43 @@
 }
 
 -(void)retrieveData:(NSString *)inputType{
+    
     // Get current user
     PFUser *user = [PFUser currentUser];
     
+    // Get followers query
+    PFQuery *followers = [PFQuery queryWithClassName:@"Follow"];
+    [followers whereKey:@"user1" equalTo:user];
+    
+    [followers orderByDescending:@"createdAt"];
+    followers.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    [followers findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (objects){
+            self.followersArray = [[NSMutableArray alloc] initWithArray:objects];
+           
+            // Set object id's in array
+            NSMutableArray *rawData=[NSMutableArray new];
+            [rawData addObject:user];
+            for (int i = 0; i < [self.followersArray count]; i++){
+                [rawData addObject:[[self.followersArray objectAtIndex:i] valueForKey:@"user2"]];
+            }
+            
+            self.users = rawData;
+           
+        }else{
+            NSLog(@"No followers");
+        }
+    }];
+    
     // Get ouiItems query
     PFQuery *ouiItems = [PFQuery queryWithClassName:@"OuiItem"];
-    [ouiItems whereKey:@"user" equalTo:user];
+    
+    if(self.followersArray){
+        [ouiItems whereKey:@"user" containedIn:self.users];
+    }else{
+        [ouiItems whereKey:@"user" equalTo:user];
+    }
     
     // Check if type is true
     if([inputType isEqualToString:@"true"]){
@@ -84,7 +115,7 @@
         if (objects){
             // Set objects in ouItemsDB array
             ouiItemsDB = [[NSMutableArray alloc] initWithArray:objects];
-            
+           
             // Reload tableview
             [self.tableView reloadData];
         }else{
@@ -121,39 +152,56 @@
 
 // Delete item
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+ 
     PFObject *tempObject = [ouiItemsDB objectAtIndex:indexPath.row];
-
-    PFQuery *query = [PFQuery queryWithClassName:@"OuiItem"];
-    [query whereKey:@"objectId" equalTo:tempObject.objectId];
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *ouiItem, NSError *error) {
-        if (!error) {
-
-            // Delete
-            if([ouiItem deleteInBackground]){
-                // Get back
-                if([[ouiItem objectForKey:@"checked"] isEqual:[NSNumber numberWithBool:NO]]){
-                    [self retrieveData:@"false"];
+ 
+    // Get current user
+    PFUser *user = [PFUser currentUser];
+    
+    // Check if user is owner of Oui item
+    if([[[tempObject valueForKey:@"user"] valueForKey:@"objectId"] isEqual:[user valueForKey:@"objectId"]]){
+        PFQuery *query = [PFQuery queryWithClassName:@"OuiItem"];
+        [query whereKey:@"objectId" equalTo:tempObject.objectId];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject *ouiItem, NSError *error) {
+            if (!error) {
+                
+                // Delete
+                if([ouiItem deleteInBackground]){
+                    // Get back
+                    if([[ouiItem objectForKey:@"checked"] isEqual:[NSNumber numberWithBool:NO]]){
+                        [self retrieveData:@"false"];
+                    }else{
+                        [self retrieveData:@"true"];
+                    }
+                    
                 }else{
-                    [self retrieveData:@"true"];
+                    // Can't save new Oui item
+                    UIAlertView *alert = [[UIAlertView alloc]
+                                          initWithTitle:@"Not deleted"
+                                          message:@"We could not delete your Oui item, try again."
+                                          delegate:nil
+                                          cancelButtonTitle:@"Okay"
+                                          otherButtonTitles:nil];
+                    
+                    [alert show];
                 }
                 
-            }else{
-                // Can't save new Oui item
-                UIAlertView *alert = [[UIAlertView alloc]
-                                      initWithTitle:@"Not deleted"
-                                      message:@"We could not delete your Oui item, try again."
-                                      delegate:nil
-                                      cancelButtonTitle:@"Okay"
-                                      otherButtonTitles:nil];
-                
-                [alert show];
+            } else {
+                // Did not find any ouiItem for the current user
+                NSLog(@"Error: %@", error);
             }
-            
-        } else {
-            // Did not find any ouiItem for the current user
-            NSLog(@"Error: %@", error);
-        }
-    }];
+        }];
+    }else{
+        // Can't save new Oui item
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"No no!"
+                              message:@"You can't delete Oui's from others!"
+                              delegate:nil
+                              cancelButtonTitle:@"Okay"
+                              otherButtonTitles:nil];
+        
+        [alert show];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

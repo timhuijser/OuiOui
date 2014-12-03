@@ -55,6 +55,22 @@
 
         self.doneLabel.text = @"Done";
         
+        // Get current user
+        PFUser *user = [PFUser currentUser];
+        
+        // Check if user owner is of item
+        if(![[[self.item valueForKey:@"user"] valueForKey:@"objectId"] isEqual:[user valueForKey:@"objectId"]]){
+            
+            // Enable input fields
+            self.ouiDescription.editable = NO;
+            
+            // Set action hidden
+            [self.actionButton setHidden:TRUE];
+            [self.done setHidden:TRUE];
+            [self.doneLabel setHidden:TRUE];
+        }
+        
+        
     }else{
         [self.actionButton setTitle:@"Add Oui" forState:UIControlStateNormal];
         [self.actionButton setTag:0];
@@ -83,6 +99,7 @@
         UIButton *button = (UIButton *)sender;
 
         if([button tag] == 1){
+            
             PFQuery *query = [PFQuery queryWithClassName:@"OuiItem"];
             [query whereKey:@"objectId" equalTo:self.ouiItemId];
             [query getFirstObjectInBackgroundWithBlock:^(PFObject *ouiItem, NSError *error) {

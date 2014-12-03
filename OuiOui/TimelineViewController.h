@@ -15,6 +15,9 @@
     IBOutlet UISegmentedControl *segmentControl;
 }
 
+@property (strong) NSMutableArray *followersArray;
+@property (strong) NSMutableArray *users;
+
 -(IBAction)segmentButton:(id)sender;
 
 
