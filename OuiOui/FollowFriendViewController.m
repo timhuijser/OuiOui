@@ -99,7 +99,7 @@
         [follow setObject:user forKey:@"user1"];
     
         follow[@"user2"] = self.item;
-        follow[@"email"] = [self.item valueForKey:@"email"];
+        follow[@"name"] = [self.item valueForKey:@"name"];
     
         // Save follow
         if([follow saveInBackground]){

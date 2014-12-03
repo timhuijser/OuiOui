@@ -94,6 +94,6 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     // Return emails followers
-    return [[self.friendsArray objectAtIndex:row] valueForKey:@"email"];
+    return [[self.friendsArray objectAtIndex:row] valueForKey:@"name"];
 }
 @end
