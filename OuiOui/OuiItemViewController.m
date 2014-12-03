@@ -123,10 +123,15 @@
             // Create new object
             PFObject *ouiItem = [PFObject objectWithClassName:@"OuiItem"];
             
-            // Get user
-            PFUser *user = [PFUser currentUser];
-            [ouiItem setObject:user forKey:@"user"];
-            
+            // Add for friend
+            if([self.addedFriend valueForKey:@"objectId"]){
+                [ouiItem setObject:[self.addedFriend valueForKey:@"objectId"] forKey:@"user"];
+            }else{
+                // Get user
+                PFUser *user = [PFUser currentUser];
+                [ouiItem setObject:user forKey:@"user"];
+            }
+
             // Set title and description
             ouiItem[@"title"] = self.ouiItem.text;
             ouiItem[@"descriptionItem"] = self.ouiDescription.text;
@@ -159,6 +164,7 @@
         
         if([self isValidEmail:friendsController.friendText.text]){
             NSLog(@"%@", friendsController.friendText.text);
+            
         }else{
             UIAlertView *alert = [[UIAlertView alloc]
                                   initWithTitle:@"Invalid email address"
@@ -171,8 +177,8 @@
         }
         
     }else{
-        // Get input from pickerview
-        NSLog(@"%@", [[friendsController.friendsArray objectAtIndex:[friendsController.friendPicker selectedRowInComponent:0]]valueForKey:@"title"]);
+        // Set addedFriend
+        self.addedFriend = [[friendsController.friendsArray objectAtIndex:[friendsController.friendPicker selectedRowInComponent:0]]valueForKey:@"user1"];
     }
 }
 

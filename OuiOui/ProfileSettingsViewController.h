@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileSettingsViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface ProfileSettingsViewController : UIViewController
 
 @property UIImage *profilePicture;
 
-@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
-
-- (IBAction)closeSettingsButton:(id)sender;
 - (IBAction)logoutButton:(id)sender;
 - (IBAction)takePhotoButton:(id)sender;
 - (IBAction)pickPhotoButton:(id)sender;

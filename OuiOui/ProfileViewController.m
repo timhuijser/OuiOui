@@ -94,10 +94,10 @@
             self.profileImage.layer.borderColor = [UIColor whiteColor].CGColor;
             self.profileImage.layer.borderWidth = 3.0;
             
-            [self.profileImage setImage:[UIImage imageNamed: @"defaultProfile.png"]];
+            [self.profileImage setImage:[UIImage imageNamed: @"defaultProfileGrey"]];
             
             self.blurProfileImage.layer.masksToBounds = YES;
-            [self.blurProfileImage setImage:[UIImage imageNamed: @"defaultProfileBackground.png"]];
+            [self.blurProfileImage setImage:[UIImage imageNamed: @"background.png"]];
             
         } else {
             
@@ -140,7 +140,7 @@
         
         if (!error) {
             self.followersUsersArray = (NSMutableArray *)objects;
-            self.followersCountLabel.text = [NSString stringWithFormat:@"%d", [self.followersUsersArray count]];
+            self.followersCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[self.followersUsersArray count]];
         }
         
     }];
@@ -157,7 +157,7 @@
         if (!error) {
             
             self.followingUsersArray = (NSMutableArray *)objects;
-            self.followingCountLabel.text = [NSString stringWithFormat:@"%d", [self.followingUsersArray count]];
+            self.followingCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[self.followingUsersArray count]];
             
         }
         
@@ -219,6 +219,9 @@
         profileSettingsController.profilePicture = self.profilePicture;
         
     }
-    
 }
+
+- (IBAction)back:(UIStoryboardSegue *)segue {
+}
+
 @end

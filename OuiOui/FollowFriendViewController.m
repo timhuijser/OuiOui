@@ -99,6 +99,7 @@
         [follow setObject:user forKey:@"user1"];
     
         follow[@"user2"] = self.item;
+        follow[@"name"] = [self.item valueForKey:@"name"];
     
         // Save follow
         if([follow saveInBackground]){
@@ -122,7 +123,7 @@
         PFQuery *query = [PFQuery queryWithClassName:@"Follow"];
         [query whereKey:@"user1" equalTo:user];
         [query whereKey:@"user2" equalTo:self.item];
-       
+        
         [query getFirstObjectInBackgroundWithBlock:^(PFObject *ouiItem, NSError *error) {
             if (!error) {
                 

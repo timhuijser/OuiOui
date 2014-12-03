@@ -29,10 +29,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)closeSettingsButton:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (IBAction)logoutButton:(id)sender {
 }
 

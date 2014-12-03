@@ -10,14 +10,16 @@
 
 @interface OuiItemViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextField *ouiItem;
-@property (weak, nonatomic) IBOutlet UITextView *ouiDescription;
-@property (weak, nonatomic) IBOutlet UIButton *actionButton;
-@property (weak, nonatomic) IBOutlet UIButton *addFriend;
 @property (retain, nonatomic) NSString *addedFriend;
 @property (weak, nonatomic) NSString *invitedFriend;
 @property (weak, nonatomic) NSString *ouiItemId;
 @property (strong) NSObject *item;
+@property (strong) NSObject *friendItem;
+
+@property (weak, nonatomic) IBOutlet UITextField *ouiItem;
+@property (weak, nonatomic) IBOutlet UITextView *ouiDescription;
+@property (weak, nonatomic) IBOutlet UIButton *actionButton;
+@property (weak, nonatomic) IBOutlet UIButton *addFriend;
 @property (weak, nonatomic) IBOutlet UISwitch *done;
 @property (weak, nonatomic) IBOutlet UILabel *doneLabel;
 
