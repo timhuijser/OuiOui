@@ -50,7 +50,14 @@
         [self.ouiItem setText:[NSString stringWithFormat:@"%@", [self.item valueForKey:@"title"]]];
         [self.ouiDescription setText:[NSString stringWithFormat:@"%@", [self.item valueForKey:@"descriptionItem"]]];
         self.ouiItemId = [self.item valueForKey:@"objectId"];
-     
+        
+        if ((int)[self.item valueForKey:@"checked"] == 1) {
+            [self.done setOn:YES animated:YES];
+        } else {
+            [self.done setOn:NO animated:YES];
+        }
+        
+        
         [self.addFriend setHidden:TRUE];
 
         self.doneLabel.text = @"Done";
