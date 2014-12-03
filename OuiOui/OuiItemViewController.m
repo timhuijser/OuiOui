@@ -124,8 +124,10 @@
             PFObject *ouiItem = [PFObject objectWithClassName:@"OuiItem"];
             
             // Add for friend
-            if([self.addedFriend valueForKey:@"objectId"]){
-                [ouiItem setObject:[self.addedFriend valueForKey:@"objectId"] forKey:@"user"];
+            if([self.friendItem valueForKey:@"objectId"]){
+                [ouiItem setObject:self.friendItem forKey:@"user"];
+            }else if(self.addedFriend){
+                ouiItem[@"email"] = self.addedFriend;
             }else{
                 // Get user
                 PFUser *user = [PFUser currentUser];
@@ -163,7 +165,9 @@
     if([friendsController.friendText.text length] > 5){
         
         if([self isValidEmail:friendsController.friendText.text]){
-            NSLog(@"%@", friendsController.friendText.text);
+            
+            // Set added friend email
+            self.addedFriend = friendsController.friendText.text;
             
         }else{
             UIAlertView *alert = [[UIAlertView alloc]
@@ -178,7 +182,7 @@
         
     }else{
         // Set addedFriend
-        self.addedFriend = [[friendsController.friendsArray objectAtIndex:[friendsController.friendPicker selectedRowInComponent:0]]valueForKey:@"user1"];
+        self.friendItem = [[friendsController.friendsArray objectAtIndex:[friendsController.friendPicker selectedRowInComponent:0]]valueForKey:@"user2"];
     }
 }
 
