@@ -1,26 +1,26 @@
 //
-//  ProfileSettingsViewController.m
+//  ProfileSettingViewController.m
 //  OuiOui
 //
-//  Created by Tim on 02/12/14.
+//  Created by Tim on 03/12/14.
 //  Copyright (c) 2014 Vontura. All rights reserved.
 //
 
-#import "ProfileSettingsViewController.h"
+#import "ProfileSettingViewController.h"
 #import "Parse/Parse.h"
 
-@interface ProfileSettingsViewController ()
+@interface ProfileSettingViewController ()
 
 @end
 
-@implementation ProfileSettingsViewController
+@implementation ProfileSettingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // Show profilePicture.
-    self.profileImageView.layer.masksToBounds = YES;
-    [self.profileImageView setImage:self.profilePicture];
+    self.profilePictureImage.layer.masksToBounds = YES;
+    [self.profilePictureImage setImage:self.profilePicture];
     
 }
 
@@ -29,10 +29,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)logoutButton:(id)sender {
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+- (IBAction)backButton:(id)sender {
 }
 
-- (IBAction)takePhotoButton:(id)sender {
+- (IBAction)takePictureButton:(id)sender {
     
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
     
@@ -43,7 +53,7 @@
     
 }
 
-- (IBAction)pickPhotoButton:(id)sender {
+- (IBAction)picPictureButton:(id)sender {
     
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc]init];
     imagePickerController = [[UIImagePickerController alloc] init];
@@ -52,6 +62,18 @@
     imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
     
     [self presentViewController:imagePickerController animated:YES completion:nil];
+    
+}
+
+- (IBAction)logoutButton:(id)sender {
+    
+    // Logout Parse.
+    [PFUser logOut];
+    
+    // Go to login/register view.
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *obj=[storyboard instantiateViewControllerWithIdentifier:@"startNav"];
+    [self presentViewController:obj animated:YES completion:nil];
     
 }
 

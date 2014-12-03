@@ -586,7 +586,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ers-RK-iSI">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6zS-CQ-rox" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="startNav" automaticallyAdjustsScrollViewInsets="NO" id="6zS-CQ-rox" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="rTz-g3-tCG">

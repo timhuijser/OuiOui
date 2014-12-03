@@ -53,7 +53,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="OuiOui" id="51C-q0-TWh">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="sw7-gy-cNm">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.26234461325966851" green="0.25774634030783478" blue="0.2519126312356692" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="9qw-iM-Tih" kind="show" id="ta6-we-YTr"/>
                             </connections>
@@ -969,7 +969,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ttI-Hj-UVX" kind="show" id="AzW-Hl-YQh"/>
+                                    <segue destination="ttI-Hj-UVX" kind="show" identifier="profileToProfileSettings" id="AzW-Hl-YQh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1065,10 +1065,10 @@
             </objects>
             <point key="canvasLocation" x="1214" y="518"/>
         </scene>
-        <!--Profile Settings View Controller-->
+        <!--Profile Setting View Controller-->
         <scene sceneID="JRw-Ol-II6">
             <objects>
-                <viewController id="ttI-Hj-UVX" customClass="ProfileSettingsViewController" sceneMemberID="viewController">
+                <viewController id="ttI-Hj-UVX" customClass="ProfileSettingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sSz-Wn-dE0"/>
                         <viewControllerLayoutGuide type="bottom" id="NWk-ml-EnE"/>
@@ -1083,13 +1083,6 @@
                                     <constraint firstAttribute="height" constant="1106" id="RAW-As-YMg"/>
                                     <constraint firstAttribute="width" constant="643" id="RQD-EI-zoC"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="JcJ-TB-V4G"/>
-                                        <exclude reference="LIT-IY-Jzd"/>
-                                        <exclude reference="zo9-Kr-MoI"/>
-                                    </mask>
-                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLm-ql-eOW">
                                 <rect key="frame" x="16" y="309" width="288" height="49"/>
@@ -1104,14 +1097,8 @@
                                 <state key="normal" title="Pic a picture">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Aky-gL-2W5"/>
-                                        <exclude reference="L3N-wV-ZrG"/>
-                                    </mask>
-                                </variation>
                                 <connections>
-                                    <action selector="pickPhotoButton:" destination="ttI-Hj-UVX" eventType="touchUpInside" id="zPQ-v7-pLG"/>
+                                    <action selector="picPictureButton:" destination="ttI-Hj-UVX" eventType="touchUpInside" id="hqh-nX-wMj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8l-Co-PYK">
@@ -1128,7 +1115,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="takePhotoButton:" destination="ttI-Hj-UVX" eventType="touchUpInside" id="OCn-gW-YpJ"/>
+                                    <action selector="takePictureButton:" destination="ttI-Hj-UVX" eventType="touchUpInside" id="Ert-wX-o9g"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qO5-3I-m9u">
@@ -1183,7 +1170,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="logoutButton:" destination="ttI-Hj-UVX" eventType="touchUpInside" id="pVf-QW-a4S"/>
+                                    <action selector="logoutButton:" destination="ttI-Hj-UVX" eventType="touchUpInside" id="nPy-HQ-ehI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuA-Sv-CIP">
@@ -1195,6 +1182,7 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="arrow-back.png"/>
                                 <connections>
+                                    <action selector="backButton:" destination="ttI-Hj-UVX" eventType="touchUpInside" id="F0R-e7-tWe"/>
                                     <segue destination="sbm-lQ-hV5" kind="unwind" unwindAction="back:" id="Zjh-Ag-uTA"/>
                                 </connections>
                             </button>
@@ -1230,6 +1218,9 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="profilePictureImage" destination="GGU-2Z-spO" id="toF-Eq-o7s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5L6-W6-HQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="sbm-lQ-hV5" userLabel="Exit" sceneMemberID="exit"/>
