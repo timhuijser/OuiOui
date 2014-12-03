@@ -751,8 +751,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="jW2-EP-6IF" kind="relationship" relationship="viewControllers" id="mXN-60-Zfo"/>
-                        <segue destination="QRe-9p-Nxe" kind="relationship" relationship="viewControllers" id="eXM-s8-ckv"/>
                         <segue destination="Baf-1P-TLM" kind="relationship" relationship="viewControllers" id="vxV-9X-1Pa"/>
+                        <segue destination="QRe-9p-Nxe" kind="relationship" relationship="viewControllers" id="eXM-s8-ckv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sxx-yu-3ic" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -807,7 +807,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileGrey.png" translatesAutoresizingMaskIntoConstraints="NO" id="jUg-xN-hIV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jUg-xN-hIV">
                                 <rect key="frame" x="110" y="45" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="2Ff-E8-oJo"/>
@@ -1148,7 +1148,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileGrey.png" translatesAutoresizingMaskIntoConstraints="NO" id="GGU-2Z-spO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GGU-2Z-spO">
                                 <rect key="frame" x="110" y="80" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="1ZC-zh-rYG"/>
@@ -1231,7 +1231,6 @@
     <resources>
         <image name="arrow-back.png" width="20" height="32"/>
         <image name="background.png" width="640" height="1136"/>
-        <image name="defaultProfileGrey.png" width="260" height="260"/>
         <image name="timeline" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>

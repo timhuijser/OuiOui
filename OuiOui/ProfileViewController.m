@@ -94,6 +94,8 @@
             self.profileImage.layer.borderColor = [UIColor whiteColor].CGColor;
             self.profileImage.layer.borderWidth = 3.0;
             
+            self.profilePicture = [UIImage imageNamed: @"defaultProfileGrey"];
+            
             [self.profileImage setImage:[UIImage imageNamed: @"defaultProfileGrey"]];
             
             self.blurProfileImage.layer.masksToBounds = YES;
