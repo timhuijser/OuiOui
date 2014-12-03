@@ -159,6 +159,7 @@
         
         if([self isValidEmail:friendsController.friendText.text]){
             NSLog(@"%@", friendsController.friendText.text);
+            
         }else{
             UIAlertView *alert = [[UIAlertView alloc]
                                   initWithTitle:@"Invalid email address"
@@ -172,7 +173,7 @@
         
     }else{
         // Get input from pickerview
-        NSLog(@"%@", [[friendsController.friendsArray objectAtIndex:[friendsController.friendPicker selectedRowInComponent:0]]valueForKey:@"title"]);
+        NSLog(@"%@", [[friendsController.friendsArray objectAtIndex:[friendsController.friendPicker selectedRowInComponent:0]]valueForKey:@"email"]);
     }
 }
 

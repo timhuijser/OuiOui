@@ -63,8 +63,8 @@
     PFUser *user = [PFUser currentUser];
     
     // Get ouiItems query
-    PFQuery *ouiItems = [PFQuery queryWithClassName:@"OuiItem"];
-    [ouiItems whereKey:@"user" equalTo:user];
+    PFQuery *ouiItems = [PFQuery queryWithClassName:@"Follow"];
+    [ouiItems whereKey:@"user1" equalTo:user];
     
     [ouiItems orderByDescending:@"createdAt"];
     ouiItems.cachePolicy = kPFCachePolicyCacheThenNetwork;
@@ -73,6 +73,7 @@
         if (objects){
             // Set objects in ouItemsDB array
             self.friendsArray = [[NSArray alloc] initWithArray:objects];
+           
         }else{
             NSLog(@"error");
         }
@@ -92,8 +93,7 @@
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    
-    // Return email from friendarray
-    return [[self.friendsArray objectAtIndex:row] valueForKey:@"title"];
+    // Return emails followers
+    return [[self.friendsArray objectAtIndex:row] valueForKey:@"email"];
 }
 @end

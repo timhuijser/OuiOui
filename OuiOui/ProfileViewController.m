@@ -140,7 +140,7 @@
         
         if (!error) {
             self.followersUsersArray = (NSMutableArray *)objects;
-            self.followersCountLabel.text = [NSString stringWithFormat:@"%d", [self.followersUsersArray count]];
+            self.followersCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[self.followersUsersArray count]];
         }
         
     }];
@@ -157,7 +157,7 @@
         if (!error) {
             
             self.followingUsersArray = (NSMutableArray *)objects;
-            self.followingCountLabel.text = [NSString stringWithFormat:@"%d", [self.followingUsersArray count]];
+            self.followingCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[self.followingUsersArray count]];
             
         }
         
@@ -219,6 +219,9 @@
         profileSettingsController.profilePicture = self.profilePicture;
         
     }
-    
 }
+
+- (IBAction)back:(UIStoryboardSegue *)segue {
+}
+
 @end

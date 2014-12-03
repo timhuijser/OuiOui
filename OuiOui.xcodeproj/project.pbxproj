@@ -40,6 +40,8 @@
 		D92024F61A2DF04600280614 /* FollowFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92024F51A2DF04600280614 /* FollowFriendViewController.m */; };
 		D92024FF1A2DFC3A00280614 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92024FE1A2DFC3A00280614 /* SearchViewController.m */; };
 		D92025031A2E34DE00280614 /* defaultProfileGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = D92025021A2E34DE00280614 /* defaultProfileGrey.png */; };
+		D958F5371A2EF3FD002572AA /* arrow-back.png in Resources */ = {isa = PBXBuildFile; fileRef = D958F5361A2EF3FD002572AA /* arrow-back.png */; };
+		D958F53B1A2EF526002572AA /* settings-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D958F53A1A2EF526002572AA /* settings-icon.png */; };
 		D9A69D881A2336E300540EF1 /* Fb-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A69D871A2336E300540EF1 /* Fb-icon.png */; };
 		D9A69D8F1A237C8700540EF1 /* OuiOui-icon-29pt-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A69D8D1A237C8700540EF1 /* OuiOui-icon-29pt-2.png */; };
 		D9A69D901A237C8700540EF1 /* OuiOui-icon-40pt-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A69D8E1A237C8700540EF1 /* OuiOui-icon-40pt-2.png */; };
@@ -135,6 +137,8 @@
 		D92024FD1A2DFC3A00280614 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		D92024FE1A2DFC3A00280614 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		D92025021A2E34DE00280614 /* defaultProfileGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultProfileGrey.png; sourceTree = "<group>"; };
+		D958F5361A2EF3FD002572AA /* arrow-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-back.png"; sourceTree = "<group>"; };
+		D958F53A1A2EF526002572AA /* settings-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-icon.png"; sourceTree = "<group>"; };
 		D9A69D871A2336E300540EF1 /* Fb-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fb-icon.png"; sourceTree = "<group>"; };
 		D9A69D8D1A237C8700540EF1 /* OuiOui-icon-29pt-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OuiOui-icon-29pt-2.png"; sourceTree = "<group>"; };
 		D9A69D8E1A237C8700540EF1 /* OuiOui-icon-40pt-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OuiOui-icon-40pt-2.png"; sourceTree = "<group>"; };
@@ -388,6 +392,8 @@
 				D9AAD8751A24C773007E794E /* header.png */,
 				D92025021A2E34DE00280614 /* defaultProfileGrey.png */,
 				D9AAD8801A24E3EB007E794E /* background-new-Oui-item.png */,
+				D958F53A1A2EF526002572AA /* settings-icon.png */,
+				D958F5361A2EF3FD002572AA /* arrow-back.png */,
 				D9F1B2B11A1E28960042770E /* logo-OuiOui.png */,
 				D9AAD8651A24B1D3007E794E /* OuiOui.png */,
 				D9F1B2AF1A1E1EB80042770E /* background.png */,
@@ -509,11 +515,13 @@
 				D9A69D941A237CFD00540EF1 /* OuiOui-icon-40pt-3.png in Resources */,
 				D9F1B2B01A1E1EB80042770E /* background.png in Resources */,
 				0491CA501A1B5798006C4A27 /* Main.storyboard in Resources */,
+				D958F53B1A2EF526002572AA /* settings-icon.png in Resources */,
 				D9AAD8761A24C773007E794E /* header.png in Resources */,
 				D9A69D921A237CBA00540EF1 /* OuiOui-icon-29pt-3.png in Resources */,
 				D9F1B2B21A1E28960042770E /* logo-OuiOui.png in Resources */,
 				0491CA551A1B5798006C4A27 /* LaunchScreen.xib in Resources */,
 				D9A69D881A2336E300540EF1 /* Fb-icon.png in Resources */,
+				D958F5371A2EF3FD002572AA /* arrow-back.png in Resources */,
 				D9A69D901A237C8700540EF1 /* OuiOui-icon-40pt-2.png in Resources */,
 				0491CA521A1B5798006C4A27 /* Images.xcassets in Resources */,
 				04FEC9081A249D4B004E564D /* Tab.storyboard in Resources */,
