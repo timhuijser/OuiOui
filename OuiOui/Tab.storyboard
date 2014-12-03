@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="FbS-Jd-5Ud">
-                            <rect key="frame" x="-61" y="-14" width="320" height="29"/>
+                            <rect key="frame" x="0.0" y="64" width="320" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <segments>
@@ -53,7 +53,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="OuiOui" id="51C-q0-TWh">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="sw7-gy-cNm">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.26234461325966851" green="0.25774634030783478" blue="0.2519126312356692" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="9qw-iM-Tih" kind="show" id="ta6-we-YTr"/>
                             </connections>
@@ -751,8 +751,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="jW2-EP-6IF" kind="relationship" relationship="viewControllers" id="mXN-60-Zfo"/>
-                        <segue destination="QRe-9p-Nxe" kind="relationship" relationship="viewControllers" id="eXM-s8-ckv"/>
                         <segue destination="Baf-1P-TLM" kind="relationship" relationship="viewControllers" id="vxV-9X-1Pa"/>
+                        <segue destination="QRe-9p-Nxe" kind="relationship" relationship="viewControllers" id="eXM-s8-ckv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sxx-yu-3ic" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -807,7 +807,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileGrey.png" translatesAutoresizingMaskIntoConstraints="NO" id="jUg-xN-hIV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jUg-xN-hIV">
                                 <rect key="frame" x="110" y="45" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="2Ff-E8-oJo"/>
@@ -969,7 +969,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ttI-Hj-UVX" kind="show" id="AzW-Hl-YQh"/>
+                                    <segue destination="ttI-Hj-UVX" kind="show" identifier="profileToProfileSettings" id="AzW-Hl-YQh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1065,10 +1065,10 @@
             </objects>
             <point key="canvasLocation" x="1214" y="518"/>
         </scene>
-        <!--Profile Settings View Controller-->
+        <!--Profile Setting View Controller-->
         <scene sceneID="JRw-Ol-II6">
             <objects>
-                <viewController id="ttI-Hj-UVX" customClass="ProfileSettingsViewController" sceneMemberID="viewController">
+                <viewController id="ttI-Hj-UVX" customClass="ProfileSettingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sSz-Wn-dE0"/>
                         <viewControllerLayoutGuide type="bottom" id="NWk-ml-EnE"/>
@@ -1098,7 +1098,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="pickPhotoButton:" destination="ttI-Hj-UVX" eventType="touchUpInside" id="zPQ-v7-pLG"/>
+                                    <action selector="picPictureButton:" destination="ttI-Hj-UVX" eventType="touchUpInside" id="hqh-nX-wMj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p8l-Co-PYK">
@@ -1115,7 +1115,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="takePhotoButton:" destination="ttI-Hj-UVX" eventType="touchUpInside" id="OCn-gW-YpJ"/>
+                                    <action selector="takePictureButton:" destination="ttI-Hj-UVX" eventType="touchUpInside" id="Ert-wX-o9g"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qO5-3I-m9u">
@@ -1148,7 +1148,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileGrey.png" translatesAutoresizingMaskIntoConstraints="NO" id="GGU-2Z-spO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GGU-2Z-spO">
                                 <rect key="frame" x="110" y="80" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="1ZC-zh-rYG"/>
@@ -1170,7 +1170,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="logoutButton:" destination="ttI-Hj-UVX" eventType="touchUpInside" id="pVf-QW-a4S"/>
+                                    <action selector="logoutButton:" destination="ttI-Hj-UVX" eventType="touchUpInside" id="nPy-HQ-ehI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuA-Sv-CIP">
@@ -1182,6 +1182,7 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="arrow-back.png"/>
                                 <connections>
+                                    <action selector="backButton:" destination="ttI-Hj-UVX" eventType="touchUpInside" id="F0R-e7-tWe"/>
                                     <segue destination="sbm-lQ-hV5" kind="unwind" unwindAction="back:" id="Zjh-Ag-uTA"/>
                                 </connections>
                             </button>
@@ -1217,6 +1218,9 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="profilePictureImage" destination="GGU-2Z-spO" id="toF-Eq-o7s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5L6-W6-HQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="sbm-lQ-hV5" userLabel="Exit" sceneMemberID="exit"/>
@@ -1227,7 +1231,6 @@
     <resources>
         <image name="arrow-back.png" width="20" height="32"/>
         <image name="background.png" width="640" height="1136"/>
-        <image name="defaultProfileGrey.png" width="260" height="260"/>
         <image name="timeline" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>

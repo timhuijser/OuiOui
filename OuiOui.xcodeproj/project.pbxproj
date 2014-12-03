@@ -14,6 +14,7 @@
 		0491CA521A1B5798006C4A27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0491CA511A1B5798006C4A27 /* Images.xcassets */; };
 		0491CA551A1B5798006C4A27 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0491CA531A1B5798006C4A27 /* LaunchScreen.xib */; };
 		0491CA611A1B5798006C4A27 /* OuiOuiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0491CA601A1B5798006C4A27 /* OuiOuiTests.m */; };
+		049F6DDC1A2F1158009768D9 /* ProfileSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049F6DDB1A2F1158009768D9 /* ProfileSettingViewController.m */; };
 		04FEC9081A249D4B004E564D /* Tab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04FEC9071A249D4B004E564D /* Tab.storyboard */; };
 		04FEC90F1A24A5C3004E564D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FEC90B1A24A5C3004E564D /* Parse.framework */; };
 		04FEC9101A24A5C3004E564D /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FEC90C1A24A5C3004E564D /* ParseUI.framework */; };
@@ -94,8 +95,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		043E9C4F1A2E236D0052CB86 /* ProfileSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileSettingsViewController.h; sourceTree = "<group>"; };
-		043E9C501A2E236D0052CB86 /* ProfileSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileSettingsViewController.m; sourceTree = "<group>"; };
 		0459AE8B1A2DF4D8007C8E61 /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = Submodules/GPUImage/framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		0491CA3E1A1B5798006C4A27 /* OuiOui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OuiOui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0491CA421A1B5798006C4A27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,6 +107,8 @@
 		0491CA5A1A1B5798006C4A27 /* OuiOuiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OuiOuiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0491CA5F1A1B5798006C4A27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0491CA601A1B5798006C4A27 /* OuiOuiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OuiOuiTests.m; sourceTree = "<group>"; };
+		049F6DDA1A2F1158009768D9 /* ProfileSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileSettingViewController.h; sourceTree = "<group>"; };
+		049F6DDB1A2F1158009768D9 /* ProfileSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileSettingViewController.m; sourceTree = "<group>"; };
 		04FEC9071A249D4B004E564D /* Tab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tab.storyboard; sourceTree = "<group>"; };
 		04FEC90B1A24A5C3004E564D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		04FEC90C1A24A5C3004E564D /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
@@ -236,8 +237,8 @@
 			children = (
 				04FEC93B1A25CA56004E564D /* ProfileViewController.h */,
 				04FEC93C1A25CA56004E564D /* ProfileViewController.m */,
-				043E9C4F1A2E236D0052CB86 /* ProfileSettingsViewController.h */,
-				043E9C501A2E236D0052CB86 /* ProfileSettingsViewController.m */,
+				049F6DDA1A2F1158009768D9 /* ProfileSettingViewController.h */,
+				049F6DDB1A2F1158009768D9 /* ProfileSettingViewController.m */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -551,6 +552,7 @@
 				D9EF99691A1E749B00BB3F19 /* RegisterViewController.m in Sources */,
 				0491CA471A1B5798006C4A27 /* AppDelegate.m in Sources */,
 				04FEC93D1A25CA56004E564D /* ProfileViewController.m in Sources */,
+				049F6DDC1A2F1158009768D9 /* ProfileSettingViewController.m in Sources */,
 				D9F1B2B81A1E2AD80042770E /* StartViewController.m in Sources */,
 				D9AAD87F1A24CE39007E794E /* OuiItemViewController.m in Sources */,
 				D9EF996C1A1E74A900BB3F19 /* LoginViewController.m in Sources */,

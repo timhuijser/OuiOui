@@ -7,7 +7,7 @@
 //
 
 #import "ProfileViewController.h"
-#import "ProfileSettingsViewController.h"
+#import "ProfileSettingViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "GPUImage.h"
 #import "Parse/Parse.h"
@@ -89,10 +89,12 @@
     [profilePictureQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
             
-            self.profileImage.layer.cornerRadius = 65;
+            self.profileImage.layer.cornerRadius = 50;
             self.profileImage.layer.masksToBounds = YES;
             self.profileImage.layer.borderColor = [UIColor whiteColor].CGColor;
             self.profileImage.layer.borderWidth = 3.0;
+            
+            self.profilePicture = [UIImage imageNamed: @"defaultProfileGrey"];
             
             [self.profileImage setImage:[UIImage imageNamed: @"defaultProfileGrey"]];
             
@@ -108,7 +110,7 @@
                     
                     self.profilePicture = [UIImage imageWithData:data];
                     
-                    self.profileImage.layer.cornerRadius = 65;
+                    self.profileImage.layer.cornerRadius = 50;
                     self.profileImage.layer.masksToBounds = YES;
                     self.profileImage.layer.borderColor = [UIColor whiteColor].CGColor;
                     self.profileImage.layer.borderWidth = 3.0;
@@ -215,8 +217,8 @@
     
     if ([segue.identifier isEqualToString:@"profileToProfileSettings"]) {
         
-        ProfileSettingsViewController *profileSettingsController = [segue destinationViewController];
-        profileSettingsController.profilePicture = self.profilePicture;
+        ProfileSettingViewController *profileSettingController = [segue destinationViewController];
+        profileSettingController.profilePicture = self.profilePicture;
         
     }
 }
