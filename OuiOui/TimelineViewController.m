@@ -25,6 +25,9 @@
     self.navigationItem.title = @"OuiOui";
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header.png"] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : titleColor};
+    
+    // Set navigation item
+    [self.navigationItem setTitle:@"Oui's"];
 
     // During startup (-viewDidLoad or in storyboard) do:
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
