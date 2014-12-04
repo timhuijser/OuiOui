@@ -209,9 +209,9 @@
 		0459AE411A2DD630007C8E61 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D92024F01A2DE70E00280614 /* Friends */,
 				0491CA451A1B5798006C4A27 /* AppDelegate.h */,
 				0491CA461A1B5798006C4A27 /* AppDelegate.m */,
+				D92024F01A2DE70E00280614 /* Friends */,
 				0459AE431A2DD655007C8E61 /* Profile */,
 				0459AE441A2DD65A007C8E61 /* Timeline */,
 				0459AE421A2DD64E007C8E61 /* Start */,
