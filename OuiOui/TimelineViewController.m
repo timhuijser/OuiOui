@@ -80,7 +80,7 @@
         
         if (objects){
             self.followersArray = [[NSMutableArray alloc] initWithArray:objects];
-           
+        
             // Set object id's in array
             NSMutableArray *rawData=[NSMutableArray new];
             [rawData addObject:user];
@@ -97,7 +97,7 @@
     
     // Get ouiItems query
     PFQuery *ouiItems = [PFQuery queryWithClassName:@"OuiItem"];
-    
+
     if(self.followersArray){
         [ouiItems whereKey:@"user" containedIn:self.users];
     }else{
@@ -118,7 +118,7 @@
         if (objects){
             // Set objects in ouItemsDB array
             ouiItemsDB = [[NSMutableArray alloc] initWithArray:objects];
-           
+            
             // Reload tableview
             [self.tableView reloadData];
         }else{
@@ -146,9 +146,33 @@
     
     // Set array in temp object
     PFObject *tempObject = [ouiItemsDB objectAtIndex:indexPath.row];
+   
+    /*
+    PFQuery *profilePics = [PFQuery queryWithClassName:@"profilePicture"];
+    
+    [profilePics whereKey:@"user" containedIn:[ouiItemsDB valueForKey:@"user"]];
+
+    [profilePics findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+         if (!error) {
+             
+             PFFile *imageFile = [[objects objectAtIndex:indexPath.row]valueForKey:@"imageFile"];
+             [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                 
+                 if (!error) {
+                     NSLog(@"%@", [[objects objectAtIndex:indexPath.row]valueForKey:@"imageFile"]);
+                     //if([tempObject objectForKey:@"objectId"] == )
+                     //cell.imageView.image = [UIImage imageWithData:data];
+                 }
+             }];
+         }
+    }];
+     */
     
     // Set text label title
     cell.textLabel.text = [tempObject objectForKey:@"title"];
+    
+    
     
     return cell;
 }

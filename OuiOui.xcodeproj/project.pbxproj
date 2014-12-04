@@ -41,8 +41,8 @@
 		D92024F61A2DF04600280614 /* FollowFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92024F51A2DF04600280614 /* FollowFriendViewController.m */; };
 		D92024FF1A2DFC3A00280614 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92024FE1A2DFC3A00280614 /* SearchViewController.m */; };
 		D92025031A2E34DE00280614 /* defaultProfileGrey.png in Resources */ = {isa = PBXBuildFile; fileRef = D92025021A2E34DE00280614 /* defaultProfileGrey.png */; };
-		D958F5371A2EF3FD002572AA /* arrow-back.png in Resources */ = {isa = PBXBuildFile; fileRef = D958F5361A2EF3FD002572AA /* arrow-back.png */; };
-		D958F53B1A2EF526002572AA /* settings-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D958F53A1A2EF526002572AA /* settings-icon.png */; };
+		D9933BCA1A3046C100B6434A /* arrrow-back.png in Resources */ = {isa = PBXBuildFile; fileRef = D9933BC91A3046C100B6434A /* arrrow-back.png */; };
+		D9933BD01A304C1E00B6434A /* settings-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D9933BCF1A304C1E00B6434A /* settings-icon.png */; };
 		D9A69D881A2336E300540EF1 /* Fb-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A69D871A2336E300540EF1 /* Fb-icon.png */; };
 		D9A69D8F1A237C8700540EF1 /* OuiOui-icon-29pt-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A69D8D1A237C8700540EF1 /* OuiOui-icon-29pt-2.png */; };
 		D9A69D901A237C8700540EF1 /* OuiOui-icon-40pt-2.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A69D8E1A237C8700540EF1 /* OuiOui-icon-40pt-2.png */; };
@@ -55,7 +55,6 @@
 		D9AAD8701A24BDF2007E794E /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AAD86F1A24BDF2007E794E /* TimelineViewController.m */; };
 		D9AAD8761A24C773007E794E /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AAD8751A24C773007E794E /* header.png */; };
 		D9AAD87F1A24CE39007E794E /* OuiItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AAD87E1A24CE39007E794E /* OuiItemViewController.m */; };
-		D9AAD8811A24E3EB007E794E /* background-new-Oui-item.png in Resources */ = {isa = PBXBuildFile; fileRef = D9AAD8801A24E3EB007E794E /* background-new-Oui-item.png */; };
 		D9EF99691A1E749B00BB3F19 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EF99681A1E749B00BB3F19 /* RegisterViewController.m */; };
 		D9EF996C1A1E74A900BB3F19 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9EF996B1A1E74A900BB3F19 /* LoginViewController.m */; };
 		D9F1B2B01A1E1EB80042770E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F1B2AF1A1E1EB80042770E /* background.png */; };
@@ -138,8 +137,8 @@
 		D92024FD1A2DFC3A00280614 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		D92024FE1A2DFC3A00280614 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		D92025021A2E34DE00280614 /* defaultProfileGrey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defaultProfileGrey.png; sourceTree = "<group>"; };
-		D958F5361A2EF3FD002572AA /* arrow-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-back.png"; sourceTree = "<group>"; };
-		D958F53A1A2EF526002572AA /* settings-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-icon.png"; sourceTree = "<group>"; };
+		D9933BC91A3046C100B6434A /* arrrow-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrrow-back.png"; sourceTree = "<group>"; };
+		D9933BCF1A304C1E00B6434A /* settings-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-icon.png"; sourceTree = "<group>"; };
 		D9A69D871A2336E300540EF1 /* Fb-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fb-icon.png"; sourceTree = "<group>"; };
 		D9A69D8D1A237C8700540EF1 /* OuiOui-icon-29pt-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OuiOui-icon-29pt-2.png"; sourceTree = "<group>"; };
 		D9A69D8E1A237C8700540EF1 /* OuiOui-icon-40pt-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "OuiOui-icon-40pt-2.png"; sourceTree = "<group>"; };
@@ -155,7 +154,6 @@
 		D9AAD8751A24C773007E794E /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
 		D9AAD87D1A24CE39007E794E /* OuiItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OuiItemViewController.h; sourceTree = "<group>"; };
 		D9AAD87E1A24CE39007E794E /* OuiItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OuiItemViewController.m; sourceTree = "<group>"; };
-		D9AAD8801A24E3EB007E794E /* background-new-Oui-item.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background-new-Oui-item.png"; sourceTree = "<group>"; };
 		D9EF99671A1E749B00BB3F19 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		D9EF99681A1E749B00BB3F19 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		D9EF996A1A1E74A900BB3F19 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -210,8 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				D92024F01A2DE70E00280614 /* Friends */,
-				0491CA451A1B5798006C4A27 /* AppDelegate.h */,
-				0491CA461A1B5798006C4A27 /* AppDelegate.m */,
 				0459AE431A2DD655007C8E61 /* Profile */,
 				0459AE441A2DD65A007C8E61 /* Timeline */,
 				0459AE421A2DD64E007C8E61 /* Start */,
@@ -246,6 +242,8 @@
 		0459AE441A2DD65A007C8E61 /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				0491CA461A1B5798006C4A27 /* AppDelegate.m */,
+				0491CA451A1B5798006C4A27 /* AppDelegate.h */,
 				D9AAD86E1A24BDF2007E794E /* TimelineViewController.h */,
 				D9AAD86F1A24BDF2007E794E /* TimelineViewController.m */,
 				D9AAD87D1A24CE39007E794E /* OuiItemViewController.h */,
@@ -392,10 +390,9 @@
 				D9A69D871A2336E300540EF1 /* Fb-icon.png */,
 				D9AAD8751A24C773007E794E /* header.png */,
 				D92025021A2E34DE00280614 /* defaultProfileGrey.png */,
-				D9AAD8801A24E3EB007E794E /* background-new-Oui-item.png */,
-				D958F53A1A2EF526002572AA /* settings-icon.png */,
-				D958F5361A2EF3FD002572AA /* arrow-back.png */,
+				D9933BC91A3046C100B6434A /* arrrow-back.png */,
 				D9F1B2B11A1E28960042770E /* logo-OuiOui.png */,
+				D9933BCF1A304C1E00B6434A /* settings-icon.png */,
 				D9AAD8651A24B1D3007E794E /* OuiOui.png */,
 				D9F1B2AF1A1E1EB80042770E /* background.png */,
 			);
@@ -514,23 +511,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9A69D941A237CFD00540EF1 /* OuiOui-icon-40pt-3.png in Resources */,
+				D9933BD01A304C1E00B6434A /* settings-icon.png in Resources */,
 				D9F1B2B01A1E1EB80042770E /* background.png in Resources */,
 				0491CA501A1B5798006C4A27 /* Main.storyboard in Resources */,
-				D958F53B1A2EF526002572AA /* settings-icon.png in Resources */,
 				D9AAD8761A24C773007E794E /* header.png in Resources */,
 				D9A69D921A237CBA00540EF1 /* OuiOui-icon-29pt-3.png in Resources */,
 				D9F1B2B21A1E28960042770E /* logo-OuiOui.png in Resources */,
 				0491CA551A1B5798006C4A27 /* LaunchScreen.xib in Resources */,
 				D9A69D881A2336E300540EF1 /* Fb-icon.png in Resources */,
-				D958F5371A2EF3FD002572AA /* arrow-back.png in Resources */,
 				D9A69D901A237C8700540EF1 /* OuiOui-icon-40pt-2.png in Resources */,
 				0491CA521A1B5798006C4A27 /* Images.xcassets in Resources */,
 				04FEC9081A249D4B004E564D /* Tab.storyboard in Resources */,
-				D9AAD8811A24E3EB007E794E /* background-new-Oui-item.png in Resources */,
 				D9A69D8F1A237C8700540EF1 /* OuiOui-icon-29pt-2.png in Resources */,
 				D9AAD8661A24B1D3007E794E /* OuiOui.png in Resources */,
 				D92025031A2E34DE00280614 /* defaultProfileGrey.png in Resources */,
 				D9A69D961A237D7E00540EF1 /* OuiOui-icon-60pt-3.png in Resources */,
+				D9933BCA1A3046C100B6434A /* arrrow-back.png in Resources */,
 				D9A69D981A237D8200540EF1 /* OuiOui-icon-60pt-2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

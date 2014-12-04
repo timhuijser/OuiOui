@@ -8,6 +8,7 @@
 
 #import "OuiItemViewController.h"
 #import "Parse/Parse.h"
+#import "GPUImage.h"
 #import "AddFriendViewController.h"
 
 @interface OuiItemViewController ()
@@ -18,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSLog(@"%@", self.item);
     // Style navigation bar
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
@@ -43,6 +44,8 @@
     self.ouiDescription.layer.borderColor = [[UIColor whiteColor]CGColor];
     self.ouiDescription.layer.borderWidth = 2.0;
     self.ouiDescription.attributedText = [[NSAttributedString alloc]initWithString:@"Oui description" attributes:@{NSForegroundColorAttributeName: color}];
+    //.contentInset = UIEdgeInsetsMake(-4,-8,0,0);
+    self.ouiDescription.textContainer.lineFragmentPadding = 20;
     
     if(self.item){
         [self.actionButton setTitle:@"Update Oui" forState:UIControlStateNormal];
@@ -84,11 +87,6 @@
         [self.done setHidden:TRUE];
         [self.doneLabel setHidden:TRUE];
     }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)addOuiItem:(id)sender {

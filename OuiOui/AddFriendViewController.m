@@ -92,8 +92,12 @@
     return [self.friendsArray count];
 }
 
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    // Return emails followers
-    return [[self.friendsArray objectAtIndex:row] valueForKey:@"name"];
+- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    // Set color to white
+    NSString *name = [[self.friendsArray objectAtIndex:row] valueForKey:@"name"];
+    NSAttributedString *attName = [[NSAttributedString alloc] initWithString:name attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+    return attName;
+    
 }
 @end

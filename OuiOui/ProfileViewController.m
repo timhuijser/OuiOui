@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "GPUImage.h"
 #import "Parse/Parse.h"
+#import "OuiItemViewController.h"
 
 @interface ProfileViewController ()
 
@@ -199,6 +200,32 @@
     }];
 }
 
+-(void)getTotalItems:(NSString *)inputType{
+    
+    // Get current user
+    PFUser *user = [PFUser currentUser];
+    
+    // Get ouiItems query
+    PFQuery *ouiItems = [PFQuery queryWithClassName:@"OuiItem"];
+    [ouiItems whereKey:@"user" equalTo:user];
+    
+    [ouiItems orderByDescending:@"createdAt"];
+    ouiItems.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    [ouiItems findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (objects){
+            NSLog(@"%lu", (unsigned long)objects.count);
+           
+            
+            // Set objects in ouItemsDB array
+            self.ouiItemsDB = [[NSMutableArray alloc] initWithArray:objects];
+            
+        }else{
+            NSLog(@"error");
+        }
+    }];
+}
+
 - (IBAction)bucketListSegmentControl:(id)sender {
     
     if (self.bucketlistSegmentControlOutlet.selectedSegmentIndex == 0) {
@@ -225,5 +252,6 @@
 
 - (IBAction)back:(UIStoryboardSegue *)segue {
 }
+
 
 @end

@@ -12,11 +12,13 @@
 
 @interface TimelineViewController : UITableViewController <UITableViewDelegate>{
     NSMutableArray *ouiItemsDB;
+
     IBOutlet UISegmentedControl *segmentControl;
 }
 
 @property (strong) NSMutableArray *followersArray;
 @property (strong) NSMutableArray *users;
+@property (strong) NSMutableArray *profilePics;
 
 -(IBAction)segmentButton:(id)sender;
 
