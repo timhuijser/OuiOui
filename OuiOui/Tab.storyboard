@@ -1292,8 +1292,6 @@
         <!--Oui Item View Controller-->
         <scene sceneID="wXP-G9-2qv">
             <objects>
-                <exit id="b07-0t-g6y" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oBh-rK-G91" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="1GG-Ej-9aT" customClass="OuiItemViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ol4-hb-yzb"/>
@@ -1525,6 +1523,8 @@
                         <outlet property="ouiItem" destination="ee8-NG-yNR" id="vWd-aJ-7Vn"/>
                     </connections>
                 </viewController>
+                <exit id="b07-0t-g6y" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oBh-rK-G91" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1667" y="518"/>
         </scene>

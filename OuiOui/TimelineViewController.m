@@ -31,9 +31,11 @@
 
     // During startup (-viewDidLoad or in storyboard) do:
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
-
+  
     // Set segment control
     segmentControl.selectedSegmentIndex = 0;
+    [self retrieveFollowers];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,8 +51,7 @@
     self.navigationItem.title = @"OuiOui";
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header.png"] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : titleColor};
-
-    
+  
     // Get data
     [self retrieveData:@"false"];
 }
@@ -65,7 +66,7 @@
     }
 }
 
--(void)retrieveData:(NSString *)inputType{
+-(void)retrieveFollowers{
     
     // Get current user
     PFUser *user = [PFUser currentUser];
@@ -73,27 +74,33 @@
     // Get followers query
     PFQuery *followers = [PFQuery queryWithClassName:@"Follow"];
     [followers whereKey:@"user1" equalTo:user];
-    
+   
     [followers orderByDescending:@"createdAt"];
-    followers.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    [followers findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        if (objects){
-            self.followersArray = [[NSMutableArray alloc] initWithArray:objects];
-        
-            // Set object id's in array
-            NSMutableArray *rawData=[NSMutableArray new];
-            [rawData addObject:user];
-            for (int i = 0; i < [self.followersArray count]; i++){
-                [rawData addObject:[[self.followersArray objectAtIndex:i] valueForKey:@"user2"]];
-            }
+    
+    NSArray *objects = [followers findObjects];
+    
+    if (objects){
+        self.followersArray = [[NSMutableArray alloc] initWithArray:objects];
             
-            self.users = rawData;
-           
-        }else{
-            NSLog(@"No followers");
+        // Set object id's in array
+        NSMutableArray *rawData=[NSMutableArray new];
+        [rawData addObject:user];
+        for (int i = 0; i < [self.followersArray count]; i++){
+            [rawData addObject:[[self.followersArray objectAtIndex:i] valueForKey:@"user2"]];
         }
-    }];
+            
+        self.users = rawData;
+        
+    }else{
+        NSLog(@"No followers");
+    }
+}
+
+
+-(void)retrieveData:(NSString *)inputType{
+
+    // Get current user
+    PFUser *user = [PFUser currentUser];
     
     // Get ouiItems query
     PFQuery *ouiItems = [PFQuery queryWithClassName:@"OuiItem"];
@@ -112,12 +119,11 @@
     }
     
     [ouiItems orderByDescending:@"createdAt"];
-    ouiItems.cachePolicy = kPFCachePolicyCacheThenNetwork;
     [ouiItems findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         if (objects){
             // Set objects in ouItemsDB array
-            ouiItemsDB = [[NSMutableArray alloc] initWithArray:objects];
+            self.ouiItemsDB = [[NSMutableArray alloc] initWithArray:objects];
             
             // Reload tableview
             [self.tableView reloadData];
@@ -135,7 +141,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     // Return the number of rows in the section
-    return ouiItemsDB.count;
+    return self.ouiItemsDB.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -145,34 +151,53 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     // Set array in temp object
-    PFObject *tempObject = [ouiItemsDB objectAtIndex:indexPath.row];
-   
-    /*
-    PFQuery *profilePics = [PFQuery queryWithClassName:@"profilePicture"];
-    
-    [profilePics whereKey:@"user" containedIn:[ouiItemsDB valueForKey:@"user"]];
+    PFObject *tempObject = [self.ouiItemsDB objectAtIndex:indexPath.row];
 
-    [profilePics findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    // For loop through users array
+    for (int i = 0; i < [self.users count]; i++){
+       
+        if([[[tempObject objectForKey:@"user"] valueForKey:@"objectId"] isEqual:[[self.users objectAtIndex:i] valueForKey:@"objectId"]]){
+           
+            // Get profile picture from follower
+            PFQuery *followersPictures = [PFQuery queryWithClassName:@"profilePicture"];
+            [followersPictures whereKey:@"user" equalTo:[self.users objectAtIndex:i]];
+            [followersPictures getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+            
+                if (object){
+                    
+                    PFFile *imageFile = [object objectForKey:@"imageFile"];
+                    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                        
+                        if (!error) {
+                            cell.imageView.image = [UIImage imageWithData:data];
+                        }
+                    }];
+                }
+            }];
+            
+        }
+        //[rawData addObject:[[self.followersArray objectAtIndex:i] valueForKey:@"user2"]];
+    }
+    
+    // Get profile images from followers
+    if(self.followersArray){
         
-         if (!error) {
-             
-             PFFile *imageFile = [[objects objectAtIndex:indexPath.row]valueForKey:@"imageFile"];
-             [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-                 
-                 if (!error) {
-                     NSLog(@"%@", [[objects objectAtIndex:indexPath.row]valueForKey:@"imageFile"]);
-                     //if([tempObject objectForKey:@"objectId"] == )
-                     //cell.imageView.image = [UIImage imageWithData:data];
-                 }
-             }];
-         }
-    }];
-     */
+        // Get all images from followers
+        PFQuery *followersPictures = [PFQuery queryWithClassName:@"profilePicture"];
+        [followersPictures whereKey:@"user" containedIn:self.users];
+      //  NSLog(@"%@",self.users);
+        [followersPictures findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            if (objects){
+             //   NSLog(@"%@", [objects valueForKey:@"imageFile"]);
+                
+                
+            }
+        }];
+    }
     
     // Set text label title
     cell.textLabel.text = [tempObject objectForKey:@"title"];
-    
-    
     
     return cell;
 }
@@ -180,7 +205,7 @@
 // Delete item
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
  
-    PFObject *tempObject = [ouiItemsDB objectAtIndex:indexPath.row];
+    PFObject *tempObject = [self.ouiItemsDB objectAtIndex:indexPath.row];
  
     // Get current user
     PFUser *user = [PFUser currentUser];
@@ -239,7 +264,7 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
         // Get object out of ouiItems
-        NSArray *selectedItem = [ouiItemsDB objectAtIndex:indexPath.row];
+        NSArray *selectedItem = [self.ouiItemsDB objectAtIndex:indexPath.row];
         
         OuiItemViewController *destViewController = segue.destinationViewController;
         destViewController.item = selectedItem;

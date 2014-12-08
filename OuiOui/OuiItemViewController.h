@@ -15,6 +15,7 @@
 @property (weak, nonatomic) NSString *ouiItemId;
 @property (strong) NSObject *item;
 @property (strong) NSObject *friendItem;
+@property (strong) NSString *controller;
 
 @property (weak, nonatomic) IBOutlet UITextField *ouiItem;
 @property (weak, nonatomic) IBOutlet UITextView *ouiDescription;

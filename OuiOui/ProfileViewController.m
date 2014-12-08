@@ -103,12 +103,10 @@
             [self.blurProfileImage setImage:[UIImage imageNamed: @"background.png"]];
             
         } else {
-            
             PFFile *imageFile = [object objectForKey:@"imageFile"];
             [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                 
                 if (!error) {
-                    
                     self.profilePicture = [UIImage imageWithData:data];
                     
                     self.profileImage.layer.cornerRadius = 50;
@@ -235,8 +233,6 @@
     }
     
     [self.bucketlistItemTableView reloadData];
-
-    
 }
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -247,6 +243,19 @@
         ProfileSettingViewController *profileSettingController = [segue destinationViewController];
         profileSettingController.profilePicture = self.profilePicture;
         
+    }
+    
+    if ([segue.identifier isEqualToString:@"showDetail"]) {
+        
+        // Get selected row
+        NSIndexPath *indexPath = [self.bucketlistItemTableView indexPathForSelectedRow];
+        
+        // Get object out of ouiItems
+        NSArray *selectedItem = [self.ouiItemsDB objectAtIndex:indexPath.row];
+        
+        OuiItemViewController *destController = [segue destinationViewController];
+        destController.item = selectedItem;
+        destController.controller = @"Profile";
     }
 }
 

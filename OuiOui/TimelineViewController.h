@@ -11,12 +11,12 @@
 #import "ParseExampleCell.h"
 
 @interface TimelineViewController : UITableViewController <UITableViewDelegate>{
-    NSMutableArray *ouiItemsDB;
-
+    
     IBOutlet UISegmentedControl *segmentControl;
 }
 
 @property (strong) NSMutableArray *followersArray;
+@property (strong) NSMutableArray *ouiItemsDB;
 @property (strong) NSMutableArray *users;
 @property (strong) NSMutableArray *profilePics;
 

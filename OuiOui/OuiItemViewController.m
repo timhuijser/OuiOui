@@ -19,7 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"%@", self.item);
+    
     // Style navigation bar
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
@@ -60,7 +60,6 @@
             [self.done setOn:NO animated:YES];
         }
         
-        
         [self.addFriend setHidden:TRUE];
 
         self.doneLabel.text = @"Done";
@@ -90,7 +89,7 @@
 }
 
 - (IBAction)addOuiItem:(id)sender {
-    
+    NSLog(@"add");
     // Check if user input fields are correctly filled
     if ([self.ouiItem.text length] < 2 || [self.ouiDescription.text length] < 2) {
         UIAlertView *alert = [[UIAlertView alloc]
@@ -102,7 +101,7 @@
         [alert show];
     } else {
         UIButton *button = (UIButton *)sender;
-
+      
         if([button tag] == 1){
             
             PFQuery *query = [PFQuery queryWithClassName:@"OuiItem"];
@@ -122,7 +121,9 @@
                     
                     // Save
                     if([ouiItem saveInBackground]){
-                        [self.navigationController popToRootViewControllerAnimated:true];
+                        NSLog(@"%@", self.controller);
+                        
+                        //[self.navigationController popToRootViewControllerAnimated:true];
                     }else{
                         // Can't save new Oui item
                         UIAlertView *alert = [[UIAlertView alloc]
