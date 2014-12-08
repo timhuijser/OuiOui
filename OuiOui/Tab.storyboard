@@ -1363,7 +1363,7 @@
                                     </mask>
                                 </variation>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Pn-pe-1bu">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Pn-pe-1bu">
                                 <rect key="frame" x="16" y="326" width="288" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1389,7 +1389,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="addOuiItem:" destination="9qw-iM-Tih" eventType="touchUpInside" id="IJa-8Q-hvR"/>
+                                    <action selector="addOuiItem:" destination="1GG-Ej-9aT" eventType="touchUpInside" id="6Uy-GN-XIA"/>
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jze-ob-TJ7">

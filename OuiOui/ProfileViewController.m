@@ -33,6 +33,8 @@
     // Retrieve uncompleted OuiItem data from Parse as default behaviour.
     [self retrieveOuiItemData:@"Uncompleted"];
     
+    
+    
 }
 
 - (void)viewDidLoad {
@@ -190,34 +192,9 @@
             // Set objects in ouItemsDB array
             self.ouiItemsDB = [[NSMutableArray alloc] initWithArray:objects];
             
+            self.ouiItemCountLabel.text = [NSString stringWithFormat: @"%ld", (long)self.ouiItemsDB.count];
             // Reload tableview
             [self.bucketlistItemTableView reloadData];
-        }else{
-            NSLog(@"error");
-        }
-    }];
-}
-
--(void)getTotalItems:(NSString *)inputType{
-    
-    // Get current user
-    PFUser *user = [PFUser currentUser];
-    
-    // Get ouiItems query
-    PFQuery *ouiItems = [PFQuery queryWithClassName:@"OuiItem"];
-    [ouiItems whereKey:@"user" equalTo:user];
-    
-    [ouiItems orderByDescending:@"createdAt"];
-    ouiItems.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    [ouiItems findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        if (objects){
-            NSLog(@"%lu", (unsigned long)objects.count);
-           
-            
-            // Set objects in ouItemsDB array
-            self.ouiItemsDB = [[NSMutableArray alloc] initWithArray:objects];
-            
         }else{
             NSLog(@"error");
         }

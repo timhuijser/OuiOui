@@ -48,6 +48,7 @@
     self.ouiDescription.delegate = self;
     
     if(self.item){
+        
         [self.actionButton setTitle:@"Update Oui" forState:UIControlStateNormal];
         [self.actionButton setTag:1];
         [self.ouiItem setText:[NSString stringWithFormat:@"%@", [self.item valueForKey:@"title"]]];
@@ -63,6 +64,13 @@
         [self.addFriend setHidden:TRUE];
 
         self.doneLabel.text = @"Done";
+        
+        // Set switch to on if item already checked
+        if([self.item valueForKey:@"checked"] == [NSNumber numberWithBool:YES]){
+
+            [self.done setOn:YES];
+        }
+        
         
         // Get current user
         PFUser *user = [PFUser currentUser];
@@ -89,7 +97,7 @@
 }
 
 - (IBAction)addOuiItem:(id)sender {
-    NSLog(@"add");
+
     // Check if user input fields are correctly filled
     if ([self.ouiItem.text length] < 2 || [self.ouiDescription.text length] < 2) {
         UIAlertView *alert = [[UIAlertView alloc]
@@ -101,9 +109,9 @@
         [alert show];
     } else {
         UIButton *button = (UIButton *)sender;
-      
+   
         if([button tag] == 1){
-            
+           
             PFQuery *query = [PFQuery queryWithClassName:@"OuiItem"];
             [query whereKey:@"objectId" equalTo:self.ouiItemId];
             [query getFirstObjectInBackgroundWithBlock:^(PFObject *ouiItem, NSError *error) {
@@ -121,9 +129,7 @@
                     
                     // Save
                     if([ouiItem saveInBackground]){
-                        NSLog(@"%@", self.controller);
-                        
-                        //[self.navigationController popToRootViewControllerAnimated:true];
+                        [self.navigationController popToRootViewControllerAnimated:true];
                     }else{
                         // Can't save new Oui item
                         UIAlertView *alert = [[UIAlertView alloc]
@@ -222,7 +228,6 @@
         self.ouiDescription.text = @"Oui description";
         [self.ouiDescription resignFirstResponder];
     }
-    
 }
 
 // Check if email is valid

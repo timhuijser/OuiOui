@@ -18,6 +18,7 @@
 @property (strong) NSMutableArray *followersArray;
 @property (strong) NSMutableArray *ouiItemsDB;
 @property (strong) NSMutableArray *users;
+@property (strong) NSMutableArray *usernames;
 @property (strong) NSMutableArray *profilePics;
 
 -(IBAction)segmentButton:(id)sender;
