@@ -211,15 +211,15 @@
 
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView {
     self.ouiDescription.text = @"";
-    self.ouiDescription.textColor = [UIColor blackColor];
+    self.ouiDescription.textColor = [UIColor whiteColor];
     return YES;
 }
 
 -(void) textViewDidChange:(UITextView *)textView {
-        
+    
     if(self.ouiDescription.text.length == 0) {
         self.ouiDescription.textColor = [UIColor lightGrayColor];
-        self.ouiDescription.text = @"Description";
+        self.ouiDescription.text = @"Oui description";
         [self.ouiDescription resignFirstResponder];
     }
     
