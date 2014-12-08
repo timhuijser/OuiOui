@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OuiItemViewController : UIViewController <UITextFieldDelegate>
+@interface OuiItemViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
 
 @property (retain, nonatomic) NSString *addedFriend;
 @property (weak, nonatomic) NSString *invitedFriend;

@@ -44,8 +44,8 @@
     self.ouiDescription.layer.borderColor = [[UIColor whiteColor]CGColor];
     self.ouiDescription.layer.borderWidth = 2.0;
     self.ouiDescription.attributedText = [[NSAttributedString alloc]initWithString:@"Oui description" attributes:@{NSForegroundColorAttributeName: color}];
-    //.contentInset = UIEdgeInsetsMake(-4,-8,0,0);
     self.ouiDescription.textContainer.lineFragmentPadding = 20;
+    self.ouiDescription.delegate = self;
     
     if(self.item){
         [self.actionButton setTitle:@"Update Oui" forState:UIControlStateNormal];
@@ -207,6 +207,22 @@
         // Set addedFriend
         self.friendItem = [[friendsController.friendsArray objectAtIndex:[friendsController.friendPicker selectedRowInComponent:0]]valueForKey:@"user2"];
     }
+}
+
+- (BOOL) textViewShouldBeginEditing:(UITextView *)textView {
+    self.ouiDescription.text = @"";
+    self.ouiDescription.textColor = [UIColor blackColor];
+    return YES;
+}
+
+-(void) textViewDidChange:(UITextView *)textView {
+        
+    if(self.ouiDescription.text.length == 0) {
+        self.ouiDescription.textColor = [UIColor lightGrayColor];
+        self.ouiDescription.text = @"Description";
+        [self.ouiDescription resignFirstResponder];
+    }
+    
 }
 
 // Check if email is valid

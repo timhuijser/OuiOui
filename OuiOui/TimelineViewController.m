@@ -160,7 +160,7 @@
             
             // Show defaultProfile image.
             UIImage *profilePicture = [UIImage imageNamed: @"defaultProfileGrey.png"];
-            cell.imageView.layer.cornerRadius = 22;
+            cell.imageView.layer.cornerRadius = 22.0f;
             cell.imageView.layer.masksToBounds = YES;
             cell.imageView.image = profilePicture;
             
