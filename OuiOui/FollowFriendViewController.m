@@ -17,8 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
+
     // Style navigation bar
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
@@ -32,18 +31,22 @@
     self.objectId = [self.item valueForKey:@"objectId"];
     
     // Set profile pic
-    PFQuery *profilePic = [PFQuery queryWithClassName:@"profilePicture"];
-    [profilePic whereKey:@"user" equalTo:self.item];
+    PFQuery *profilePictureQuery = [PFQuery queryWithClassName:@"profilePicture"];
+    [profilePictureQuery whereKey:@"user" equalTo:self.item];
     
-    profilePic.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    [profilePic findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        if (objects){
-            self.profilePicData = [[NSMutableArray alloc] initWithArray:objects];
-           // NSLog(@"%@", self.profilePicData);
+    [profilePictureQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if (!object) {
+            [self.profilePic setImage:[UIImage imageNamed: @"defaultProfileGrey"]];
+        }else{
+            PFFile *imageFile = [object objectForKey:@"imageFile"];
+            [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+                
+                if (!error) {
+                    [self.profilePic setImage:[UIImage imageWithData:data]];
+                }
+            }];
         }
     }];
-    
     // Get current user
     PFUser *user = [PFUser currentUser];
 

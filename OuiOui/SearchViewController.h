@@ -10,9 +10,11 @@
 #import <Parse/Parse.h>
 #import "ParseExampleCell.h"
 
-@interface SearchViewController : UITableViewController <UITableViewDelegate>{
+@interface SearchViewController : UITableViewController <UITableViewDelegate, UISearchBarDelegate>{
     NSMutableArray *ouiUsers;
+    NSArray *results;
 }
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 
 @end

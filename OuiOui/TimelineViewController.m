@@ -84,7 +84,6 @@
             
         // Set object id's in array
         NSMutableArray *rawData=[NSMutableArray new];
-        NSMutableArray *nameData=[NSMutableArray new];
         [rawData addObject:user];
         for (int i = 0; i < [self.followersArray count]; i++){
             [rawData addObject:[[self.followersArray objectAtIndex:i] valueForKey:@"user2"]];
@@ -156,6 +155,22 @@
     for (int i = 0; i < [self.users count]; i++){
        
         if([[[tempObject objectForKey:@"user"] valueForKey:@"objectId"] isEqual:[[self.users objectAtIndex:i] valueForKey:@"objectId"]]){
+            
+            // Set subtitle
+            ///PFUser * toUser = [friends[0] objectForKey:@"toUser"];
+            
+            PFUser *toUser = [self.users objectAtIndex:i];
+            // Get ouiItems query
+            PFQuery *userData = [PFUser query];
+            [userData whereKey:@"objectId" equalTo:toUser.objectId];
+            [userData findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                
+                if (objects){
+                    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [objects valueForKey:@"name"]];
+                }else{
+                    NSLog(@"error");
+                }
+            }];
             
             // Show defaultProfile image.
             UIImage *profilePicture = [UIImage imageNamed: @"defaultProfileGrey.png"];
