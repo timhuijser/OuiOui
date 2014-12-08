@@ -157,7 +157,13 @@
     for (int i = 0; i < [self.users count]; i++){
        
         if([[[tempObject objectForKey:@"user"] valueForKey:@"objectId"] isEqual:[[self.users objectAtIndex:i] valueForKey:@"objectId"]]){
-           
+            
+            // Show defaultProfile image.
+            UIImage *profilePicture = [UIImage imageNamed: @"defaultProfileGrey.png"];
+            cell.imageView.layer.cornerRadius = 22;
+            cell.imageView.layer.masksToBounds = YES;
+            cell.imageView.image = profilePicture;
+            
             // Get profile picture from follower
             PFQuery *followersPictures = [PFQuery queryWithClassName:@"profilePicture"];
             [followersPictures whereKey:@"user" equalTo:[self.users objectAtIndex:i]];
