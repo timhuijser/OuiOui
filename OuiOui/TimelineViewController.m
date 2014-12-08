@@ -84,13 +84,12 @@
             
         // Set object id's in array
         NSMutableArray *rawData=[NSMutableArray new];
+        NSMutableArray *nameData=[NSMutableArray new];
         [rawData addObject:user];
         for (int i = 0; i < [self.followersArray count]; i++){
             [rawData addObject:[[self.followersArray objectAtIndex:i] valueForKey:@"user2"]];
         }
-            
         self.users = rawData;
-        
     }else{
         NSLog(@"No followers");
     }
@@ -152,7 +151,7 @@
     
     // Set array in temp object
     PFObject *tempObject = [self.ouiItemsDB objectAtIndex:indexPath.row];
-
+    
     // For loop through users array
     for (int i = 0; i < [self.users count]; i++){
        
@@ -169,7 +168,7 @@
             [followersPictures whereKey:@"user" equalTo:[self.users objectAtIndex:i]];
             [followersPictures getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
             
-                if (object){
+                if(object){
                     
                     PFFile *imageFile = [object objectForKey:@"imageFile"];
                     [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
@@ -178,28 +177,11 @@
                             cell.imageView.image = [UIImage imageWithData:data];
                         }
                     }];
+                }else{
+                    NSLog(@"Error, %@", error);
                 }
             }];
-            
         }
-        //[rawData addObject:[[self.followersArray objectAtIndex:i] valueForKey:@"user2"]];
-    }
-    
-    // Get profile images from followers
-    if(self.followersArray){
-        
-        // Get all images from followers
-        PFQuery *followersPictures = [PFQuery queryWithClassName:@"profilePicture"];
-        [followersPictures whereKey:@"user" containedIn:self.users];
-      //  NSLog(@"%@",self.users);
-        [followersPictures findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            
-            if (objects){
-             //   NSLog(@"%@", [objects valueForKey:@"imageFile"]);
-                
-                
-            }
-        }];
     }
     
     // Set text label title

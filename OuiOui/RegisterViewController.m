@@ -73,25 +73,49 @@
         [alert show];
     } else {
         
-        PFUser *newUser = [PFUser user];
-        newUser.username = username;
-        newUser.password = password;
-        newUser.email = email;
-        newUser[@"name"] = name;
-        
-        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (error) {
-                NSString *errorString = [[error userInfo] objectForKey:@"error"];
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+        if([self isValidEmail:email]){
+            PFUser *newUser = [PFUser user];
+            newUser.username = username;
+            newUser.password = password;
+            newUser.email = email;
+            newUser[@"name"] = name;
+            
+            [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (error) {
+                    NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil];
                 [alert show];
-            } else {
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tab" bundle:nil];
-                UITabBarController *obj=[storyboard instantiateViewControllerWithIdentifier:@"tab"];
-                self.navigationController.navigationBarHidden=YES;
-                [self.navigationController pushViewController:obj animated:YES];
-            }
-        }];
+                } else {
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Tab" bundle:nil];
+                    UITabBarController *obj=[storyboard instantiateViewControllerWithIdentifier:@"tab"];
+                    self.navigationController.navigationBarHidden=YES;
+                    [self.navigationController pushViewController:obj animated:YES];
+                }
+            }];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc]
+                                  initWithTitle:@"Invalid email address"
+                                  message:@"Please enter a valid email address."
+                                  delegate:self
+                                  cancelButtonTitle:@"Okay"
+                                  otherButtonTitles:nil];
+            [alert setTag:1];
+            [alert show];
+        }
     }
+}
+
+// Check if email is valid
+-(BOOL) isValidEmail:(NSString *)checkString{
+    checkString = [checkString lowercaseString];
+    BOOL stricterFilter = YES;
+    NSString *stricterFilterString = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSString *laxString = @".+@.+\\.[A-Za-z]{2}[A-Za-z]*";
+    
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    
+    return [emailTest evaluateWithObject:checkString];
 }
 
 - (IBAction)signupFacebookButton:(id)sender {
