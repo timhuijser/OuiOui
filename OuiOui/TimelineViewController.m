@@ -57,7 +57,7 @@
     
     // Set segment control
     segmentControl.selectedSegmentIndex = 0;
-    
+    [self retrieveFollowers];
     // Get data
     [self retrieveData:@"false"];
 
@@ -67,8 +67,11 @@
     
     // Get completed Oui's
     if(segmentControl.selectedSegmentIndex == 0){
+        [self retrieveFollowers];
         [self retrieveData:@"false"];
+        
     }else{
+        [self retrieveFollowers];
         [self retrieveData:@"true"];
     }
 }
@@ -96,8 +99,6 @@
             [rawData addObject:[[self.followersArray objectAtIndex:i] valueForKey:@"user2"]];
         }
         self.users = rawData;
-    }else{
-        NSLog(@"No followers");
     }
 }
 
@@ -132,8 +133,6 @@
             
             // Reload tableview
             [self.tableView reloadData];
-        }else{
-            NSLog(@"error");
         }
     }];
 }
@@ -157,15 +156,13 @@
     
     // Set array in temp object
     PFObject *tempObject = [self.ouiItemsDB objectAtIndex:indexPath.row];
-    
+  
     // For loop through users array
     for (int i = 0; i < [self.users count]; i++){
        
         if([[[tempObject objectForKey:@"user"] valueForKey:@"objectId"] isEqual:[[self.users objectAtIndex:i] valueForKey:@"objectId"]]){
             
             // Set subtitle
-            ///PFUser * toUser = [friends[0] objectForKey:@"toUser"];
-            
             PFUser *toUser = [self.users objectAtIndex:i];
            
             // Get ouiItems query
@@ -174,9 +171,8 @@
             [userData findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 
                 if (objects){
-                    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [objects valueForKey:@"name"]];
-                }else{
-                    NSLog(@"error");
+                    // Set subtitle for each cell
+                    cell.detailTextLabel.text = [[objects objectAtIndex:0] valueForKey:@"name"];
                 }
             }];
             
@@ -200,8 +196,6 @@
                             cell.imageView.image = [UIImage imageWithData:data];
                         }
                     }];
-                }else{
-                    NSLog(@"Error, %@", error);
                 }
             }];
         }
@@ -248,10 +242,6 @@
                     
                     [alert show];
                 }
-                
-            } else {
-                // Did not find any ouiItem for the current user
-                NSLog(@"Error: %@", error);
             }
         }];
     }else{

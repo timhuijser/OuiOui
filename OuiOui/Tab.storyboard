@@ -744,11 +744,11 @@
             </objects>
             <point key="canvasLocation" x="765" y="-710"/>
         </scene>
-        <!--Oui's-->
+        <!--Navigation Controller-->
         <scene sceneID="Je7-XS-H43">
             <objects>
                 <navigationController id="jW2-EP-6IF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Oui's" image="timeline" selectedImage="timeline" id="h8V-is-jWK"/>
+                    <tabBarItem key="tabBarItem" selectedImage="profile" id="h8V-is-jWK"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zxz-uV-dxb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1514,7 +1514,6 @@
         <image name="background.png" width="640" height="1136"/>
         <image name="profile" width="24" height="24"/>
         <image name="settings-icon.png" width="128" height="128"/>
-        <image name="timeline" width="22" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ta6-we-YTr"/>
