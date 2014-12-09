@@ -87,19 +87,22 @@
    
     [followers orderByDescending:@"createdAt"];
     
-    NSArray *objects = [followers findObjects];
-    
-    if (objects){
-        self.followersArray = [[NSMutableArray alloc] initWithArray:objects];
+    [followers findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (objects){
+            self.followersArray = [[NSMutableArray alloc] initWithArray:objects];
             
-        // Set object id's in array
-        NSMutableArray *rawData=[NSMutableArray new];
-        [rawData addObject:user];
-        for (int i = 0; i < [self.followersArray count]; i++){
-            [rawData addObject:[[self.followersArray objectAtIndex:i] valueForKey:@"user2"]];
+            // Set object id's in array
+            NSMutableArray *rawData=[NSMutableArray new];
+            [rawData addObject:user];
+            for (int i = 0; i < [self.followersArray count]; i++){
+                [rawData addObject:[[self.followersArray objectAtIndex:i] valueForKey:@"user2"]];
+            }
+            self.users = rawData;
         }
-        self.users = rawData;
-    }
+        
+    }];
+    
 }
 
 
