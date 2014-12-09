@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "timeline.png"
+      "filename" : "ouiicon.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "timeline-r.png"
+      "filename" : "ouiicon-r.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "timeline-r-1.png"
+      "filename" : "ouiicon-r-1.png"
     }
   ],
   "info" : {
