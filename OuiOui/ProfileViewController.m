@@ -169,20 +169,27 @@
     // Get current user
     PFUser *user = [PFUser currentUser];
     
-    // Get ouiItems query
-    PFQuery *ouiItems = [PFQuery queryWithClassName:@"OuiItem"];
-    [ouiItems whereKey:@"user" equalTo:user];
+    // Get ouiItems query    
+    PFQuery *queryOne = [PFQuery queryWithClassName:@"OuiItem"];
+    [queryOne whereKey:@"user" equalTo:user];
+    
+    PFQuery *queryTwo = [PFQuery queryWithClassName:@"OuiItem"];
+    [queryTwo whereKey:@"email" equalTo:user.email];
     
     // Check if type is true
     if([inputType isEqualToString:@"Uncompleted"]){
-        [ouiItems whereKey:@"checked" equalTo:[NSNumber numberWithBool:NO]];
+        [queryOne whereKey:@"checked" equalTo:[NSNumber numberWithBool:NO]];
+        [queryTwo whereKey:@"checked" equalTo:[NSNumber numberWithBool:NO]];
     }else{
-        [ouiItems whereKey:@"checked" equalTo:[NSNumber numberWithBool:YES]];
+        [queryOne whereKey:@"checked" equalTo:[NSNumber numberWithBool:YES]];
+        [queryTwo whereKey:@"checked" equalTo:[NSNumber numberWithBool:YES]];
     }
     
-    [ouiItems orderByDescending:@"createdAt"];
-    ouiItems.cachePolicy = kPFCachePolicyCacheThenNetwork;
-    [ouiItems findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    PFQuery *query = [PFQuery orQueryWithSubqueries:@[queryOne, queryTwo]];
+    
+    [query orderByDescending:@"createdAt"];
+    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
         if (objects){
             // Set objects in ouItemsDB array
