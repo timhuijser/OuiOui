@@ -160,6 +160,7 @@
             ///PFUser * toUser = [friends[0] objectForKey:@"toUser"];
             
             PFUser *toUser = [self.users objectAtIndex:i];
+           
             // Get ouiItems query
             PFQuery *userData = [PFUser query];
             [userData whereKey:@"objectId" equalTo:toUser.objectId];

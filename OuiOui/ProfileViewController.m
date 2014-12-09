@@ -33,8 +33,8 @@
     // Retrieve uncompleted OuiItem data from Parse as default behaviour.
     [self retrieveOuiItemData:@"Uncompleted"];
     
-    
-    
+    // Set segment control
+    self.bucketlistSegmentControlOutlet.selectedSegmentIndex = 0;
 }
 
 - (void)viewDidLoad {
@@ -57,12 +57,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bucketlistCell" forIndexPath:indexPath];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"bucketlistCell"];
-    }
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OuiCell" forIndexPath:indexPath];
+
     // Set array in temp object
     PFObject *tempObject = [self.ouiItemsDB objectAtIndex:indexPath.row];
     
