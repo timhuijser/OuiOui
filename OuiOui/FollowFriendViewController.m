@@ -36,12 +36,21 @@
     
     [profilePictureQuery getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
         if (!object) {
+            self.profilePic.layer.cornerRadius = 50;
+            self.profilePic.layer.masksToBounds = YES;
+            self.profilePic.layer.borderColor = [UIColor whiteColor].CGColor;
+            self.profilePic.layer.borderWidth = 3.0;
+            
             [self.profilePic setImage:[UIImage imageNamed: @"defaultProfileGrey"]];
         }else{
             PFFile *imageFile = [object objectForKey:@"imageFile"];
             [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
                 
                 if (!error) {
+                    self.profilePic.layer.cornerRadius = 50;
+                    self.profilePic.layer.masksToBounds = YES;
+                    self.profilePic.layer.borderColor = [UIColor whiteColor].CGColor;
+                    self.profilePic.layer.borderWidth = 3.0;
                     [self.profilePic setImage:[UIImage imageWithData:data]];
                 }
             }];

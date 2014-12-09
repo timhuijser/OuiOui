@@ -96,6 +96,14 @@
     }
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+}
+
 - (IBAction)addOuiItem:(id)sender {
 
     // Check if user input fields are correctly filled
@@ -252,6 +260,11 @@
         AddFriendViewController *friendController = [self.storyboard instantiateViewControllerWithIdentifier:@"AddFriendViewController"];
         [self.navigationController pushViewController:friendController animated:YES];
     }
+}
+
+-(void)dismissKeyboard {
+    [self.ouiDescription resignFirstResponder];
+    [self.ouiItem resignFirstResponder];
 }
 
 @end

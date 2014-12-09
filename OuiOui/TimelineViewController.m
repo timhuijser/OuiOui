@@ -32,10 +32,13 @@
     // During startup (-viewDidLoad or in storyboard) do:
     self.tableView.allowsMultipleSelectionDuringEditing = NO;
   
-    // Set segment control
-    segmentControl.selectedSegmentIndex = 0;
     [self retrieveFollowers];
     
+    // Set segment control
+    segmentControl.selectedSegmentIndex = 0;
+    
+    // Get data
+    [self retrieveData:@"false"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,9 +54,13 @@
     self.navigationItem.title = @"OuiOui";
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"header.png"] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : titleColor};
-  
+    
+    // Set segment control
+    segmentControl.selectedSegmentIndex = 0;
+    
     // Get data
     [self retrieveData:@"false"];
+
 }
 
 -(IBAction)segmentButton:(id)sender{
