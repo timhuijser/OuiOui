@@ -911,7 +911,7 @@
                                 <color key="textColor" red="0.50588235294117645" green="0.50588235294117645" blue="0.50588235294117645" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tb-I8-GuG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tb-I8-GuG">
                                 <rect key="frame" x="228" y="197" width="76" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="YFs-nQ-odw"/>
@@ -1085,7 +1085,7 @@
                         <outlet property="blurProfileImage" destination="djh-JU-lQ6" id="XCW-Mr-00E"/>
                         <outlet property="bucketlistItemTableView" destination="Tgf-FE-h0E" id="VUv-HF-lHM"/>
                         <outlet property="bucketlistSegmentControlOutlet" destination="H6s-Xm-uOq" id="aJy-w9-0BP"/>
-                        <outlet property="followersCountLabel" destination="7mv-49-ndW" id="Lc1-3J-MbP"/>
+                        <outlet property="followersCountLabel" destination="fbH-Uj-28v" id="RCe-97-hcp"/>
                         <outlet property="followingCountLabel" destination="7mv-49-ndW" id="N8x-Mz-ZMM"/>
                         <outlet property="nameLabel" destination="Vly-06-gc4" id="sSo-kO-bcl"/>
                         <outlet property="ouiItemCountLabel" destination="56S-SW-Jff" id="fgh-L5-HSm"/>
