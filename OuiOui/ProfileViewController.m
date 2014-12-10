@@ -168,24 +168,43 @@
     
     // Get current user
     PFUser *user = [PFUser currentUser];
+    PFQuery *query;
     
-    // Get ouiItems query    
-    PFQuery *queryOne = [PFQuery queryWithClassName:@"OuiItem"];
-    [queryOne whereKey:@"user" equalTo:user];
-    
-    PFQuery *queryTwo = [PFQuery queryWithClassName:@"OuiItem"];
-    [queryTwo whereKey:@"email" equalTo:user.email];
-    
-    // Check if type is true
-    if([inputType isEqualToString:@"Uncompleted"]){
-        [queryOne whereKey:@"checked" equalTo:[NSNumber numberWithBool:NO]];
-        [queryTwo whereKey:@"checked" equalTo:[NSNumber numberWithBool:NO]];
-    }else{
-        [queryOne whereKey:@"checked" equalTo:[NSNumber numberWithBool:YES]];
-        [queryTwo whereKey:@"checked" equalTo:[NSNumber numberWithBool:YES]];
+    if ([user.email isEqualToString:@""]) {
+        
+        // Get ouiItems query
+        PFQuery *queryOne = [PFQuery queryWithClassName:@"OuiItem"];
+        [queryOne whereKey:@"user" equalTo:user];
+        
+        PFQuery *queryTwo = [PFQuery queryWithClassName:@"OuiItem"];
+        [queryTwo whereKey:@"email" equalTo:user.email];
+        
+        // Check if type is true
+        if([inputType isEqualToString:@"Uncompleted"]){
+            [queryOne whereKey:@"checked" equalTo:[NSNumber numberWithBool:NO]];
+            [queryTwo whereKey:@"checked" equalTo:[NSNumber numberWithBool:NO]];
+        }else{
+            [queryOne whereKey:@"checked" equalTo:[NSNumber numberWithBool:YES]];
+            [queryTwo whereKey:@"checked" equalTo:[NSNumber numberWithBool:YES]];
+        }
+        
+        query = [PFQuery orQueryWithSubqueries:@[queryOne, queryTwo]];
+        
+    } else {
+        
+        // Get ouiItems query
+        query = [PFQuery queryWithClassName:@"OuiItem"];
+        [query whereKey:@"user" equalTo:user];
+        
+        // Check if type is true
+        if([inputType isEqualToString:@"Uncompleted"]){
+            [query whereKey:@"checked" equalTo:[NSNumber numberWithBool:NO]];
+        }else{
+            [query whereKey:@"checked" equalTo:[NSNumber numberWithBool:YES]];
+        }
+        
+        
     }
-    
-    PFQuery *query = [PFQuery orQueryWithSubqueries:@[queryOne, queryTwo]];
     
     [query orderByDescending:@"createdAt"];
     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
