@@ -143,7 +143,7 @@
         CGSize imageSize = CGSizeMake(45, 50);
         UIGraphicsBeginImageContext(imageSize);
         CGRect imageRect = CGRectMake(0.0, 0.0, imageSize.width, imageSize.height);
-        [pinView.image = [UIImage imageNamed:@"annotation.png"] drawInRect:imageRect];
+        [pinView.image = [UIImage imageNamed:@"annotationIcon"] drawInRect:imageRect];
 
         if (!pinView){
             // If an existing pin view was not available, create one.
