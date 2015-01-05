@@ -205,6 +205,20 @@
     }];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+}
+
+-(void)dismissKeyboard {
+    [self.email resignFirstResponder];
+    [self.name resignFirstResponder];
+    [self.password resignFirstResponder];
+}
+
 /*
  #pragma mark - Navigation
  

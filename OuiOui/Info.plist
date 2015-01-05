@@ -45,6 +45,8 @@
 	</array>
 	<key>UIStatusBarHidden</key>
 	<false/>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Uses current location</string>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleDefault</string>
 	<key>UIStatusBarTintParameters</key>

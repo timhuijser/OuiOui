@@ -116,13 +116,10 @@
         cell.textLabel.text = results[indexPath.row];
     }
     
- 
-    
     return cell;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    
     if([[segue identifier] isEqualToString:@"followFriend"]){
         
         // Get selected row
