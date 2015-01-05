@@ -94,6 +94,26 @@
         [self.done setHidden:TRUE];
         [self.doneLabel setHidden:TRUE];
     }
+    
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.distanceFilter = kCLDistanceFilterNone; //whenever we move
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+#ifdef __IPHONE_8_0
+    NSUInteger code = [CLLocationManager authorizationStatus];
+    if (code == kCLAuthorizationStatusNotDetermined && ([ self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)] || [self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])) {
+        // choose one request according to your business.
+        if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"]){
+            [ self.locationManager requestAlwaysAuthorization];
+        } else if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"]) {
+            [ self.locationManager  requestWhenInUseAuthorization];
+        } else {
+            NSLog(@"Info.plist does not contain NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription");
+        }
+    }
+#endif
+    [self.locationManager startUpdatingLocation];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -134,6 +154,8 @@
                     // Update rows
                     [ouiItem setObject:self.ouiItem.text forKey:@"title"];
                     [ouiItem setObject:self.ouiDescription.text forKey:@"descriptionItem"];
+                    [ouiItem setObject:self.longitude forKey:@"longitude"];
+                    [ouiItem setObject:self.latitude forKey:@"latitude"];
                     
                     // Save
                     if([ouiItem saveInBackground]){
@@ -174,8 +196,10 @@
             // Set title and description
             ouiItem[@"title"] = self.ouiItem.text;
             ouiItem[@"descriptionItem"] = self.ouiDescription.text;
+            ouiItem[@"longitude"] = self.longitude;
+            ouiItem[@"latitude"] = self.latitude;
             ouiItem[@"checked"] = [NSNumber numberWithBool:NO];
-            
+
             // Save Oui item
             if([ouiItem saveInBackground]){
                 // Return to overview Oui items
@@ -266,5 +290,22 @@
     [self.ouiDescription resignFirstResponder];
     [self.ouiItem resignFirstResponder];
 }
+
+#pragma mark - CLLocationManagerDelegate Methods
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    NSLog(@"Error: %@", error);
+    NSLog(@"Failed to get location! :(");
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
+    CLLocation *currentLocation = newLocation;
+  
+    if (currentLocation != nil) {
+        self.longitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+        self.latitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+    }
+}
+
 
 @end

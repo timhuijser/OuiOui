@@ -7,15 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface OuiItemViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate>
+@interface OuiItemViewController : UIViewController <CLLocationManagerDelegate, UITextFieldDelegate, UITextViewDelegate>
 
-@property (retain, nonatomic) NSString *addedFriend;
-@property (weak, nonatomic) NSString *invitedFriend;
-@property (weak, nonatomic) NSString *ouiItemId;
+@property (strong, nonatomic) NSString *addedFriend;
+@property (strong, nonatomic) NSString *invitedFriend;
+@property (strong, nonatomic) NSString *ouiItemId;
+@property (strong, nonatomic) NSString *controller;
+@property (strong, nonatomic) NSString *longitude;
+@property (strong, nonatomic) NSString *latitude;
+
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
+
 @property (strong) NSObject *item;
 @property (strong) NSObject *friendItem;
-@property (strong) NSString *controller;
+
 
 @property (weak, nonatomic) IBOutlet UITextField *ouiItem;
 @property (weak, nonatomic) IBOutlet UITextView *ouiDescription;
