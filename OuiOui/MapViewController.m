@@ -91,13 +91,12 @@
         
         if (objects){
             
-            
             // Array voor alle locaties in te stoppen
             NSMutableArray *locations = [[NSMutableArray alloc] init];
             
             // Set objects in ouItemsDB array
             self.items = [[NSMutableArray alloc] initWithArray:objects];
-   
+
             // Maak locatie aan
             CLLocationCoordinate2D location;
             
@@ -116,8 +115,7 @@
                     // Set data van ann
                     myAnn = [[Annotation alloc] init];
                     myAnn.coordinate = location;
-                    myAnn.title = @"testt";
-                    myAnn.subtitle = @"testt";
+                    myAnn.title = [data objectForKey:@"title"];
                     
                     self.allItems = [NSMutableArray array];
                     [self.allItems addObject:[data objectForKey:@"longitude"]];
@@ -141,18 +139,26 @@
         // Try to dequeue an existing pin view first.
         MKPinAnnotationView *pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"CustomPinAnnotationView"];
         
+        // Set marker voor supermarkten
+        CGSize imageSize = CGSizeMake(45, 50);
+        UIGraphicsBeginImageContext(imageSize);
+        CGRect imageRect = CGRectMake(0.0, 0.0, imageSize.width, imageSize.height);
+        [pinView.image = [UIImage imageNamed:@"annotation.png"] drawInRect:imageRect];
+
         if (!pinView){
             // If an existing pin view was not available, create one.
             pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
                                                       reuseIdentifier:@"CustomPinAnnotationView"];
             pinView.pinColor = MKPinAnnotationColorRed;
             pinView.canShowCallout = YES;
-            
+            pinView.image = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndPDFContext();
             // If appropriate, customize the callout by adding accessory views (code not shown).
         }
         else
             pinView.annotation = annotation;
-        
+        pinView.image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndPDFContext();
         return pinView;
     }
     

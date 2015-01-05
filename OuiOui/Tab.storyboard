@@ -726,7 +726,7 @@
             </objects>
             <point key="canvasLocation" x="1667" y="-710"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Maps-->
         <scene sceneID="iMk-1Y-Fns">
             <objects>
                 <viewController id="2sC-Mz-mq1" customClass="MapViewController" sceneMemberID="viewController">
@@ -753,7 +753,7 @@
                             <constraint firstAttribute="bottomMargin" secondItem="gjX-Yc-QCs" secondAttribute="bottom" constant="-80" id="h1K-pD-7D9"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="HfH-os-0vp"/>
+                    <tabBarItem key="tabBarItem" title="Maps" image="map-icon.png" id="HfH-os-0vp"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="gjX-Yc-QCs" id="IHU-x5-4QE"/>
@@ -1580,6 +1580,7 @@
     <resources>
         <image name="arrrow-back.png" width="128" height="128"/>
         <image name="background.png" width="640" height="1136"/>
+        <image name="map-icon.png" width="25" height="25"/>
         <image name="ouiicon" width="11" height="22"/>
         <image name="profile" width="24" height="24"/>
         <image name="settings-icon.png" width="128" height="128"/>
