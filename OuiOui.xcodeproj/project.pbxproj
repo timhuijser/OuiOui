@@ -63,6 +63,8 @@
 		D9F1B2B01A1E1EB80042770E /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F1B2AF1A1E1EB80042770E /* background.png */; };
 		D9F1B2B21A1E28960042770E /* logo-OuiOui.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F1B2B11A1E28960042770E /* logo-OuiOui.png */; };
 		D9F1B2B81A1E2AD80042770E /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F1B2B71A1E2AD80042770E /* StartViewController.m */; };
+		D9FCA36D1A5ACFC200FAD87D /* map-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FCA36C1A5ACFC200FAD87D /* map-icon.png */; };
+		D9FCA3721A5AD4B200FAD87D /* annotation.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FCA3711A5AD4B200FAD87D /* annotation.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +172,8 @@
 		D9F1B2B11A1E28960042770E /* logo-OuiOui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-OuiOui.png"; sourceTree = "<group>"; };
 		D9F1B2B61A1E2AD80042770E /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
 		D9F1B2B71A1E2AD80042770E /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		D9FCA36C1A5ACFC200FAD87D /* map-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-icon.png"; sourceTree = "<group>"; };
+		D9FCA3711A5AD4B200FAD87D /* annotation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = annotation.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -412,6 +416,8 @@
 				D9A69D871A2336E300540EF1 /* Fb-icon.png */,
 				D9AAD8751A24C773007E794E /* header.png */,
 				D92025021A2E34DE00280614 /* defaultProfileGrey.png */,
+				D9FCA36C1A5ACFC200FAD87D /* map-icon.png */,
+				D9FCA3711A5AD4B200FAD87D /* annotation.png */,
 				D9933BC91A3046C100B6434A /* arrrow-back.png */,
 				D9F1B2B11A1E28960042770E /* logo-OuiOui.png */,
 				D9933BCF1A304C1E00B6434A /* settings-icon.png */,
@@ -536,6 +542,7 @@
 				D9933BD01A304C1E00B6434A /* settings-icon.png in Resources */,
 				D9F1B2B01A1E1EB80042770E /* background.png in Resources */,
 				0491CA501A1B5798006C4A27 /* Main.storyboard in Resources */,
+				D9FCA3721A5AD4B200FAD87D /* annotation.png in Resources */,
 				D9AAD8761A24C773007E794E /* header.png in Resources */,
 				D9A69D921A237CBA00540EF1 /* OuiOui-icon-29pt-3.png in Resources */,
 				D9F1B2B21A1E28960042770E /* logo-OuiOui.png in Resources */,
@@ -543,6 +550,7 @@
 				D9A69D881A2336E300540EF1 /* Fb-icon.png in Resources */,
 				D9A69D901A237C8700540EF1 /* OuiOui-icon-40pt-2.png in Resources */,
 				0491CA521A1B5798006C4A27 /* Images.xcassets in Resources */,
+				D9FCA36D1A5ACFC200FAD87D /* map-icon.png in Resources */,
 				04FEC9081A249D4B004E564D /* Tab.storyboard in Resources */,
 				D9A69D8F1A237C8700540EF1 /* OuiOui-icon-29pt-2.png in Resources */,
 				D9AAD8661A24B1D3007E794E /* OuiOui.png in Resources */,
