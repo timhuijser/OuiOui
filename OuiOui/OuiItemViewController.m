@@ -154,8 +154,11 @@
                     // Update rows
                     [ouiItem setObject:self.ouiItem.text forKey:@"title"];
                     [ouiItem setObject:self.ouiDescription.text forKey:@"descriptionItem"];
-                    [ouiItem setObject:self.longitude forKey:@"longitude"];
-                    [ouiItem setObject:self.latitude forKey:@"latitude"];
+                    
+                    if(self.longitude){
+                        [ouiItem setObject:self.longitude forKey:@"longitude"];
+                        [ouiItem setObject:self.latitude forKey:@"latitude"];
+                    }
                     
                     // Save
                     if([ouiItem saveInBackground]){
@@ -196,8 +199,11 @@
             // Set title and description
             ouiItem[@"title"] = self.ouiItem.text;
             ouiItem[@"descriptionItem"] = self.ouiDescription.text;
-            ouiItem[@"longitude"] = self.longitude;
-            ouiItem[@"latitude"] = self.latitude;
+            
+            if(self.longitude){
+                ouiItem[@"longitude"] = self.longitude;
+                ouiItem[@"latitude"] = self.latitude;
+            }
             ouiItem[@"checked"] = [NSNumber numberWithBool:NO];
 
             // Save Oui item
@@ -293,10 +299,6 @@
 
 #pragma mark - CLLocationManagerDelegate Methods
 
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
-    NSLog(@"Error: %@", error);
-    NSLog(@"Failed to get location! :(");
-}
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation{
     CLLocation *currentLocation = newLocation;

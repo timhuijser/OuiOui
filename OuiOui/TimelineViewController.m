@@ -39,6 +39,8 @@
     
     // Get data
     [self retrieveData:@"false"];
+    
+    self.i = @"true";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,7 +71,6 @@
     if(segmentControl.selectedSegmentIndex == 0){
         [self retrieveFollowers];
         [self retrieveData:@"false"];
-        
     }else{
         [self retrieveFollowers];
         [self retrieveData:@"true"];
@@ -98,16 +99,20 @@
             for (int i = 0; i < [self.followersArray count]; i++){
                 [rawData addObject:[[self.followersArray objectAtIndex:i] valueForKey:@"user2"]];
             }
+            
             self.users = rawData;
+            if([self.i isEqualToString:@"true"]){
+                // Reload view for retreiving all users
+                [self viewDidAppear:true];
+                
+                self.i = @"false";
+            }
         }
-        
     }];
-    
 }
 
-
 -(void)retrieveData:(NSString *)inputType{
-
+    
     // Get current user
     PFUser *user = [PFUser currentUser];
     

@@ -119,7 +119,18 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath*)indexPath {
+    if(results){
+        NSString *segueString = [NSString stringWithFormat:@"followFriend"];
+        //Perform a segue.
+        [self performSegueWithIdentifier:segueString
+                              sender:[results objectAtIndex:indexPath.row]];
+    }
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
     if([[segue identifier] isEqualToString:@"followFriend"]){
         
         // Get selected row

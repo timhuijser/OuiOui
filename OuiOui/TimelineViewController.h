@@ -20,6 +20,7 @@
 @property (strong) NSMutableArray *users;
 @property (strong) NSMutableArray *usernames;
 @property (strong) NSMutableArray *profilePics;
+@property (nonatomic, assign) NSString *i;
 
 -(IBAction)segmentButton:(id)sender;
 
